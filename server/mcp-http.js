@@ -20,141 +20,146 @@ try {
   process.exit(1);
 }
 
-// Create MCP server
-const server = new Server(
-  {
-    name: 'x402-endpoint-catalog',
-    version: '1.0.0',
-  },
-  {
-    capabilities: {
-      tools: {},
+// Factory function to create a new MCP server instance
+function createMCPServer() {
+  const server = new Server(
+    {
+      name: 'x402-endpoint-catalog',
+      version: '1.0.0',
     },
-  }
-);
-
-// List available tools
-server.setRequestHandler(ListToolsRequestSchema, async () => {
-  return {
-    tools: [
-      {
-        name: 'search_endpoints',
-        description: 'Search for API endpoints by query string. Searches across endpoint names, descriptions, and categories.',
-        inputSchema: {
-          type: 'object',
-          properties: {
-            query: {
-              type: 'string',
-              description: 'Search query to match against endpoint names, descriptions, and categories',
-            },
-          },
-          required: ['query'],
-        },
+    {
+      capabilities: {
+        tools: {},
       },
-      {
-        name: 'list_categories',
-        description: 'List all unique endpoint categories with their counts',
-        inputSchema: {
-          type: 'object',
-          properties: {},
-        },
-      },
-    ],
-  };
-});
-
-// Handle tool calls
-server.setRequestHandler(CallToolRequestSchema, async (request) => {
-  const { name, arguments: args } = request.params;
-
-  try {
-    if (name === 'search_endpoints') {
-      const { query } = args;
-      const searchQuery = query.toLowerCase();
-
-      // Search across name, description, and category
-      const results = productsData.filter((endpoint) => {
-        return (
-          endpoint.name?.toLowerCase().includes(searchQuery) ||
-          endpoint.description?.toLowerCase().includes(searchQuery) ||
-          endpoint.category?.toLowerCase().includes(searchQuery) ||
-          endpoint.id?.toLowerCase().includes(searchQuery)
-        );
-      });
-
-      return {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify(
-              {
-                query,
-                count: results.length,
-                results: results.map((ep) => ({
-                  id: ep.id,
-                  name: ep.name,
-                  category: ep.category,
-                  price_usd: ep.price_usd,
-                  description: ep.description,
-                  route_path: ep.route_path,
-                  source_url: ep.source_url,
-                  response_fields: ep.response_fields,
-                })),
-              },
-              null,
-              2
-            ),
-          },
-        ],
-      };
-    } else if (name === 'list_categories') {
-      // Count endpoints per category
-      const categoryCounts = {};
-      productsData.forEach((endpoint) => {
-        const category = endpoint.category || 'uncategorized';
-        categoryCounts[category] = (categoryCounts[category] || 0) + 1;
-      });
-
-      // Convert to sorted array
-      const categories = Object.entries(categoryCounts)
-        .map(([category, count]) => ({ category, count }))
-        .sort((a, b) => b.count - a.count);
-
-      return {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify(
-              {
-                total_categories: categories.length,
-                total_endpoints: productsData.length,
-                categories,
-              },
-              null,
-              2
-            ),
-          },
-        ],
-      };
-    } else {
-      throw new Error(`Unknown tool: ${name}`);
     }
-  } catch (error) {
+  );
+
+  // List available tools
+  server.setRequestHandler(ListToolsRequestSchema, async () => {
     return {
-      content: [
+      tools: [
         {
-          type: 'text',
-          text: JSON.stringify({ error: error.message }),
+          name: 'search_endpoints',
+          description: 'Search for API endpoints by query string. Searches across endpoint names, descriptions, and categories.',
+          inputSchema: {
+            type: 'object',
+            properties: {
+              query: {
+                type: 'string',
+                description: 'Search query to match against endpoint names, descriptions, and categories',
+              },
+            },
+            required: ['query'],
+          },
+        },
+        {
+          name: 'list_categories',
+          description: 'List all unique endpoint categories with their counts',
+          inputSchema: {
+            type: 'object',
+            properties: {},
+          },
         },
       ],
-      isError: true,
     };
-  }
-});
+  });
+
+  // Handle tool calls
+  server.setRequestHandler(CallToolRequestSchema, async (request) => {
+    const { name, arguments: args } = request.params;
+
+    try {
+      if (name === 'search_endpoints') {
+        const { query } = args;
+        const searchQuery = query.toLowerCase();
+
+        // Search across name, description, and category
+        const results = productsData.filter((endpoint) => {
+          return (
+            endpoint.name?.toLowerCase().includes(searchQuery) ||
+            endpoint.description?.toLowerCase().includes(searchQuery) ||
+            endpoint.category?.toLowerCase().includes(searchQuery) ||
+            endpoint.id?.toLowerCase().includes(searchQuery)
+          );
+        });
+
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify(
+                {
+                  query,
+                  count: results.length,
+                  results: results.map((ep) => ({
+                    id: ep.id,
+                    name: ep.name,
+                    category: ep.category,
+                    price_usd: ep.price_usd,
+                    description: ep.description,
+                    route_path: ep.route_path,
+                    source_url: ep.source_url,
+                    response_fields: ep.response_fields,
+                  })),
+                },
+                null,
+                2
+              ),
+            },
+          ],
+        };
+      } else if (name === 'list_categories') {
+        // Count endpoints per category
+        const categoryCounts = {};
+        productsData.forEach((endpoint) => {
+          const category = endpoint.category || 'uncategorized';
+          categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+        });
+
+        // Convert to sorted array
+        const categories = Object.entries(categoryCounts)
+          .map(([category, count]) => ({ category, count }))
+          .sort((a, b) => b.count - a.count);
+
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify(
+                {
+                  total_categories: categories.length,
+                  total_endpoints: productsData.length,
+                  categories,
+                },
+                null,
+                2
+              ),
+            },
+          ],
+        };
+      } else {
+        throw new Error(`Unknown tool: ${name}`);
+      }
+    } catch (error) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: JSON.stringify({ error: error.message }),
+          },
+        ],
+        isError: true,
+      };
+    }
+  });
+
+  return server;
+}
 
 // Mount MCP server on Express app at /mcp
 async function mountMCP(app) {
   app.post('/mcp', async (req, res) => {
+    const server = createMCPServer();
     const transport = new StreamableHTTPServerTransport({
       sessionIdGenerator: undefined,
     });
