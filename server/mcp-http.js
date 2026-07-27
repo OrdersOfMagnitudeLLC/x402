@@ -3,8 +3,6 @@ const { StreamableHTTPServerTransport } = require('@modelcontextprotocol/sdk/ser
 const {
   CallToolRequestSchema,
   ListToolsRequestSchema,
-  ListResourcesRequestSchema,
-  ReadResourceRequestSchema,
 } = require('@modelcontextprotocol/sdk/types.js');
 const fs = require('fs');
 const path = require('path');
@@ -31,7 +29,6 @@ const server = new Server(
   {
     capabilities: {
       tools: {},
-      resources: {},
     },
   }
 );
@@ -152,39 +149,6 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       ],
       isError: true,
     };
-  }
-});
-
-// List available resources
-server.setRequestHandler(ListResourcesRequestSchema, async () => {
-  return {
-    resources: [
-      {
-        uri: 'endpoint_catalog',
-        name: 'Endpoint Catalog',
-        description: 'Complete catalog of all available API endpoints with full details',
-        mimeType: 'application/json',
-      },
-    ],
-  };
-});
-
-// Handle resource reads
-server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
-  const { uri } = request.params;
-
-  if (uri === 'endpoint_catalog') {
-    return {
-      contents: [
-        {
-          uri,
-          mimeType: 'application/json',
-          text: JSON.stringify(productsData, null, 2),
-        },
-      ],
-    };
-  } else {
-    throw new Error(`Unknown resource: ${uri}`);
   }
 });
 
