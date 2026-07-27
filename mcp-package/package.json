@@ -1,6 +1,7 @@
 {
   "name": "oom-x402-mcp",
-  "version": "1.0.2",
+  "mcpName": "io.github.OrdersOfMagnitudeLLC/mcp-package",
+  "version": "1.0.4",
   "description": "MCP server for the Orders of Magnitude x402 endpoint catalog — search 1,459 pay-per-call API endpoints",
   "main": "mcp.js",
   "bin": {
