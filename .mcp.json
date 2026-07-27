@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "oom-x402": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "oom-x402-mcp"]
+    }
+  }
+}
