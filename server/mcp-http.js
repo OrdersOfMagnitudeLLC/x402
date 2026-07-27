@@ -154,9 +154,13 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
 // Mount MCP server on Express app at /mcp
 async function mountMCP(app) {
-  const transport = new StreamableHTTPServerTransport('/mcp');
-  await server.connect(transport);
-  app.use(transport.getRequestHandler());
+  app.post('/mcp', async (req, res) => {
+    const transport = new StreamableHTTPServerTransport({
+      sessionIdGenerator: undefined,
+    });
+    await server.connect(transport);
+    await transport.handleRequest(req, res, req.body);
+  });
   console.error('x402 MCP server mounted at /mcp with HTTP transport');
 }
 
