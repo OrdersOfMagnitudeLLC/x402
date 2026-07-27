@@ -158,6 +158,10 @@ function createMCPServer() {
 
 // Mount MCP server on Express app at /mcp
 async function mountMCP(app) {
+  app.get('/mcp', (req, res) => {
+    res.status(200).json({ status: 'ok', name: 'x402-endpoint-catalog', version: '1.0.0' });
+  });
+
   app.post('/mcp', async (req, res) => {
     const server = createMCPServer();
     const transport = new StreamableHTTPServerTransport({
