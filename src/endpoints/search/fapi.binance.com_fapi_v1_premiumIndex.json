@@ -1,0 +1,7 @@
+{
+  "url": "https://fapi.binance.com/fapi/v1/premiumIndex",
+  "category": "search_retrieval",
+  "source_url": "https://fapi.binance.com/fapi/v1/premiumIndex",
+  "response_fields": [],
+  "price": 0.01
+}

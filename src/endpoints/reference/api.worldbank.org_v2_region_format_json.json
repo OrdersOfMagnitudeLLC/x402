@@ -1,0 +1,7 @@
+{
+  "url": "https://api.worldbank.org/v2/region?format=json",
+  "category": "reference_general",
+  "source_url": "https://api.worldbank.org/v2/region?format=json",
+  "response_fields": [],
+  "price": 0.01
+}

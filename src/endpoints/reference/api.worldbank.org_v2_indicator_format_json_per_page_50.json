@@ -1,0 +1,7 @@
+{
+  "url": "https://api.worldbank.org/v2/indicator?format=json&per_page=50",
+  "category": "reference_general",
+  "source_url": "https://api.worldbank.org/v2/indicator?format=json&per_page=50",
+  "response_fields": [],
+  "price": 0.01
+}

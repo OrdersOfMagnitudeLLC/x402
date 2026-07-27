@@ -1,0 +1,7 @@
+{
+  "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=5&limit=10",
+  "category": "notifications",
+  "source_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=5&limit=10",
+  "response_fields": [],
+  "price": 0.01
+}

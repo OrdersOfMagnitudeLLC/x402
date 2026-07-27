@@ -1,0 +1,586 @@
+# OOM API — Agent Infrastructure + Data
+# Pay-per-call via x402 protocol (USDC on Base)
+# Base URL: https://x402-api-production-5133.up.railway.app
+# All endpoints return 402 with payment details. Include x-payment header to pay.
+# Full manifest: /x402.json | OpenAPI: /openapi.json
+
+## PIONEER INFRASTRUCTURE (Redis-backed, no external deps)
+
+### OOM Memory — Persistent key-value store for agents
+POST /memory/set — Set a key with optional TTL — $0.01
+POST /memory/get/:key — Get a value by key — $0.01
+POST /memory/ttl/:key — Get TTL for a key — $0.01
+POST /memory/delete/:key — Delete a key — $0.01
+POST /memory/batch-set — Set multiple keys — $0.01
+POST /memory/batch-get — Get multiple keys — $0.01
+POST /memory/batch-delete — Delete multiple keys — $0.01
+POST /memory/increment — Increment a numeric value — $0.01
+POST /memory/decrement — Decrement a numeric value — $0.01
+POST /memory/append — Append to a string value — $0.01
+POST /memory/exists/:key — Check if key exists — $0.01
+POST /memory/rename — Rename a key — $0.01
+POST /memory/copy — Copy a key — $0.01
+POST /memory/persist/:key — Remove TTL from key — $0.01
+POST /memory/expire — Set TTL on existing key — $0.01
+POST /memory/keys/:prefix — Get keys by prefix — $0.01
+POST /memory/size/:key — Get size of value in bytes — $0.01
+POST /memory/getset — Set value and return old value — $0.01
+POST /memory/setnx — Set only if key doesn't exist — $0.01
+POST /memory/hset — Set hash field — $0.01
+POST /memory/hget — Get hash field — $0.01
+POST /memory/hmset — Set multiple hash fields — $0.01
+POST /memory/hmget — Get multiple hash fields — $0.01
+POST /memory/hgetall/:key — Get all hash fields — $0.01
+POST /memory/hdel — Delete hash field — $0.01
+POST /memory/hkeys/:key — Get all hash field names — $0.01
+POST /memory/hlen/:key — Get hash field count — $0.01
+POST /memory/lpush — Push to left of list — $0.01
+POST /memory/rpush — Push to right of list — $0.01
+POST /memory/lpop — Pop from left of list — $0.01
+POST /memory/rpop — Pop from right of list — $0.01
+POST /memory/lrange — Get range of list — $0.01
+POST /memory/llen/:key — Get list length — $0.01
+POST /memory/sadd — Add to set — $0.01
+POST /memory/srem — Remove from set — $0.01
+POST /memory/smembers/:key — Get all set members — $0.01
+POST /memory/sismember — Check if member in set — $0.01
+POST /memory/scard/:key — Get set cardinality — $0.01
+POST /memory/sunion — Union of sets — $0.01
+POST /memory/sinter — Intersection of sets — $0.01
+POST /memory/zadd — Add to sorted set — $0.01
+POST /memory/zrange — Get range from sorted set — $0.01
+POST /memory/zrank — Get rank of member in sorted set — $0.01
+POST /memory/zscore — Get score of member in sorted set — $0.01
+POST /memory/zcard/:key — Get sorted set cardinality — $0.01
+
+### OOM Fleet — Multi-agent coordination + notifications
+POST /notify/register — Register a webhook for an event — $0.01
+POST /notify/fire — Fire an event to all registered webhooks — $0.01
+POST /notify/list/:event — List all webhooks for an event — $0.01
+POST /notify/unregister — Unregister a webhook — $0.01
+POST /notify/events — List all events with webhooks — $0.01
+POST /notify/batch-fire — Fire multiple events — $0.01
+POST /notify/test — Test a webhook URL — $0.01
+POST /notify/pause — Pause event notifications — $0.01
+POST /notify/resume — Resume event notifications — $0.01
+POST /notify/count/:event — Count webhooks for event — $0.01
+POST /notify/clear — Clear all webhooks for event — $0.01
+POST /notify/register-with-headers — Register webhook with custom headers — $0.01
+POST /notify/register-with-secret — Register webhook with secret for signature — $0.01
+POST /notify/fire-with-retry — Fire event with retry logic — $0.01
+POST /notify/paused/:event — Check if event is paused — $0.01
+POST /notify/batch-register — Register multiple webhooks — $0.01
+POST /notify/batch-unregister — Unregister multiple webhooks — $0.01
+POST /notify/stats/:event — Get event statistics — $0.01
+POST /notify/fire-async — Fire event asynchronously (store for later) — $0.01
+POST /notify/process-async — Process async queue — $0.01
+POST /notify/async-queue-size — Get async queue size — $0.01
+POST /notify/register-with-retry-config — Register with retry configuration — $0.01
+POST /notify/update-webhook — Update webhook configuration — $0.01
+POST /notify/webhook/:event/:id — Get specific webhook — $0.01
+POST /notify/fire-to-specific — Fire to specific webhook only — $0.01
+POST /notify/set-rate-limit — Set rate limit for event — $0.01
+POST /notify/rate-limit/:event — Get rate limit — $0.01
+POST /notify/check-rate-limit — Check if rate limit allows fire — $0.01
+POST /notify/register-with-filter — Register webhook with event filter — $0.01
+POST /notify/fire-with-filter — Fire event with filter application — $0.01
+POST /notify/set-webhook-ttl — Set TTL on webhook registration — $0.01
+POST /notify/ttl/:event — Get webhook TTL — $0.01
+POST /notify/rename-event — Rename event — $0.01
+POST /notify/copy-event — Copy event webhooks — $0.01
+POST /notify/merge-events — Merge webhooks from multiple events — $0.01
+POST /notify/batch-clear — Clear multiple events — $0.01
+POST /notify/all-stats — Get statistics for all events — $0.01
+POST /notify/register-with-metadata — Register webhook with metadata — $0.01
+POST /notify/set-event-metadata — Set metadata for event — $0.01
+POST /notify/event-metadata/:event — Get event metadata — $0.01
+POST /notify/fire-with-signature — Fire event with HMAC signature — $0.01
+POST /notify/verify-signature — Verify webhook signature — $0.01
+POST /notify/set-webhook-active — Set webhook active status — $0.01
+POST /notify/get-active-webhooks/:event — Get only active webhooks — $0.01
+POST /notify/set-webhook-priority — Set webhook priority — $0.01
+POST /notify/fire-by-priority — Fire webhooks in priority order — $0.01
+POST /notify/set-event-description — Set event description — $0.01
+POST /notify/event-description/:event — Get event description — $0.01
+POST /notify/export-event — Export event configuration — $0.01
+POST /notify/import-event — Import event configuration — $0.01
+POST /coordination/lock/acquire — Acquire a distributed lock — $0.01
+POST /coordination/lock/release — Release a distributed lock — $0.01
+POST /coordination/lock/status/:id — Check lock status — $0.01
+POST /coordination/counter/increment — Increment a counter — $0.01
+POST /coordination/counter/decrement — Decrement a counter — $0.01
+POST /coordination/counter/get/:counter_id — Get counter value — $0.01
+POST /coordination/counter/reset — Reset a counter — $0.01
+POST /coordination/semaphore/acquire — Acquire semaphore position — $0.01
+POST /coordination/semaphore/release — Release semaphore position — $0.01
+POST /coordination/semaphore/status/:sem_id — Get semaphore status — $0.01
+POST /coordination/election/nominate — Nominate a candidate for election — $0.01
+POST /coordination/election/result/:election_id — Get election result — $0.01
+POST /coordination/lock/try-acquire — Try to acquire lock without blocking — $0.01
+POST /coordination/lock/renew — Renew a lock — $0.01
+POST /coordination/lock/extend — Extend lock TTL — $0.01
+POST /coordination/lock/force-release — Force release a lock (without token) — $0.01
+POST /coordination/lock/list — List all locks — $0.01
+POST /coordination/lock/batch-acquire — Acquire multiple locks — $0.01
+POST /coordination/lock/batch-release — Release multiple locks — $0.01
+POST /coordination/counter/set — Set counter value — $0.01
+POST /coordination/counter/increment-with-expiry — Increment with expiry — $0.01
+POST /coordination/counter/list — List all counters — $0.01
+POST /coordination/counter/delete — Delete a counter — $0.01
+POST /coordination/counter/batch-increment — Increment multiple counters — $0.01
+POST /coordination/counter/compare-and-set — Compare and set — $0.01
+POST /coordination/semaphore/set-max — Set semaphore max value — $0.01
+POST /coordination/semaphore/config/:sem_id — Get semaphore config — $0.01
+POST /coordination/semaphore/reset — Reset semaphore — $0.01
+POST /coordination/semaphore/list — List all semaphores — $0.01
+POST /coordination/semaphore/delete — Delete semaphore — $0.01
+POST /coordination/semaphore/acquire-with-timeout — Acquire with timeout — $0.01
+POST /coordination/election/reset — Reset election — $0.01
+POST /coordination/election/vote — Vote for a candidate — $0.01
+POST /coordination/election/candidates/:election_id — Get all candidates — $0.01
+POST /coordination/election/withdraw — Withdraw a candidate — $0.01
+POST /coordination/election/list — List all elections — $0.01
+POST /coordination/barrier/create — Create a barrier — $0.01
+POST /coordination/barrier/wait — Wait at barrier — $0.01
+POST /coordination/barrier/reset — Reset barrier — $0.01
+POST /coordination/barrier/status/:barrier_id — Get barrier status — $0.01
+POST /coordination/rwlock/acquire-read — Acquire read lock — $0.01
+POST /coordination/rwlock/acquire-write — Acquire write lock — $0.01
+POST /coordination/rwlock/release-read — Release read lock — $0.01
+POST /coordination/rwlock/release-write — Release write lock — $0.01
+POST /coordination/rwlock/status/:resource_id — Get rwlock status — $0.01
+POST /coordination/leader/elect — Elect a leader — $0.01
+POST /coordination/leader/heartbeat — Send heartbeat for leader — $0.01
+POST /coordination/leader/status — Get leader status — $0.01
+POST /coordination/leader/resign — Resign leadership — $0.01
+POST /coordination/quorum/propose — Propose a value for quorum — $0.01
+POST /coordination/quorum/ack — Acknowledge a quorum proposal — $0.01
+POST /coordination/quorum/status/:quorum_id — Get quorum status — $0.01
+POST /coordination/quorum/reset — Reset quorum — $0.01
+POST /coordination/mutex/acquire — Acquire mutex (single holder) — $0.01
+POST /coordination/mutex/release — Release mutex — $0.01
+POST /coordination/mutex/status/:mutex_id — Get mutex status — $0.01
+POST /coordination/latch/countdown — Create countdown latch — $0.01
+POST /coordination/latch/decrement — Decrement latch — $0.01
+POST /coordination/latch/status/:latch_id — Get latch status — $0.01
+POST /coordination/flag/set — Set a distributed flag — $0.01
+POST /coordination/flag/check/:flag_id — Check flag — $0.01
+POST /coordination/flag/clear — Clear a flag — $0.01
+POST /coordination/flag/toggle — Toggle a flag — $0.01
+POST /coordination/sequence/next — Get next sequence number — $0.01
+POST /coordination/sequence/reset — Reset sequence — $0.01
+POST /coordination/sequence/current/:sequence_id — Get current sequence value — $0.01
+POST /coordination/lease/acquire — Acquire a lease — $0.01
+POST /coordination/lease/renew — Renew a lease — $0.01
+POST /coordination/lease/status/:lease_id — Get lease status — $0.01
+POST /coordination/lease/release — Release a lease — $0.01
+
+### OOM Lens — Observability: logs + task queues
+POST /logging/append — Append an entry to a log — $0.01
+POST /logging/read/:log_id — Read entries from a log — $0.01
+POST /logging/clear/:log_id — Clear a log — $0.01
+POST /logging/count/:log_id — Get log entry count — $0.01
+POST /logging/tail/:log_id — Get last N entries — $0.01
+POST /logging/head/:log_id — Get first N entries (oldest) — $0.01
+POST /logging/get/:log_id/:index — Get entry at specific index — $0.01
+POST /logging/search — Search log for keyword — $0.01
+POST /logging/list — List all log IDs — $0.01
+POST /logging/merge — Merge multiple logs — $0.01
+POST /logging/stats/:log_id — Get log statistics — $0.01
+POST /logging/trim — Trim log to max entries — $0.01
+POST /logging/export — Export all log entries — $0.01
+POST /logging/batch-append — Append multiple entries — $0.01
+POST /logging/append-with-level — Append with log level — $0.01
+POST /logging/filter/:log_id — Filter by level — $0.01
+POST /logging/set-ttl — Set TTL on log — $0.01
+POST /logging/ttl/:log_id — Get log TTL — $0.01
+POST /logging/rpush — Append to end (oldest first) — $0.01
+POST /logging/lpop — Remove from head (newest) — $0.01
+POST /logging/rpop — Remove from tail (oldest) — $0.01
+POST /logging/rotate — Rotate log (archive and clear) — $0.01
+POST /logging/range — Get range of entries — $0.01
+POST /logging/batch-delete — Delete multiple logs — $0.01
+POST /logging/rename — Rename a log — $0.01
+POST /logging/copy — Copy a log — $0.01
+POST /logging/size/:log_id — Get log size in bytes — $0.01
+POST /logging/append-with-metadata — Append with custom metadata — $0.01
+POST /logging/aggregate — Aggregate logs by time window — $0.01
+POST /logging/set-max-length — Set max length with auto-trim — $0.01
+POST /logging/config/:log_id — Get log configuration — $0.01
+POST /logging/backup — Backup log to JSON — $0.01
+POST /logging/restore — Restore log from backup — $0.01
+POST /logging/purge-old — Purge entries older than timestamp — $0.01
+POST /logging/levels/:log_id — Get unique log levels — $0.01
+POST /logging/subscribe — Subscribe to log (webhook) — $0.01
+POST /logging/subscribers/:log_id — Get log subscribers — $0.01
+POST /logging/unsubscribe — Unsubscribe from log — $0.01
+POST /logging/notify — Notify subscribers of new entry — $0.01
+POST /logging/append-with-tags — Append with tags — $0.01
+POST /logging/by-tag/:log_id — Get entries by tag — $0.01
+POST /logging/tags/:log_id — Get all tags in log — $0.01
+POST /logging/set-retention — Set retention policy — $0.01
+POST /logging/retention/:log_id — Get retention policy — $0.01
+POST /logging/archive — Archive log to separate key — $0.01
+POST /logging/archives/:log_id — List archives for a log — $0.01
+POST /logging/restore-archive — Restore from archive — $0.01
+POST /logging/delete-archive — Delete archive — $0.01
+POST /tasks/push — Push a task to a queue — $0.01
+POST /tasks/pop — Pop a task from a queue — $0.01
+POST /tasks/length/:queue_id — Get queue length — $0.01
+POST /tasks/peek — Peek at next task without consuming — $0.01
+POST /tasks/batch-push — Push multiple tasks — $0.01
+POST /tasks/batch-pop — Pop multiple tasks — $0.01
+POST /tasks/clear — Clear a queue — $0.01
+POST /tasks/list — List all queues — $0.01
+POST /tasks/requeue — Requeue a task — $0.01
+POST /tasks/priority-push — Push to priority queue — $0.01
+POST /tasks/priority-pop — Pop from priority queue (highest score first) — $0.01
+POST /tasks/schedule — Schedule a delayed task — $0.01
+POST /tasks/scheduled/:queue_id — Get scheduled tasks — $0.01
+POST /tasks/dequeue-scheduled — Dequeue ready scheduled tasks — $0.01
+POST /tasks/stats/:queue_id — Get queue statistics — $0.01
+POST /tasks/move — Move task between queues — $0.01
+POST /tasks/batch-move — Move multiple tasks — $0.01
+POST /tasks/peek-n — Peek at N tasks — $0.01
+POST /tasks/set-ttl — Set TTL on queue — $0.01
+POST /tasks/ttl/:queue_id — Get queue TTL — $0.01
+POST /tasks/rename — Rename a queue — $0.01
+POST /tasks/copy — Copy a queue — $0.01
+POST /tasks/batch-delete — Delete multiple queues — $0.01
+POST /tasks/size/:queue_id — Get queue size in bytes — $0.01
+POST /tasks/push-with-priority — Push with priority to sorted set — $0.01
+POST /tasks/priority-range — Get range from priority queue — $0.01
+POST /tasks/priority-remove — Remove from priority queue — $0.01
+POST /tasks/priority-count/:queue_id — Get priority queue count — $0.01
+POST /tasks/priority-clear — Clear priority queue — $0.01
+POST /tasks/set-max-length — Set max queue length — $0.01
+POST /tasks/config/:queue_id — Get queue configuration — $0.01
+POST /tasks/push-with-delay — Push with delay (same as schedule) — $0.01
+POST /tasks/range — Get range of tasks — $0.01
+POST /tasks/trim — Trim queue to max length — $0.01
+POST /tasks/push-front — Push to front of queue — $0.01
+POST /tasks/pop-back — Pop from back of queue — $0.01
+POST /tasks/backup — Backup queue — $0.01
+POST /tasks/restore — Restore queue from backup — $0.01
+POST /tasks/push-with-metadata — Push with metadata — $0.01
+POST /tasks/push-with-retry — Push with retry count — $0.01
+POST /tasks/fail — Mark task as failed — $0.01
+POST /tasks/failed/:queue_id — Get failed tasks — $0.01
+POST /tasks/retry-failed — Retry failed tasks — $0.01
+POST /tasks/clear-failed — Clear failed tasks — $0.01
+POST /tasks/push-with-tags — Push with tags — $0.01
+POST /tasks/by-tag/:queue_id — Get tasks by tag — $0.01
+POST /tasks/tags/:queue_id — Get all tags in queue — $0.01
+POST /tasks/push-with-deadline — Push with deadline — $0.01
+POST /tasks/cleanup-expired — Remove expired tasks — $0.01
+POST /tasks/push-with-id — Push with custom ID — $0.01
+POST /tasks/by-id/:queue_id — Get task by ID — $0.01
+POST /tasks/remove-by-id — Remove task by ID — $0.01
+POST /tasks/push-with-priority-and-delay — Push with both priority and delay — $0.01
+POST /tasks/dequeue-scheduled-priority — Dequeue ready scheduled priority tasks — $0.01
+POST /tasks/all-stats — Get statistics for all queues — $0.01
+POST /tasks/push-batch-with-ids — Push batch with IDs — $0.01
+POST /tasks/set-rate-limit — Set rate limit for queue — $0.01
+POST /tasks/rate-limit/:queue_id — Get rate limit — $0.01
+POST /tasks/check-rate-limit — Check if rate limit allows task — $0.01
+POST /tasks/push-with-dependencies — Push task with dependencies — $0.01
+POST /tasks/mark-complete — Mark task as complete — $0.01
+POST /tasks/completed/:queue_id — Get completed tasks — $0.01
+POST /tasks/clear-completed — Clear completed tasks — $0.01
+
+### KYA: Know Your Agent — Identity + secrets
+POST /verify/email — Validate email format — $0.005
+POST /verify/dns — Get DNS records for a domain (mock implementation) — $0.005
+POST /verify/mx — Get MX records for a domain (mock implementation) — $0.005
+POST /verify/phone — Validate phone number format — $0.005
+POST /verify/url — Validate URL format — $0.005
+POST /verify/ipv4 — Validate IPv4 address — $0.005
+POST /verify/ipv6 — Validate IPv6 address — $0.005
+POST /verify/credit-card — Validate credit card number (Luhn algorithm) — $0.005
+POST /verify/iban — Validate IBAN — $0.005
+POST /verify/uuid — Validate UUID format — $0.005
+POST /verify/json — Validate JSON string — $0.005
+POST /verify/base64 — Validate base64 string — $0.005
+POST /verify/hex — Validate hexadecimal string — $0.005
+POST /verify/alpha — Validate alphabetic string — $0.005
+POST /verify/alphanumeric — Validate alphanumeric string — $0.005
+POST /verify/numeric — Validate numeric string — $0.005
+POST /verify/integer — Validate integer — $0.005
+POST /verify/float — Validate float — $0.005
+POST /verify/date — Validate date string — $0.005
+POST /verify/zipcode — Validate postal code — $0.005
+POST /verify/ssn — Validate SSN (US Social Security Number) — $0.005
+POST /verify/password-strength — Check password strength — $0.005
+POST /verify/username — Validate username — $0.005
+POST /verify/slug — Validate URL slug — $0.005
+POST /verify/color-hex — Validate hex color code — $0.005
+POST /verify/color-rgb — Validate RGB color — $0.005
+POST /verify/latitude — Validate latitude — $0.005
+POST /verify/longitude — Validate longitude — $0.005
+POST /verify/coordinates — Validate latitude and longitude pair — $0.005
+POST /verify/mac-address — Validate MAC address — $0.005
+POST /verify/port — Validate port number — $0.005
+POST /verify/mime-type — Validate MIME type — $0.005
+POST /verify/file-extension — Validate file extension — $0.005
+POST /verify/currency-code — Validate ISO currency code — $0.005
+POST /verify/language-code — Validate ISO language code — $0.005
+POST /verify/timezone — Validate timezone — $0.005
+POST /verify/regex — Test string against regex pattern — $0.005
+POST /verify/min-length — Validate minimum string length — $0.005
+POST /verify/max-length — Validate maximum string length — $0.005
+POST /verify/exact-length — Validate exact string length — $0.005
+POST /verify/contains — Check if string contains substring — $0.005
+POST /verify/starts-with — Check if string starts with prefix — $0.005
+POST /verify/ends-with — Check if string ends with suffix — $0.005
+POST /verify/equal — Check if two values are equal — $0.005
+POST /verify/in-range — Check if number is in range — $0.005
+POST /verify/in-array — Check if value is in array — $0.005
+POST /verify/is-empty — Check if value is empty — $0.005
+POST /verify/is-unique — Check if value is unique in array — $0.005
+POST /verify/hash — Validate hash string (MD5, SHA1, SHA256, etc.) — $0.005
+POST /verify/semver — Validate semantic version — $0.005
+POST /verify/hostname — Validate hostname — $0.005
+POST /verify/asn — Validate ASN (Autonomous System Number) — $0.005
+POST /verify/bic — Validate BIC (Bank Identifier Code) — $0.005
+POST /verify/swift — Validate SWIFT code (same as BIC) — $0.005
+POST /verify/routing-number — Validate US routing number — $0.005
+POST /verify/vat — Validate VAT number (basic format check) — $0.005
+POST /verify/ean — Validate EAN (European Article Number) — $0.005
+POST /verify/upc — Validate UPC (Universal Product Code) — $0.005
+POST /verify/isbn — Validate ISBN (International Standard Book Number) — $0.005
+POST /verify/passport — Validate passport number (basic format) — $0.005
+POST /verify/driver-license — Validate driver license number (basic format) — $0.005
+POST /verify/doi — Validate DOI (Digital Object Identifier) — $0.005
+POST /verify/orcid — Validate ORCID ID — $0.005
+POST /verify/isbn-10 — Validate ISBN-10 specifically — $0.005
+POST /verify/isbn-13 — Validate ISBN-13 specifically — $0.005
+POST /verify/luhn — Validate using Luhn algorithm (generic) — $0.005
+POST /verify/modulus-10 — Validate using Modulus 10 algorithm — $0.005
+POST /verify/modulus-11 — Validate using Modulus 11 algorithm — $0.005
+POST /secrets/store — Store an encrypted secret — $0.01
+POST /secrets/retrieve/:key — Retrieve and decrypt a secret — $0.01
+POST /secrets/delete/:key — Delete a secret — $0.01
+POST /secrets/exists/:key — Check if a secret exists — $0.01
+POST /secrets/generate — Generate a random secret — $0.01
+POST /secrets/rotate — Rotate a secret value — $0.01
+POST /secrets/list — List all secret keys — $0.01
+POST /secrets/metadata/:key — Get secret metadata without decrypting — $0.01
+POST /secrets/update-ttl — Update secret TTL — $0.01
+POST /secrets/copy — Copy a secret to a new key — $0.01
+POST /secrets/move — Move a secret to a new key — $0.01
+POST /secrets/batch-store — Store multiple secrets — $0.01
+POST /secrets/batch-retrieve — Retrieve multiple secrets — $0.01
+POST /secrets/batch-delete — Delete multiple secrets — $0.01
+POST /secrets/hash — Hash a value — $0.01
+POST /secrets/hmac — Generate HMAC — $0.01
+POST /secrets/compare — Compare two values (constant-time) — $0.01
+POST /secrets/encrypt — Encrypt a value without storing — $0.01
+POST /secrets/decrypt — Decrypt a value — $0.01
+POST /secrets/backup — Backup all secrets — $0.01
+POST /secrets/restore — Restore secrets from backup — $0.01
+POST /secrets/tag — Add tag to secret — $0.01
+POST /secrets/tags/:key — Get tags for a secret — $0.01
+POST /secrets/untag — Remove tag from secret — $0.01
+POST /secrets/by-tag/:tag — Get secrets by tag — $0.01
+POST /secrets/share — Generate a shareable link for a secret — $0.01
+POST /secrets/retrieve-share/:share_token — Retrieve secret via share token — $0.01
+POST /secrets/revoke-share — Revoke a share — $0.01
+POST /secrets/version — Create a new version of a secret — $0.01
+POST /secrets/versions/:key — List all versions of a secret — $0.01
+POST /secrets/retrieve-version/:key/:version — Retrieve a specific version — $0.01
+POST /secrets/restore-version — Restore a specific version — $0.01
+POST /secrets/delete-versions — Delete all archived versions — $0.01
+POST /secrets/audit-log — Log secret access — $0.01
+POST /secrets/audit-log/:key — Get audit log for a secret — $0.01
+POST /secrets/set-policy — Set access policy for a secret — $0.01
+POST /secrets/policy/:key — Get access policy for a secret — $0.01
+POST /secrets/check-access — Check if access is allowed by policy — $0.01
+POST /secrets/expire — Set expiration time for a secret — $0.01
+POST /secrets/search — Search secrets by metadata — $0.01
+POST /secrets/stats — Get statistics about secrets — $0.01
+POST /secrets/clear-expired — Clear all expired secrets — $0.01
+POST /secrets/import — Import secrets from JSON — $0.01
+POST /secrets/export — Export all secrets (decrypted) — $0.01
+POST /secrets/validate — Validate a secret value against rules — $0.01
+POST /secrets/lock — Lock a secret (prevent modifications) — $0.01
+POST /secrets/unlock — Unlock a secret — $0.01
+POST /secrets/is-locked/:key — Check if a secret is locked — $0.01
+POST /secrets/encrypt-with-key — Encrypt with custom key — $0.01
+POST /secrets/decrypt-with-key — Decrypt with custom key — $0.01
+
+### OOM Simulate — Statistical compute
+POST /simulate/random — Generate random numbers from various distributions — $0.005
+POST /simulate/montecarlo — Monte Carlo simulation — $0.005
+POST /simulate/sample — Sample from a population — $0.005
+POST /simulate/abtest — A/B test variant selection — $0.005
+POST /simulate/dice — Dice roll simulation — $0.005
+POST /simulate/shuffle — Shuffle an array — $0.005
+POST /simulate/uuid — Generate a UUID — $0.005
+POST /simulate/weighted — Weighted random selection — $0.005
+POST /simulate/coin — Coin flip simulation — $0.005
+POST /simulate/card — Card draw simulation — $0.005
+POST /simulate/string — Random string generation — $0.005
+POST /simulate/date — Random date generation — $0.005
+POST /simulate/name — Random name generation — $0.005
+POST /simulate/email — Random email generation — $0.005
+POST /simulate/phone — Random phone number generation — $0.005
+POST /simulate/color — Random color generation — $0.005
+POST /simulate/ip — Random IP address generation — $0.005
+POST /simulate/coordinates — Random coordinates generation — $0.005
+POST /simulate/boolean — Random boolean generation — $0.005
+POST /simulate/choice — Random choice from array — $0.005
+POST /simulate/choices — Multiple random choices — $0.005
+POST /simulate/permutation — Random permutation — $0.005
+POST /simulate/combination — Random combination — $0.005
+POST /simulate/random-walk — Random walk simulation — $0.005
+POST /simulate/brownian — Brownian motion simulation — $0.005
+POST /simulate/geometric — Geometric distribution — $0.005
+POST /simulate/binomial — Binomial distribution — $0.005
+POST /simulate/gamma — Gamma distribution — $0.005
+POST /simulate/beta — Beta distribution — $0.005
+POST /simulate/weibull — Weibull distribution — $0.005
+POST /simulate/lognormal — Log-normal distribution — $0.005
+POST /simulate/triangular — Triangular distribution — $0.005
+POST /simulate/bootstrap — Bootstrap sampling — $0.005
+POST /simulate/markov-chain — Markov chain simulation — $0.005
+POST /simulate/queue — Queue simulation — $0.005
+POST /simulate/growth — Growth simulation — $0.005
+POST /simulate/decay — Decay simulation — $0.005
+POST /simulate/oscillation — Oscillation simulation — $0.005
+POST /simulate/noise — Noise generation — $0.005
+POST /simulate/timeseries — Time series simulation — $0.005
+POST /simulate/graph — Random graph generation — $0.005
+POST /simulate/epidemic — Epidemic simulation (SIR model) — $0.005
+POST /simulate/game-theory — Prisoner's dilemma simulation — $0.005
+POST /simulate/auction — Auction simulation — $0.005
+POST /simulate/voting — Voting simulation — $0.005
+POST /simulate/survey — Survey response simulation — $0.005
+POST /simulate/inventory — Inventory simulation — $0.005
+POST /simulate/price — Price simulation (random walk with drift) — $0.005
+POST /simulate/demand — Demand simulation — $0.005
+POST /simulate/wave — Wave simulation — $0.005
+POST /simulate/signal — Signal generation — $0.005
+POST /simulate/predator-prey — Predator-prey simulation (Lotka-Volterra) — $0.005
+POST /simulate/network — Network latency simulation — $0.005
+POST /simulate/poll — Poll simulation with margin of error — $0.005
+
+## DATA ENDPOINTS
+
+### Compute
+GET /compute/us/contract/risk-analysis — Analyzes PDF contracts to generate risk score, identify risk flags, extract key clauses, and provide recommendations using AI. — $0.07
+GET /compute/us/due/diligence-summary — Processes due diligence documents to generate summary, identify red flags, extract key findings, and provide recommendation using AI. — $0.07
+GET /compute/us/supply/chain-risk-assessment — Assesses supply chain risks to generate risk scores, identify risk factors, evaluate geographic risks, and suggest mitigation strategies using AI. — $0.07
+GET /compute/us/m-and-a/signal-detection — Analyzes regulatory filings to detect M&A signals, estimate probability, identify target companies, and provide rationale using AI. — $0.07
+GET /compute/us/financial/ratio-interpretation — Interprets financial ratios into plain English including context, industry comparison, and trend analysis using AI. — $0.003
+...and 382 more at /x402.json
+
+### Economy
+GET /economy/us/macro/indicators — Returns US macroeconomic indicators from Federal Reserve Economic Data including GDP, inflation, unemployment rates. — $0.005
+GET /economy/macro/indicators — Returns global economic indicators from World Bank including GDP, population, development metrics by country. — $0.005
+GET /economy/pk/economic/data — Returns Pakistan economic data from Pakistan Bureau of Statistics including GDP, inflation, and key metrics. — $0.005
+GET /economy/africa/macro — Returns African macroeconomic indicators from World Bank filtered for African countries including GDP, population, development metrics. — $0.005
+GET /economy/us/y42x/4jcy — Provides the average number of passenger boardings per trip by service type by month on the Transport Canberra network for 2016-17.
+
+The service types in the current public transport network include:
+
+Rapid services - Public transport corridors for all day, high speed travel across the city along dense corridors. Currently includes the Blue and Red Rapid services.
+
+Frequent Local services – Local services in areas of current or future denser development, including some group centres. This type of service will connect to rapid services at bus stations and town centre nodes for longer trips. Currently includes the Green, Gold and Weston Line routes.
+
+Peak Express services – Direct service from residential or Park and Ride facility to major employment destinations. This type of service is supplementary and does not compete with Rapid services. Currently includes the Xpresso routes.
+
+Coverage services – Local and feeder services in lower density areas away from the 'Frequent Network'. These services are provided for reasons of inclusion rather than patronage.
+
+The 'Frequent Network' comprises of Rapid and Frequent Local services. — $0.01
+...and 118 more at /x402.json
+
+### Environment
+GET /environment/us/earthquakes — Returns earthquake and seismic data from USGS including magnitude, location, depth, and timing information. — $0.005
+GET /environment/air/quality — Returns air quality measurements from OpenAQ including PM2.5, PM10, O3, NO2 levels by location. — $0.005
+GET /environment/weather/extremes — Returns extreme weather data from NOAA including temperature records, precipitation, and severe weather events. — $0.005
+GET /environment/us/earthquakes/query — SCIENCE/SPACE - USGS Earthquakes — $0.01
+GET /environment/us/earthquakes/query — SCIENCE/SPACE - USGS Earthquakes — $0.01
+...and 93 more at /x402.json
+
+### Finance
+GET /finance/crypto/prices — Returns current cryptocurrency prices including market cap, 24h volume, and price change percentage. — $0.005
+GET /finance/crypto/market-cap — Returns global cryptocurrency market metrics including total market cap, volume, and BTC/ETH dominance percentages. — $0.005
+GET /finance/crypto/funding — Returns perpetual futures funding rates across major exchanges including rate, next funding time, and mark price. — $0.005
+GET /finance/defi/tvl — Returns total value locked (TVL) metrics for DeFi protocols across multiple chains and categories. — $0.005
+GET /finance/us/bond/yields — Returns US Treasury bond yields across maturities including 2y, 5y, 10y, 30y rates for yield curve analysis. — $0.005
+...and 77 more at /x402.json
+
+### Geospatial
+GET /geo/geolocation — Returns IP geolocation data including country, city, ISP, and geographic coordinates. — $0.005
+GET /geo/us/earnings/call-intelligence — Processes earnings call transcripts to extract sentiment, key topics, financial signals, and forward outlook using AI. — $0.07
+GET /geo/us/job/description-analysis — Analyzes job descriptions to extract required skills, estimate salary range, determine experience level, and classify role type using AI. — $0.003
+GET /geo/us/company/description-standardizer — Standardizes company descriptions into consistent format, identifies industry, estimates size, and extracts focus areas using AI. — $0.003
+GET /geo/world/time-api/ip — GEOGRAPHY - World Time API — $0.01
+...and 24 more at /x402.json
+
+### Health
+GET /health/us/trials — Returns clinical trial information from ClinicalTrials.gov including study IDs, status, phase, and conditions. — $0.005
+GET /health/us/drug/events — Returns drug adverse event reports from OpenFDA including drug names, reactions, and seriousness indicators. — $0.005
+GET /health/us/recalls — Returns FDA food and drug recall information including product details, recall reasons, and classification. — $0.005
+GET /health/us/clinical/abstract-summary — Summarizes clinical trial abstracts to extract key findings, methodology, conclusions, and assess significance using AI. — $0.003
+GET /health/drug/labeljson — HEALTH/GOVERNMENT - OpenFDA Drug — $0.01
+...and 44 more at /x402.json
+
+### Knowledge
+GET /knowledge/us/patents — Returns patent search results from USPTO including patent numbers, titles, inventors, and filing dates. — $0.005
+GET /knowledge/us/nutrition/database — Returns nutrition data from USDA FoodData Central including macronutrients, micronutrients, and serving information. — $0.005
+GET /knowledge/us/patent/claim-analysis — Analyzes patent documents to assess patentability, identify prior art flags, evaluate claim strength, and assess infringement risk using AI. — $0.07
+GET /knowledge/open/library/api/books — REFERENCE/KNOWLEDGE - Open Library — $0.01
+GET /knowledge/open/library/api/books — REFERENCE/KNOWLEDGE - Open Library — $0.01
+...and 179 more at /x402.json
+
+### Legal
+GET /legal/filings — Returns SEC EDGAR filings including 10-K, 10-Q, 8-K forms with metadata and document access URLs. — $0.005
+GET /legal/us/company/registry — Returns company registry data including incorporation details, jurisdiction, and current status from OpenCorporates. — $0.005
+GET /legal/sanctions — Returns sanctions screening results from OFAC SDN list including entity names, sanction types, and program details. — $0.005
+GET /legal/us/regulatory/risk-score — Analyzes regulatory filings to generate risk scores, identify regulatory areas, assess compliance status, and provide recommendations using AI. — $0.07
+GET /legal/us/nsfix/validate — Validates FIX protocol messages against specification, returning validation status, errors, warnings, and compliance flags. — $0.05
+...and 6 more at /x402.json
+
+### Media
+GET /media/my/malaysia/news-bahasa — Returns Malaysian news headlines in Bahasa Malaysia from RSS feed aggregation of major news sources. — $0.005
+GET /media/pk/pakistan/news-aggregation — Returns Pakistani news headlines from RSS feed aggregation of major news sources. — $0.005
+GET /media/us/news/synthesis — Synthesizes news headlines into summary, extracts key points, analyzes sentiment, and identifies topics using AI. — $0.003
+GET /media/us/sentiment/analysis — Analyzes text to generate sentiment score, label sentiment, provide reasoning, and indicate confidence level using AI. — $0.003
+GET /media/us/social/post-sentiment-batch — Batch analyzes social media posts to generate individual sentiment scores, overall sentiment, and identify trends using AI. — $0.003
+...and 30 more at /x402.json
+
+### Science
+GET /science/literature — Returns scientific literature from arXiv including paper titles, authors, abstracts, and publication metadata. — $0.005
+GET /science/us/company/research-brief — Generates structured company research brief from ticker input including overview, financials, competitive position, and risks using AI. — $0.07
+GET /science/query — SCIENCE/SPACE - arXiv — $0.01
+GET /science/query — SCIENCE/SPACE - arXiv — $0.01
+GET /science/query — SCIENCE/SPACE - arXiv — $0.01
+...and 4 more at /x402.json
+
+### Security
+GET /security/vulnerabilities — Returns CVE vulnerability details from NVD including severity scores, descriptions, and affected products. — $0.005
+GET /security/us/yh5m/n9q2 — Nature Conservation Act 2014
+
+This list brings together species listed under the Nature Conservation Act 2014 that receive additional protection in the Australian Capital Territory, including species on the Threatened Native Species List and the Protected Native Species List.
+
+The Threatened Native Species List identifies native plants and animals at risk of extinction or significant decline in the ACT. Species on this list have Special Protection Status, which triggers statutory planning, licensing and compliance requirements, and may require the preparation of Conservation Advice and Action Plans based on scientific assessment and recommendation by the ACT Scientific Committee.
+
+The Protected Native Species List identifies non‑threatened native species that nevertheless require additional protection due to factors such as rarity within the ACT, data deficiency, vulnerability to trade or collection, or risk in other jurisdictions. Species are included in defined categories such as restricted trade, rare, and data deficient, using criteria based solely on scientific matters and developed in consultation with the Scientific Committee.
+
+Ngunnawal species names are included where available, provided in consultation with the Winanggaay Ngunnawal Language Aboriginal Corporation.
+
+Nature Conservation Act 2014: https://www.legislation.act.gov.au/a/2014-59/
+Threatened Antive Species List: https://www.legislation.act.gov.au/ni/2025-299/
+Protected Native Species List: https://www.legislation.act.gov.au/ni/2025-679/
+
+Ngunnawal species names nominated or endorsed by the Winnagaay Ngunnawal Language Aboriginal Corporation.
+© Australian Capital Territory 
+© Winanggaay Ngunnawal Language Aboriginal Corporation — $0.01
+GET /security/utqj/bz6f — This dataset contains a count the number of interstate vehicles transferred to the ACT by month and year. 
+
+Data security
+
+Small counts (less than or equal to 5) of vehicles transferred by state have been omitted. Very few records are affected by this omission. — $0.01
+GET /security/security/stories — Compute Espn Bundesliga Scoreboard — $0.01
+

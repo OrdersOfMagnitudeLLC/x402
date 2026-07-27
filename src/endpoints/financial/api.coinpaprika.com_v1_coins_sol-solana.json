@@ -1,0 +1,7 @@
+{
+  "url": "https://api.coinpaprika.com/v1/coins/sol-solana",
+  "category": "financial",
+  "source_url": "https://api.coinpaprika.com/v1/coins/sol-solana",
+  "response_fields": [],
+  "price": 0.01
+}

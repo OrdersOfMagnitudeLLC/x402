@@ -1,0 +1,7 @@
+{
+  "url": "https://api.stlouisfed.org/fred/series/observations?series_id=JTSLDL&api_key=c7a02ff25bde8cccc81b0ec319c1c3ed&file_type=json",
+  "category": "financial",
+  "source_url": "https://api.stlouisfed.org/fred/series/observations?series_id=JTSLDL&api_key=c7a02ff25bde8cccc81b0ec319c1c3ed&file_type=json",
+  "response_fields": [],
+  "price": 0.01
+}

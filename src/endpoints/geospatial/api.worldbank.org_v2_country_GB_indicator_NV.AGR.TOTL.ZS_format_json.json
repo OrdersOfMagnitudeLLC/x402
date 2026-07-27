@@ -1,0 +1,7 @@
+{
+  "url": "https://api.worldbank.org/v2/country/GB/indicator/NV.AGR.TOTL.ZS?format=json",
+  "category": "geospatial",
+  "source_url": "https://api.worldbank.org/v2/country/GB/indicator/NV.AGR.TOTL.ZS?format=json",
+  "response_fields": [],
+  "price": 0.01
+}

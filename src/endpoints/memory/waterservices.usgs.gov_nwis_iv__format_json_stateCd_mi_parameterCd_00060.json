@@ -1,0 +1,7 @@
+{
+  "url": "https://waterservices.usgs.gov/nwis/iv/?format=json&stateCd=mi&parameterCd=00060",
+  "category": "memory_storage",
+  "source_url": "https://waterservices.usgs.gov/nwis/iv/?format=json&stateCd=mi&parameterCd=00060",
+  "response_fields": [],
+  "price": 0.01
+}

@@ -1,0 +1,7 @@
+{
+  "url": "https://api.worldbank.org/v2/country?format=json&per_page=50",
+  "category": "geospatial",
+  "source_url": "https://api.worldbank.org/v2/country?format=json&per_page=50",
+  "response_fields": [],
+  "price": 0.01
+}

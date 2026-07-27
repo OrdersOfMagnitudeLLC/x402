@@ -1,0 +1,7 @@
+{
+  "url": "https://api.fda.gov/drug/enforcement.json?limit=10",
+  "category": "health_medical",
+  "source_url": "https://api.fda.gov/drug/enforcement.json?limit=10",
+  "response_fields": [],
+  "price": 0.01
+}

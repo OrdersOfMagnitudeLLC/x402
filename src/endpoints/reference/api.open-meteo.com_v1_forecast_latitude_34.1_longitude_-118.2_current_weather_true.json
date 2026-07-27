@@ -1,0 +1,7 @@
+{
+  "url": "https://api.open-meteo.com/v1/forecast?latitude=34.1&longitude=-118.2&current_weather=true",
+  "category": "reference_general",
+  "source_url": "https://api.open-meteo.com/v1/forecast?latitude=34.1&longitude=-118.2&current_weather=true",
+  "response_fields": [],
+  "price": 0.01
+}

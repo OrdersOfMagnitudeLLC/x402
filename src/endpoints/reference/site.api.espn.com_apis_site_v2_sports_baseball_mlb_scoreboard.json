@@ -1,0 +1,7 @@
+{
+  "url": "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard",
+  "category": "reference_general",
+  "source_url": "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard",
+  "response_fields": [],
+  "price": 0.01
+}

@@ -1,0 +1,7 @@
+{
+  "url": "https://hn.algolia.com/api/v1/search?query=rust&tags=story",
+  "category": "search_retrieval",
+  "source_url": "https://hn.algolia.com/api/v1/search?query=rust&tags=story",
+  "response_fields": [],
+  "price": 0.01
+}

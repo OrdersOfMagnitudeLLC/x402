@@ -1,0 +1,7 @@
+{
+  "url": "https://musicbrainz.org/ws/2/release?query=nevermind&fmt=json",
+  "category": "search_retrieval",
+  "source_url": "https://musicbrainz.org/ws/2/release?query=nevermind&fmt=json",
+  "response_fields": [],
+  "price": 0.01
+}

@@ -1,0 +1,7 @@
+{
+  "url": "https://api.open-meteo.com/v1/forecast?latitude=41.9&longitude=12.5&daily=temperature_2m_max",
+  "category": "reference_general",
+  "source_url": "https://api.open-meteo.com/v1/forecast?latitude=41.9&longitude=12.5&daily=temperature_2m_max",
+  "response_fields": [],
+  "price": 0.01
+}

@@ -1,0 +1,16 @@
+[build]
+builder = "nixpacks"
+
+[build.env]
+NPM_FLAGS = "--production"
+
+[deploy]
+startCommand = "node server/index.js"
+healthcheckPath = "/health"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+
+# Required environment variables:
+# WALLET_ADDRESS - Coinbase wallet address for x402 payments
+# REDIS_URL - Redis connection URL for idempotency layer
+# PORT - Server port (defaults to 3000)

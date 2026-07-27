@@ -1,0 +1,7 @@
+{
+  "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=heart+disease&retmode=json",
+  "category": "search_retrieval",
+  "source_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=heart+disease&retmode=json",
+  "response_fields": [],
+  "price": 0.01
+}

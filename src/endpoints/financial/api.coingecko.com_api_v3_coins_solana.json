@@ -1,0 +1,7 @@
+{
+  "url": "https://api.coingecko.com/api/v3/coins/solana",
+  "category": "financial",
+  "source_url": "https://api.coingecko.com/api/v3/coins/solana",
+  "response_fields": [],
+  "price": 0.01
+}

@@ -1,0 +1,28 @@
+{
+  "name": "x402-server",
+  "version": "1.0.0",
+  "description": "Express.js server with x402 middleware and Redis-backed idempotency",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "mcp": "node server/mcp.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.112.3",
+    "@coinbase/x402": "^2.0.0",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@x402/core": "^2.19.0",
+    "@x402/evm": "^2.19.0",
+    "@x402/express": "^2.0.0",
+    "@x402/fetch": "^2.19.0",
+    "@xpaysh/x402": "^0.1.2",
+    "express": "^4.18.2",
+    "ioredis": "^5.3.2",
+    "js-yaml": "^5.2.1",
+    "p-limit": "^3.1.0",
+    "viem": "^2.55.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

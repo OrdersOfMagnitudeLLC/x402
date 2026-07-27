@@ -1,0 +1,7 @@
+{
+  "url": "https://api.nasa.gov/insight_weather/?api_key=3yeSbpQqbF1QVhrAPIynx2OUkAP6Mhur5Jf7Rqmj&feedtype=json&ver=1.0",
+  "category": "science_research",
+  "source_url": "https://api.nasa.gov/insight_weather/?api_key=3yeSbpQqbF1QVhrAPIynx2OUkAP6Mhur5Jf7Rqmj&feedtype=json&ver=1.0",
+  "response_fields": [],
+  "price": 0.01
+}

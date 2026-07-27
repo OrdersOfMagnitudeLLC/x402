@@ -1,0 +1,7 @@
+{
+  "url": "https://api.coingecko.com/api/v3/coins/ethereum",
+  "category": "financial",
+  "source_url": "https://api.coingecko.com/api/v3/coins/ethereum",
+  "response_fields": [],
+  "price": 0.01
+}
