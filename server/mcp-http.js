@@ -1,8 +1,5 @@
-#!/usr/bin/env node
-
 const { Server } = require('@modelcontextprotocol/sdk/server/index.js');
-const { StdioServerTransport } = require('@modelcontextprotocol/sdk/server/stdio.js');
-const { SSEServerTransport } = require('@modelcontextprotocol/sdk/server/sse.js');
+const { StreamableHTTPServerTransport } = require('@modelcontextprotocol/sdk/server/streamableHttp.js');
 const {
   CallToolRequestSchema,
   ListToolsRequestSchema,
@@ -191,28 +188,12 @@ server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
   }
 });
 
-// Start server with stdio transport
-async function main() {
-  const transport = new StdioServerTransport();
+// Mount MCP server on Express app at /mcp
+async function mountMCP(app) {
+  const transport = new StreamableHTTPServerTransport('/mcp');
   await server.connect(transport);
-  console.error('x402 MCP server running on stdio');
+  app.use(transport.getRequestHandler());
+  console.error('x402 MCP server mounted at /mcp with HTTP transport');
 }
 
-// Export server and mount function for SSE transport
-async function mountSSE(app) {
-  const transport = new SSEServerTransport('/mcp/sse');
-  await server.connect(transport);
-  app.get('/mcp/sse', (req, res) => {
-    transport.handleRequest(req, res);
-  });
-  console.error('x402 MCP server mounted at /mcp/sse with SSE transport');
-}
-
-if (require.main === module) {
-  main().catch((error) => {
-    console.error('Fatal error:', error);
-    process.exit(1);
-  });
-}
-
-module.exports = { server, mountSSE };
+module.exports = { mountMCP };

@@ -17,6 +17,7 @@ const coordinationRouter = require('./routes/coordination');
 const secretsRouter = require('./routes/secrets');
 const simulateRouter = require('./routes/simulate');
 const mcpRouter = require('../mcp/server');
+const { mountMCP } = require('./mcp-http');
 const Redis = require('ioredis');
 
 const app = express();
@@ -119,6 +120,11 @@ app.use((req, res, next) => {
 
 const searchRouter = require('./routes/search');
 app.use('/search', searchRouter);
+
+// Mount MCP HTTP transport (must be before payment middleware)
+mountMCP(app).catch((error) => {
+  console.error('Failed to mount MCP HTTP transport:', error);
+});
 
 app.use(baseX402Middleware);
 app.use(idempotencyMiddleware);
