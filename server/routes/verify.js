@@ -1,4 +1,5 @@
 const express = require('express');
+const dns = require('dns').promises;
 
 const router = express.Router();
 
@@ -1689,6 +1690,181 @@ router.post('/modulus-11', async (req, res) => {
     res.json({ valid });
   } catch (error) {
     console.error('Verify modulus-11 error:', error);
+    res.status(500).json({ error: 'internal_error' });
+  }
+});
+
+// POST /verify/mx-validate - Validate MX records for a domain using DNS lookup
+router.post('/mx-validate', async (req, res) => {
+  try {
+    const { domain } = req.body;
+    
+    if (!domain) {
+      return res.status(400).json({ error: 'domain is required' });
+    }
+    
+    try {
+      const mxRecords = await dns.resolveMx(domain);
+      const valid = mxRecords && mxRecords.length > 0;
+      
+      res.json({ 
+        valid, 
+        mx_records: mxRecords.map(r => ({ exchange: r.exchange, priority: r.priority })),
+        count: mxRecords.length
+      });
+    } catch (error) {
+      res.json({ valid: false, reason: 'no_mx_records', error: error.code });
+    }
+  } catch (error) {
+    console.error('Verify mx-validate error:', error);
+    res.status(500).json({ error: 'internal_error' });
+  }
+});
+
+// POST /verify/phone-country - Detect country from phone number using patterns
+router.post('/phone-country', async (req, res) => {
+  try {
+    const { phone } = req.body;
+    
+    if (!phone) {
+      return res.status(400).json({ error: 'phone is required' });
+    }
+    
+    // Remove all non-digit characters
+    const digits = phone.replace(/\D/g, '');
+    
+    // Simple country code detection (common prefixes)
+    const countryCodes = {
+      '1': 'US/CA',
+      '44': 'UK',
+      '33': 'FR',
+      '49': 'DE',
+      '39': 'IT',
+      '34': 'ES',
+      '86': 'CN',
+      '81': 'JP',
+      '91': 'IN',
+      '61': 'AU',
+      '55': 'BR',
+      '7': 'RU/KZ',
+      '82': 'KR',
+      '52': 'MX',
+      '27': 'ZA'
+    };
+    
+    let detectedCountry = null;
+    let matchedCode = null;
+    
+    // Check for country code matches (longest first)
+    const sortedCodes = Object.keys(countryCodes).sort((a, b) => b.length - a.length);
+    for (const code of sortedCodes) {
+      if (digits.startsWith(code)) {
+        detectedCountry = countryCodes[code];
+        matchedCode = code;
+        break;
+      }
+    }
+    
+    res.json({ 
+      country: detectedCountry, 
+      country_code: matchedCode,
+      valid: detectedCountry !== null
+    });
+  } catch (error) {
+    console.error('Verify phone-country error:', error);
+    res.status(500).json({ error: 'internal_error' });
+  }
+});
+
+// POST /verify/domain-reputation - Check domain reputation via WHOIS age and MX presence
+router.post('/domain-reputation', async (req, res) => {
+  try {
+    const { domain } = req.body;
+    
+    if (!domain) {
+      return res.status(400).json({ error: 'domain is required' });
+    }
+    
+    // Check MX records
+    let hasMX = false;
+    let mxCount = 0;
+    try {
+      const mxRecords = await dns.resolveMx(domain);
+      hasMX = mxRecords && mxRecords.length > 0;
+      mxCount = mxRecords.length;
+    } catch (error) {
+      // No MX records
+    }
+    
+    // Check A record (domain exists)
+    let hasA = false;
+    try {
+      const aRecords = await dns.resolve4(domain);
+      hasA = aRecords && aRecords.length > 0;
+    } catch (error) {
+      // No A records
+    }
+    
+    // Domain age estimation (simplified - in production use actual WHOIS)
+    // For now, we'll use domain creation date from DNS if available
+    const domainAge = null; // Would require WHOIS lookup
+    
+    // Calculate reputation score
+    let score = 0;
+    if (hasMX) score += 30;
+    if (hasA) score += 40;
+    if (mxCount > 1) score += 20;
+    if (domainAge && domainAge > 365) score += 10;
+    
+    const reputation = score >= 70 ? 'high' : score >= 40 ? 'medium' : 'low';
+    
+    res.json({ 
+      reputation,
+      score,
+      has_mx: hasMX,
+      mx_count: mxCount,
+      has_a_record: hasA,
+      domain_age_days: domainAge
+    });
+  } catch (error) {
+    console.error('Verify domain-reputation error:', error);
+    res.status(500).json({ error: 'internal_error' });
+  }
+});
+
+// POST /verify/disposable-domain - Check if domain is from disposable email provider
+router.post('/disposable-domain', async (req, res) => {
+  try {
+    const { domain } = req.body;
+    
+    if (!domain) {
+      return res.status(400).json({ error: 'domain is required' });
+    }
+    
+    // Common disposable email domains
+    const disposableDomains = new Set([
+      'tempmail.com', 'guerrillamail.com', 'mailinator.com', '10minutemail.com',
+      'yopmail.com', 'sharklasers.com', 'throwawaymail.com', 'getairmail.com',
+      'maildrop.cc', 'temp-mail.org', 'fakeinbox.com', 'trashmail.com',
+      'tempmail.de', 'mailtemp.com', 'mytempemail.com', 'incognitomail.com',
+      'anonmail.net', 'dispostable.com', 'trashmail.com', 'tempmail.net',
+      'spamgourmet.com', 'mailnull.com', 'jetable.org', 'yopmail.com'
+    ]);
+    
+    const domainLower = domain.toLowerCase();
+    const isDisposable = disposableDomains.has(domainLower);
+    
+    // Also check if domain contains common disposable patterns
+    const disposablePatterns = ['temp', 'throw', 'fake', 'spam', 'trash', 'disposable', 'anon', 'temp'];
+    const hasDisposablePattern = disposablePatterns.some(pattern => domainLower.includes(pattern));
+    
+    res.json({ 
+      is_disposable: isDisposable,
+      matches_pattern: hasDisposablePattern && !isDisposable,
+      domain: domainLower
+    });
+  } catch (error) {
+    console.error('Verify disposable-domain error:', error);
     res.status(500).json({ error: 'internal_error' });
   }
 });
