@@ -1856,7 +1856,7 @@
     "description": "GEOGRAPHY - REST Countries",
     "url": "https://restcountries.com/v3.1/currency/{currency}",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "information",
     "route_path": "/compute/rest/countries/currency/:currency"
@@ -1867,7 +1867,7 @@
     "description": "GEOGRAPHY - REST Countries",
     "url": "https://restcountries.com/v3.1/capital/{capital}",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "information",
     "route_path": "/compute/rest/countries/capital/:capital"
@@ -1878,7 +1878,7 @@
     "description": "GEOGRAPHY - REST Countries",
     "url": "https://restcountries.com/v3.1/region/{region}",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "information",
     "route_path": "/compute/rest/countries/region/:region"
@@ -1889,7 +1889,7 @@
     "description": "GEOGRAPHY - REST Countries",
     "url": "https://restcountries.com/v3.1/subregion/{subregion}",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "information",
     "route_path": "/compute/rest/countries/subregion/:subregion"
@@ -1900,7 +1900,7 @@
     "description": "GEOGRAPHY - REST Countries",
     "url": "https://restcountries.com/v3.1/lang/{language}",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "information",
     "route_path": "/compute/rest/countries/lang/:language"
@@ -1911,7 +1911,7 @@
     "description": "GEOGRAPHY - REST Countries",
     "url": "https://restcountries.com/v3.1/translation/{translation}",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "information",
     "route_path": "/compute/rest/countries/translation/:translation"
@@ -2890,7 +2890,7 @@
     "description": "REFERENCE/KNOWLEDGE - Open Library",
     "url": "https://openlibrary.org/api/books",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "information",
     "route_path": "/knowledge/open/library/api/books"
@@ -3121,7 +3121,7 @@
     "description": "REFERENCE/KNOWLEDGE - Open Brewery DB",
     "url": "https://api.openbrewerydb.org/v1/breweries/{id}",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "information",
     "route_path": "/knowledge/open/brewery/breweries/:id"
@@ -3330,7 +3330,7 @@
     "description": "REFERENCE/KNOWLEDGE - Numbers API",
     "url": "http://numbersapi.com/{number}",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "information",
     "route_path": "/knowledge/numbers/api/:number"
@@ -3341,7 +3341,7 @@
     "description": "REFERENCE/KNOWLEDGE - Numbers API",
     "url": "http://numbersapi.com/{number}/trivia",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "information",
     "route_path": "/knowledge/numbers/api/:number/trivia"
@@ -3352,7 +3352,7 @@
     "description": "REFERENCE/KNOWLEDGE - Numbers API",
     "url": "http://numbersapi.com/{number}/math",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "information",
     "route_path": "/knowledge/numbers/api/:number/math"
@@ -3363,7 +3363,7 @@
     "description": "REFERENCE/KNOWLEDGE - Numbers API",
     "url": "http://numbersapi.com/{number}/year",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "information",
     "route_path": "/knowledge/numbers/api/:number/year"
@@ -3374,7 +3374,7 @@
     "description": "REFERENCE/KNOWLEDGE - Numbers API",
     "url": "http://numbersapi.com/{month}/{day}/date",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "information",
     "route_path": "/knowledge/numbers/api/:month/:day/date"
@@ -3385,7 +3385,7 @@
     "description": "REFERENCE/KNOWLEDGE - Numbers API",
     "url": "http://numbersapi.com/random",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "information",
     "route_path": "/knowledge/numbers/api/random"
@@ -3396,7 +3396,7 @@
     "description": "REFERENCE/KNOWLEDGE - Numbers API",
     "url": "http://numbersapi.com/random/trivia",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "information",
     "route_path": "/knowledge/numbers/api/random/trivia"
@@ -3407,7 +3407,7 @@
     "description": "REFERENCE/KNOWLEDGE - Numbers API",
     "url": "http://numbersapi.com/random/math",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "information",
     "route_path": "/knowledge/numbers/api/random/math"
@@ -8003,7 +8003,7 @@
     "description": "Economic: Economy Worldbank",
     "url": "https://restcountries.com/v3.1/subregion/polynesia",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -8014,7 +8014,7 @@
     "description": "Economic: Economy Worldbank",
     "url": "https://restcountries.com/v3.1/subregion/melanesia",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -8025,7 +8025,7 @@
     "description": "Economic: Economy Worldbank",
     "url": "https://restcountries.com/v3.1/subregion/australia-and-new-zealand",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -8047,7 +8047,7 @@
     "description": "Economic: Economy Worldbank",
     "url": "https://restcountries.com/v3.1/subregion/micronesia",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -8905,7 +8905,7 @@
     "description": "Economic: Economy Worldbank",
     "url": "https://restcountries.com/v3.1/region/oceania",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -8927,7 +8927,7 @@
     "description": "Economic: Economy Worldbank",
     "url": "https://restcountries.com/v3.1/subregion/eastern-asia",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -8949,7 +8949,7 @@
     "description": "Economic: Economy Worldbank",
     "url": "https://restcountries.com/v3.1/subregion/central-asia",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -8971,7 +8971,7 @@
     "description": "Economic: Economy Worldbank",
     "url": "https://restcountries.com/v3.1/subregion/southern-africa",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -8982,7 +8982,7 @@
     "description": "Economic: Economy Worldbank",
     "url": "https://restcountries.com/v3.1/subregion/southern-europe",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -8993,7 +8993,7 @@
     "description": "Economic: Economy Worldbank",
     "url": "https://restcountries.com/v3.1/subregion/caribbean",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -9015,7 +9015,7 @@
     "description": "Economic: Economy Worldbank",
     "url": "https://restcountries.com/v3.1/subregion/south-eastern-asia",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -9026,7 +9026,7 @@
     "description": "Economic: Economy Worldbank",
     "url": "https://restcountries.com/v3.1/subregion/eastern-europe",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -9059,7 +9059,7 @@
     "description": "geography_location API endpoint",
     "url": "https://restcountries.com/v3.1/region/europe",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -9081,7 +9081,7 @@
     "description": "geography_location API endpoint",
     "url": "https://restcountries.com/v3.1/region/americas",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -9092,7 +9092,7 @@
     "description": "geography_location API endpoint",
     "url": "https://restcountries.com/v3.1/subregion/northern-africa",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -9103,7 +9103,7 @@
     "description": "geography_location API endpoint",
     "url": "https://restcountries.com/v3.1/subregion/central-america",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -9125,7 +9125,7 @@
     "description": "geography_location API endpoint",
     "url": "https://restcountries.com/v3.1/subregion/eastern-africa",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -9136,7 +9136,7 @@
     "description": "geography_location API endpoint",
     "url": "https://restcountries.com/v3.1/subregion/western-europe",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -9158,7 +9158,7 @@
     "description": "geography_location API endpoint",
     "url": "https://restcountries.com/v3.1/region/asia",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -9169,7 +9169,7 @@
     "description": "geography_location API endpoint",
     "url": "https://restcountries.com/v3.1/subregion/northern-europe",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -9191,7 +9191,7 @@
     "description": "geography_location API endpoint",
     "url": "https://restcountries.com/v3.1/subregion/western-africa",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -9202,7 +9202,7 @@
     "description": "geography_location API endpoint",
     "url": "https://restcountries.com/v3.1/subregion/south-america",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -9213,7 +9213,7 @@
     "description": "geography_location API endpoint",
     "url": "https://restcountries.com/v3.1/subregion/northern-america",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -9224,7 +9224,7 @@
     "description": "geography_location API endpoint",
     "url": "https://restcountries.com/v3.1/subregion/southern-asia",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
@@ -9235,7 +9235,7 @@
     "description": "geography_location API endpoint",
     "url": "https://restcountries.com/v3.1/region/africa",
     "price_usd": 0.01,
-    "active": false,
+    "active": true,
     "handler": "data/generic",
     "category": "geography_location",
     "route_path": "/knowledge/countries/:code"
