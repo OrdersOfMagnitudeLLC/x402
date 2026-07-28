@@ -2,3 +2,9 @@
 node_modules/
 *.log
 scripts/
+health_check.js
+health_check_results.json
+upstream_full_check.js
+upstream_full_results.json
+upstream_health_results.json
+upstream_sample_check.js
