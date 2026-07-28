@@ -7,17 +7,12 @@ if (!fs.existsSync(publicDir)) {
   fs.mkdirSync(publicDir, { recursive: true });
 }
 
-// Read products.json
-const productsPath = path.join(__dirname, '../products.json');
+// Read products-all.json
+const productsPath = path.join(__dirname, '../products-all.json');
 const products = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
 
 // Filter out inactive products
-const activeProducts = products.filter(p => p.active !== false);
-
-// Read pioneer products
-const pioneerPath = path.join(__dirname, '../scripts/pioneer_products.json');
-const pioneerProducts = JSON.parse(fs.readFileSync(pioneerPath, 'utf8'));
-const allProducts = [...activeProducts, ...pioneerProducts];
+const allProducts = products.filter(p => p.active !== false);
 
 // Helper to extract param names from route path
 function extractParams(routePath) {
