@@ -297,7 +297,7 @@ function generateOpenApiJson() {
   };
   
   for (const product of allProducts) {
-    const method = getMethod(product.route_path || "").toLowerCase();
+    const method = (product.method || getMethod(product.route_path || "")).toLowerCase();
     const path = product.route_path;
 
     // Skip endpoints with null route_path

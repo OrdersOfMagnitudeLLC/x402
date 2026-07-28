@@ -454,6 +454,804 @@ const baseX402Middleware = paymentMiddleware(
         }
       }
     },
+    "GET /library/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Library data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "GET /lead/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Lead data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "GET /schedule/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Schedule data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "GET /content/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Content data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "GET /support/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Support data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "GET /email/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Email data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "GET /nlp/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "NLP data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "GET /voice/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Voice data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "GET /verify/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Verify data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "GET /notify/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Notify data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "GET /secrets/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Secrets data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "GET /coordination/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Coordination data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "GET /logging/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Logging data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "GET /tasks/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Tasks data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "POST /library/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Library data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "POST /lead/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Lead data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "POST /schedule/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Schedule data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "POST /content/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Content data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "POST /support/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Support data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "POST /email/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Email data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "POST /nlp/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "NLP data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "POST /voice/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Voice data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "POST /verify/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Verify data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "POST /notify/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Notify data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "POST /secrets/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Secrets data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "POST /coordination/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Coordination data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "POST /logging/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Logging data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "POST /tasks/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Tasks data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "DELETE /library/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Library data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "DELETE /lead/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Lead data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "DELETE /schedule/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Schedule data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "DELETE /content/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Content data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "DELETE /support/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Support data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "DELETE /email/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Email data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "DELETE /nlp/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "NLP data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "DELETE /voice/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Voice data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "DELETE /verify/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Verify data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "DELETE /notify/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Notify data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "DELETE /secrets/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Secrets data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "DELETE /coordination/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Coordination data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "DELETE /logging/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Logging data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
+    "DELETE /tasks/*": {
+      accepts: {
+        scheme: "exact",
+        price: "$0.01",
+        network: "eip155:8453",
+        payTo: WALLET,
+      },
+      description: "Tasks data endpoints",
+      mimeType: "application/json",
+      extensions: {
+        bazaar: {
+          info: {
+            title: "OOM Data API",
+            description: "Pay-per-call data endpoint via x402"
+          },
+          schema: staticDataSchema
+        }
+      }
+    },
     "GET /memory/get/:key": {
       accepts: {
         scheme: "exact",

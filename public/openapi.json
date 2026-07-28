@@ -10236,7 +10236,7 @@
     },
     "/environment/us/earthquakes/query": {
       "get": {
-        "summary": "USGS Earthquakes /query?format=geojson",
+        "summary": "USGS Earthquakes /query",
         "description": "SCIENCE/SPACE - USGS Earthquakes. Call when an agent needs environment data.",
         "tags": [
           "environment",
@@ -10244,7 +10244,7 @@
           "query"
         ],
         "x-payment-info": {
-          "description": "Access USGS Earthquakes /query?format=geojson via x402 payment protocol",
+          "description": "Access USGS Earthquakes /query via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -10878,14 +10878,14 @@
     },
     "/science/query": {
       "get": {
-        "summary": "arXiv /query?search_query={query}&max_results=10",
+        "summary": "arXiv /query?search_query=all:{term}",
         "description": "SCIENCE/SPACE - arXiv. Call when an agent needs science data.",
         "tags": [
           "science",
           "query"
         ],
         "x-payment-info": {
-          "description": "Access arXiv /query?search_query={query}&max_results=10 via x402 payment protocol",
+          "description": "Access arXiv /query?search_query=all:{term} via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -11198,7 +11198,7 @@
     },
     "/health/clinicaltrialsgov/studies": {
       "get": {
-        "summary": "ClinicalTrials.gov /studies?query.term={term}",
+        "summary": "ClinicalTrials.gov /studies",
         "description": "HEALTH/GOVERNMENT - ClinicalTrials.gov. Call when an agent needs health data.",
         "tags": [
           "health",
@@ -11206,7 +11206,7 @@
           "studies"
         ],
         "x-payment-info": {
-          "description": "Access ClinicalTrials.gov /studies?query.term={term} via x402 payment protocol",
+          "description": "Access ClinicalTrials.gov /studies via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -11626,7 +11626,7 @@
     },
     "/knowledge/open/library/api/books": {
       "get": {
-        "summary": "Open Library /api/books?bibkeys=ISBN:{isbn}",
+        "summary": "Open Library /api/books",
         "description": "REFERENCE/KNOWLEDGE - Open Library. Call when an agent needs knowledge data.",
         "tags": [
           "knowledge",
@@ -11634,7 +11634,7 @@
           "books"
         ],
         "x-payment-info": {
-          "description": "Access Open Library /api/books?bibkeys=ISBN:{isbn} via x402 payment protocol",
+          "description": "Access Open Library /api/books via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -11733,7 +11733,7 @@
     },
     "/knowledge/open/library/searchjson": {
       "get": {
-        "summary": "Open Library /search.json?author={author}",
+        "summary": "Open Library /search.json",
         "description": "REFERENCE/KNOWLEDGE - Open Library. Call when an agent needs knowledge data.",
         "tags": [
           "knowledge",
@@ -11741,7 +11741,7 @@
           "searchjson"
         ],
         "x-payment-info": {
-          "description": "Access Open Library /search.json?author={author} via x402 payment protocol",
+          "description": "Access Open Library /search.json via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -11840,7 +11840,7 @@
     },
     "/knowledge/hacker/news-algolia/search": {
       "get": {
-        "summary": "Hacker News Algolia /search?query={query}",
+        "summary": "Hacker News Algolia /search",
         "description": "REFERENCE/KNOWLEDGE - Hacker News Algolia. Call when an agent needs knowledge data.",
         "tags": [
           "knowledge",
@@ -11848,7 +11848,7 @@
           "search"
         ],
         "x-payment-info": {
-          "description": "Access Hacker News Algolia /search?query={query} via x402 payment protocol",
+          "description": "Access Hacker News Algolia /search via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -11947,7 +11947,7 @@
     },
     "/knowledge/hacker/news-algolia/search_by_date": {
       "get": {
-        "summary": "Hacker News Algolia /search_by_date?tags=story",
+        "summary": "Hacker News Algolia /search_by_date",
         "description": "REFERENCE/KNOWLEDGE - Hacker News Algolia. Call when an agent needs knowledge data.",
         "tags": [
           "knowledge",
@@ -11955,7 +11955,7 @@
           "search_by_date"
         ],
         "x-payment-info": {
-          "description": "Access Hacker News Algolia /search_by_date?tags=story via x402 payment protocol",
+          "description": "Access Hacker News Algolia /search_by_date via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -12175,7 +12175,7 @@
     },
     "/knowledge/open/brewery/breweries": {
       "get": {
-        "summary": "Open Brewery DB /breweries?by_state={state}",
+        "summary": "Open Brewery DB /breweries",
         "description": "REFERENCE/KNOWLEDGE - Open Brewery DB. Call when an agent needs knowledge data.",
         "tags": [
           "knowledge",
@@ -12183,7 +12183,7 @@
           "breweries"
         ],
         "x-payment-info": {
-          "description": "Access Open Brewery DB /breweries?by_state={state} via x402 payment protocol",
+          "description": "Access Open Brewery DB /breweries via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -13983,14 +13983,14 @@
     },
     "/knowledge/agify": {
       "get": {
-        "summary": "Agify /?name={name}&country_id={country}",
+        "summary": "Agify /?name={name}",
         "description": "REFERENCE/KNOWLEDGE - Agify. Call when an agent needs knowledge data.",
         "tags": [
           "knowledge",
           "agify"
         ],
         "x-payment-info": {
-          "description": "Access Agify /?name={name}&country_id={country} via x402 payment protocol",
+          "description": "Access Agify /?name={name} via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -14009,15 +14009,6 @@
               "type": "string"
             },
             "description": "Name to analyze"
-          },
-          {
-            "name": "country_id",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Country ID"
           }
         ],
         "responses": {
@@ -14077,10 +14068,6 @@
                                 "name": {
                                   "type": "string",
                                   "description": "Name to analyze"
-                                },
-                                "country_id": {
-                                  "type": "string",
-                                  "description": "Country ID"
                                 }
                               }
                             },
@@ -14106,14 +14093,14 @@
     },
     "/knowledge/genderize": {
       "get": {
-        "summary": "Genderize /?name={name}&country_id={country}",
+        "summary": "Genderize /?name={name}",
         "description": "REFERENCE/KNOWLEDGE - Genderize. Call when an agent needs knowledge data.",
         "tags": [
           "knowledge",
           "genderize"
         ],
         "x-payment-info": {
-          "description": "Access Genderize /?name={name}&country_id={country} via x402 payment protocol",
+          "description": "Access Genderize /?name={name} via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -14132,15 +14119,6 @@
               "type": "string"
             },
             "description": "Name to analyze"
-          },
-          {
-            "name": "country_id",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Country ID"
           }
         ],
         "responses": {
@@ -14200,10 +14178,6 @@
                                 "name": {
                                   "type": "string",
                                   "description": "Name to analyze"
-                                },
-                                "country_id": {
-                                  "type": "string",
-                                  "description": "Country ID"
                                 }
                               }
                             },
@@ -14229,7 +14203,7 @@
     },
     "/compute/us/random/user-generator": {
       "get": {
-        "summary": "Random User Generator /?inc={fields}",
+        "summary": "Random User Generator /?results=10",
         "description": "UTILITY/DEV - Random User Generator. Call when an agent needs compute data.",
         "tags": [
           "compute",
@@ -14237,7 +14211,7 @@
           "user-generator"
         ],
         "x-payment-info": {
-          "description": "Access Random User Generator /?inc={fields} via x402 payment protocol",
+          "description": "Access Random User Generator /?results=10 via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -14249,13 +14223,13 @@
         },
         "parameters": [
           {
-            "name": "inc",
+            "name": "results",
             "in": "query",
             "required": false,
             "schema": {
               "type": "string"
             },
-            "description": "Fields to include"
+            "description": "Number of results"
           }
         ],
         "responses": {
@@ -14312,9 +14286,9 @@
                             "input": {
                               "type": "object",
                               "properties": {
-                                "inc": {
+                                "results": {
                                   "type": "string",
-                                  "description": "Fields to include"
+                                  "description": "Number of results"
                                 }
                               }
                             },
@@ -15438,7 +15412,7 @@
     },
     "/compute/themealdb/searchphp": {
       "get": {
-        "summary": "TheMealDB /search.php?f={letter}",
+        "summary": "TheMealDB /search.php?s={name}",
         "description": "UTILITY/DEV - TheMealDB. Call when an agent needs compute data.",
         "tags": [
           "compute",
@@ -15446,7 +15420,7 @@
           "searchphp"
         ],
         "x-payment-info": {
-          "description": "Access TheMealDB /search.php?f={letter} via x402 payment protocol",
+          "description": "Access TheMealDB /search.php?s={name} via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -15866,7 +15840,7 @@
     },
     "/compute/themealdb/listphp": {
       "get": {
-        "summary": "TheMealDB /list.php?i=list",
+        "summary": "TheMealDB /list.php?c=list",
         "description": "UTILITY/DEV - TheMealDB. Call when an agent needs compute data.",
         "tags": [
           "compute",
@@ -15874,7 +15848,7 @@
           "listphp"
         ],
         "x-payment-info": {
-          "description": "Access TheMealDB /list.php?i=list via x402 payment protocol",
+          "description": "Access TheMealDB /list.php?c=list via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -15973,7 +15947,7 @@
     },
     "/compute/themealdb/filterphp": {
       "get": {
-        "summary": "TheMealDB /filter.php?a={area}",
+        "summary": "TheMealDB /filter.php?i={ingredient}",
         "description": "UTILITY/DEV - TheMealDB. Call when an agent needs compute data.",
         "tags": [
           "compute",
@@ -15981,7 +15955,7 @@
           "filterphp"
         ],
         "x-payment-info": {
-          "description": "Access TheMealDB /filter.php?a={area} via x402 payment protocol",
+          "description": "Access TheMealDB /filter.php?i={ingredient} via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -16080,7 +16054,7 @@
     },
     "/compute/thecocktaildb/searchphp": {
       "get": {
-        "summary": "TheCocktailDB /search.php?f={letter}",
+        "summary": "TheCocktailDB /search.php?s={name}",
         "description": "UTILITY/DEV - TheCocktailDB. Call when an agent needs compute data.",
         "tags": [
           "compute",
@@ -16088,7 +16062,7 @@
           "searchphp"
         ],
         "x-payment-info": {
-          "description": "Access TheCocktailDB /search.php?f={letter} via x402 payment protocol",
+          "description": "Access TheCocktailDB /search.php?s={name} via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -16401,7 +16375,7 @@
     },
     "/compute/thecocktaildb/filterphp": {
       "get": {
-        "summary": "TheCocktailDB /filter.php?g={glass}",
+        "summary": "TheCocktailDB /filter.php?i={ingredient}",
         "description": "UTILITY/DEV - TheCocktailDB. Call when an agent needs compute data.",
         "tags": [
           "compute",
@@ -16409,7 +16383,7 @@
           "filterphp"
         ],
         "x-payment-info": {
-          "description": "Access TheCocktailDB /filter.php?g={glass} via x402 payment protocol",
+          "description": "Access TheCocktailDB /filter.php?i={ingredient} via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -16508,7 +16482,7 @@
     },
     "/compute/thecocktaildb/listphp": {
       "get": {
-        "summary": "TheCocktailDB /list.php?a=list",
+        "summary": "TheCocktailDB /list.php?c=list",
         "description": "UTILITY/DEV - TheCocktailDB. Call when an agent needs compute data.",
         "tags": [
           "compute",
@@ -16516,7 +16490,7 @@
           "listphp"
         ],
         "x-payment-info": {
-          "description": "Access TheCocktailDB /list.php?a=list via x402 payment protocol",
+          "description": "Access TheCocktailDB /list.php?c=list via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -16615,14 +16589,14 @@
     },
     "/compute/nationalize": {
       "get": {
-        "summary": "Nationalize /?name={name}&country_id={country}",
+        "summary": "Nationalize /?name={name}",
         "description": "UTILITY/DEV - Nationalize. Call when an agent needs compute data.",
         "tags": [
           "compute",
           "nationalize"
         ],
         "x-payment-info": {
-          "description": "Access Nationalize /?name={name}&country_id={country} via x402 payment protocol",
+          "description": "Access Nationalize /?name={name} via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -16641,15 +16615,6 @@
               "type": "string"
             },
             "description": "Name to analyze"
-          },
-          {
-            "name": "country_id",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Country ID"
           }
         ],
         "responses": {
@@ -16709,10 +16674,6 @@
                                 "name": {
                                   "type": "string",
                                   "description": "Name to analyze"
-                                },
-                                "country_id": {
-                                  "type": "string",
-                                  "description": "Country ID"
                                 }
                               }
                             },
@@ -16738,7 +16699,7 @@
     },
     "/compute/wttrin/:location": {
       "get": {
-        "summary": "wttr.in /{location}?format=png",
+        "summary": "wttr.in /{location}",
         "description": "UTILITY/DEV - wttr.in. Call when an agent needs compute data.",
         "tags": [
           "compute",
@@ -16746,7 +16707,7 @@
           ":location"
         ],
         "x-payment-info": {
-          "description": "Access wttr.in /{location}?format=png via x402 payment protocol",
+          "description": "Access wttr.in /{location} via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -30341,15 +30302,15 @@
     },
     "/compute/holidays/2023/:country": {
       "get": {
-        "summary": "Nager Date FR 2023",
-        "description": "Economic: Economy Worldbank. Call when an agent needs compute data.",
+        "summary": "Nager Date LK 2023",
+        "description": "Geographic: Compute Holidays 2023. Call when an agent needs compute data.",
         "tags": [
           "compute",
           "holidays",
           ":country"
         ],
         "x-payment-info": {
-          "description": "Access Nager Date FR 2023 via x402 payment protocol",
+          "description": "Access Nager Date LK 2023 via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -30462,15 +30423,15 @@
     },
     "/compute/holidays/2024/:country": {
       "get": {
-        "summary": "Nager Date US 2024",
-        "description": "Economic: Economy Worldbank. Call when an agent needs compute data.",
+        "summary": "Nager Date LK 2024",
+        "description": "Geographic: Compute Holidays 2024. Call when an agent needs compute data.",
         "tags": [
           "compute",
           "holidays",
           ":country"
         ],
         "x-payment-info": {
-          "description": "Access Nager Date US 2024 via x402 payment protocol",
+          "description": "Access Nager Date LK 2024 via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -31653,15 +31614,15 @@
     },
     "/knowledge/countries/:code": {
       "get": {
-        "summary": "RestCountries africa",
-        "description": "geography_location API endpoint. Call when an agent needs knowledge data.",
+        "summary": "RestCountries polynesia",
+        "description": "Economic: Economy Worldbank. Call when an agent needs knowledge data.",
         "tags": [
           "knowledge",
           "countries",
           ":code"
         ],
         "x-payment-info": {
-          "description": "Access RestCountries africa via x402 payment protocol",
+          "description": "Access RestCountries polynesia via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -31774,15 +31735,15 @@
     },
     "/economy/worldbank/:indicator/:country": {
       "get": {
-        "summary": "WorldBank CA EG.USE.ELEC.KH.PC",
-        "description": "government_economic API endpoint. Call when an agent needs economy data.",
+        "summary": "WorldBank Regions",
+        "description": "Economic: Economy Worldbank. Call when an agent needs economy data.",
         "tags": [
           "economy",
           "worldbank",
           ":country"
         ],
         "x-payment-info": {
-          "description": "Access WorldBank CA EG.USE.ELEC.KH.PC via x402 payment protocol",
+          "description": "Access WorldBank Regions via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -47829,7 +47790,7 @@
     },
     "/environment/us/water/:state": {
       "get": {
-        "summary": "USGS Water FL",
+        "summary": "USGS Water MI",
         "description": "Weather: Environment US Water. Call when an agent needs environment data.",
         "tags": [
           "environment",
@@ -47837,7 +47798,7 @@
           ":state"
         ],
         "x-payment-info": {
-          "description": "Access USGS Water FL via x402 payment protocol",
+          "description": "Access USGS Water MI via x402 payment protocol",
           "price": {
             "mode": "fixed",
             "currency": "USD",
@@ -75539,7 +75500,7 @@
       }
     },
     "/memory/get/:key": {
-      "post": {
+      "get": {
         "summary": "Get a value by key",
         "description": "Get a value by key. Call when an agent needs memory data.",
         "tags": [
@@ -75647,19 +75608,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -75667,7 +75621,7 @@
       }
     },
     "/memory/ttl/:key": {
-      "post": {
+      "get": {
         "summary": "Get TTL for a key",
         "description": "Get TTL for a key. Call when an agent needs memory data.",
         "tags": [
@@ -75775,19 +75729,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -75795,7 +75742,7 @@
       }
     },
     "/memory/delete/:key": {
-      "post": {
+      "delete": {
         "summary": "Delete a key",
         "description": "Delete a key. Call when an agent needs memory data.",
         "tags": [
@@ -75898,24 +75845,6 @@
                     }
                   }
                 }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
               }
             }
           }
@@ -76601,7 +76530,7 @@
       }
     },
     "/memory/exists/:key": {
-      "post": {
+      "get": {
         "summary": "Check if key exists",
         "description": "Check if key exists. Call when an agent needs memory data.",
         "tags": [
@@ -76709,19 +76638,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -77196,7 +77118,7 @@
       }
     },
     "/memory/keys/:prefix": {
-      "post": {
+      "get": {
         "summary": "Get keys by prefix",
         "description": "Get keys by prefix. Call when an agent needs memory data.",
         "tags": [
@@ -77304,19 +77226,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -77324,7 +77239,7 @@
       }
     },
     "/memory/size/:key": {
-      "post": {
+      "get": {
         "summary": "Get size of value in bytes",
         "description": "Get size of value in bytes. Call when an agent needs memory data.",
         "tags": [
@@ -77432,19 +77347,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -78130,7 +78038,7 @@
       }
     },
     "/memory/hgetall/:key": {
-      "post": {
+      "get": {
         "summary": "Get all hash fields",
         "description": "Get all hash fields. Call when an agent needs memory data.",
         "tags": [
@@ -78238,19 +78146,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -78258,7 +78159,7 @@
       }
     },
     "/memory/hdel": {
-      "post": {
+      "delete": {
         "summary": "Delete hash field",
         "description": "Delete hash field. Call when an agent needs memory data.",
         "tags": [
@@ -78349,29 +78250,11 @@
               }
             }
           }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
-              }
-            }
-          }
         }
       }
     },
     "/memory/hkeys/:key": {
-      "post": {
+      "get": {
         "summary": "Get all hash field names",
         "description": "Get all hash field names. Call when an agent needs memory data.",
         "tags": [
@@ -78479,19 +78362,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -78499,7 +78375,7 @@
       }
     },
     "/memory/hlen/:key": {
-      "post": {
+      "get": {
         "summary": "Get hash field count",
         "description": "Get hash field count. Call when an agent needs memory data.",
         "tags": [
@@ -78607,19 +78483,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -79079,7 +78948,7 @@
       }
     },
     "/memory/lrange": {
-      "post": {
+      "get": {
         "summary": "Get range of list",
         "description": "Get range of list. Call when an agent needs memory data.",
         "tags": [
@@ -79172,19 +79041,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -79192,7 +79054,7 @@
       }
     },
     "/memory/llen/:key": {
-      "post": {
+      "get": {
         "summary": "Get list length",
         "description": "Get list length. Call when an agent needs memory data.",
         "tags": [
@@ -79300,19 +79162,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -79546,7 +79401,7 @@
       }
     },
     "/memory/smembers/:key": {
-      "post": {
+      "get": {
         "summary": "Get all set members",
         "description": "Get all set members. Call when an agent needs memory data.",
         "tags": [
@@ -79654,19 +79509,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -79787,7 +79635,7 @@
       }
     },
     "/memory/scard/:key": {
-      "post": {
+      "get": {
         "summary": "Get set cardinality",
         "description": "Get set cardinality. Call when an agent needs memory data.",
         "tags": [
@@ -79895,19 +79743,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -80254,7 +80095,7 @@
       }
     },
     "/memory/zrange": {
-      "post": {
+      "get": {
         "summary": "Get range from sorted set",
         "description": "Get range from sorted set. Call when an agent needs memory data.",
         "tags": [
@@ -80347,19 +80188,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -80367,7 +80201,7 @@
       }
     },
     "/memory/zrank": {
-      "post": {
+      "get": {
         "summary": "Get rank of member in sorted set",
         "description": "Get rank of member in sorted set. Call when an agent needs memory data.",
         "tags": [
@@ -80460,19 +80294,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -80480,7 +80307,7 @@
       }
     },
     "/memory/zscore": {
-      "post": {
+      "get": {
         "summary": "Get score of member in sorted set",
         "description": "Get score of member in sorted set. Call when an agent needs memory data.",
         "tags": [
@@ -80573,19 +80400,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -80593,7 +80413,7 @@
       }
     },
     "/memory/zcard/:key": {
-      "post": {
+      "get": {
         "summary": "Get sorted set cardinality",
         "description": "Get sorted set cardinality. Call when an agent needs memory data.",
         "tags": [
@@ -80701,19 +80521,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -80834,7 +80647,7 @@
       }
     },
     "/logging/read/:log_id": {
-      "post": {
+      "get": {
         "summary": "Read entries from a log",
         "description": "Read entries from a log. Call when an agent needs logging data.",
         "tags": [
@@ -80942,19 +80755,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -80962,7 +80768,7 @@
       }
     },
     "/logging/clear/:log_id": {
-      "post": {
+      "delete": {
         "summary": "Clear a log",
         "description": "Clear a log. Call when an agent needs logging data.",
         "tags": [
@@ -81068,29 +80874,11 @@
               }
             }
           }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
-              }
-            }
-          }
         }
       }
     },
     "/logging/count/:log_id": {
-      "post": {
+      "get": {
         "summary": "Get log entry count",
         "description": "Get log entry count. Call when an agent needs logging data.",
         "tags": [
@@ -81198,19 +80986,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -81218,7 +80999,7 @@
       }
     },
     "/logging/tail/:log_id": {
-      "post": {
+      "get": {
         "summary": "Get last N entries",
         "description": "Get last N entries. Call when an agent needs logging data.",
         "tags": [
@@ -81326,19 +81107,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -81346,7 +81120,7 @@
       }
     },
     "/logging/head/:log_id": {
-      "post": {
+      "get": {
         "summary": "Get first N entries",
         "description": "Get first N entries (oldest). Call when an agent needs logging data.",
         "tags": [
@@ -81454,19 +81228,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -81474,7 +81241,7 @@
       }
     },
     "/logging/get/:log_id/:index": {
-      "post": {
+      "get": {
         "summary": "Get entry at specific index",
         "description": "Get entry at specific index. Call when an agent needs logging data.",
         "tags": [
@@ -81594,19 +81361,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -81727,7 +81487,7 @@
       }
     },
     "/logging/list": {
-      "post": {
+      "get": {
         "summary": "List all log IDs",
         "description": "List all log IDs. Call when an agent needs logging data.",
         "tags": [
@@ -81820,19 +81580,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -81953,7 +81706,7 @@
       }
     },
     "/logging/stats/:log_id": {
-      "post": {
+      "get": {
         "summary": "Get log statistics",
         "description": "Get log statistics. Call when an agent needs logging data.",
         "tags": [
@@ -82061,19 +81814,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -82533,7 +82279,7 @@
       }
     },
     "/logging/filter/:log_id": {
-      "post": {
+      "get": {
         "summary": "Filter by level",
         "description": "Filter by level. Call when an agent needs logging data.",
         "tags": [
@@ -82641,19 +82387,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -82774,7 +82513,7 @@
       }
     },
     "/logging/ttl/:log_id": {
-      "post": {
+      "get": {
         "summary": "Get log TTL",
         "description": "Get log TTL. Call when an agent needs logging data.",
         "tags": [
@@ -82882,19 +82621,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -83354,7 +83086,7 @@
       }
     },
     "/logging/range": {
-      "post": {
+      "get": {
         "summary": "Get range of entries",
         "description": "Get range of entries. Call when an agent needs logging data.",
         "tags": [
@@ -83447,19 +83179,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -83806,7 +83531,7 @@
       }
     },
     "/logging/size/:log_id": {
-      "post": {
+      "get": {
         "summary": "Get log size in bytes",
         "description": "Get log size in bytes. Call when an agent needs logging data.",
         "tags": [
@@ -83914,19 +83639,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -84273,7 +83991,7 @@
       }
     },
     "/logging/config/:log_id": {
-      "post": {
+      "get": {
         "summary": "Get log configuration",
         "description": "Get log configuration. Call when an agent needs logging data.",
         "tags": [
@@ -84381,19 +84099,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -84740,7 +84451,7 @@
       }
     },
     "/logging/levels/:log_id": {
-      "post": {
+      "get": {
         "summary": "Get unique log levels",
         "description": "Get unique log levels. Call when an agent needs logging data.",
         "tags": [
@@ -84848,19 +84559,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -84981,7 +84685,7 @@
       }
     },
     "/logging/subscribers/:log_id": {
-      "post": {
+      "get": {
         "summary": "Get log subscribers",
         "description": "Get log subscribers. Call when an agent needs logging data.",
         "tags": [
@@ -85089,19 +84793,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -85109,7 +84806,7 @@
       }
     },
     "/logging/unsubscribe": {
-      "post": {
+      "delete": {
         "summary": "Unsubscribe from log",
         "description": "Unsubscribe from log. Call when an agent needs logging data.",
         "tags": [
@@ -85197,24 +84894,6 @@
                     }
                   }
                 }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
               }
             }
           }
@@ -85448,7 +85127,7 @@
       }
     },
     "/logging/by-tag/:log_id": {
-      "post": {
+      "get": {
         "summary": "Get entries by tag",
         "description": "Get entries by tag. Call when an agent needs logging data.",
         "tags": [
@@ -85556,19 +85235,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -85576,7 +85248,7 @@
       }
     },
     "/logging/tags/:log_id": {
-      "post": {
+      "get": {
         "summary": "Get all tags in log",
         "description": "Get all tags in log. Call when an agent needs logging data.",
         "tags": [
@@ -85684,19 +85356,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -85817,7 +85482,7 @@
       }
     },
     "/logging/retention/:log_id": {
-      "post": {
+      "get": {
         "summary": "Get retention policy",
         "description": "Get retention policy. Call when an agent needs logging data.",
         "tags": [
@@ -85925,19 +85590,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -86058,7 +85716,7 @@
       }
     },
     "/logging/archives/:log_id": {
-      "post": {
+      "get": {
         "summary": "List archives for a log",
         "description": "List archives for a log. Call when an agent needs logging data.",
         "tags": [
@@ -86166,19 +85824,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -86299,7 +85950,7 @@
       }
     },
     "/logging/delete-archive": {
-      "post": {
+      "delete": {
         "summary": "Delete archive",
         "description": "Delete archive. Call when an agent needs logging data.",
         "tags": [
@@ -86387,24 +86038,6 @@
                     }
                   }
                 }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
               }
             }
           }
@@ -86638,7 +86271,7 @@
       }
     },
     "/tasks/length/:queue_id": {
-      "post": {
+      "get": {
         "summary": "Get queue length",
         "description": "Get queue length. Call when an agent needs tasks data.",
         "tags": [
@@ -86746,19 +86379,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -87105,7 +86731,7 @@
       }
     },
     "/tasks/clear": {
-      "post": {
+      "delete": {
         "summary": "Clear a queue",
         "description": "Clear a queue. Call when an agent needs tasks data.",
         "tags": [
@@ -87196,29 +86822,11 @@
               }
             }
           }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
-              }
-            }
-          }
         }
       }
     },
     "/tasks/list": {
-      "post": {
+      "get": {
         "summary": "List all queues",
         "description": "List all queues. Call when an agent needs tasks data.",
         "tags": [
@@ -87311,19 +86919,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -87783,7 +87384,7 @@
       }
     },
     "/tasks/scheduled/:queue_id": {
-      "post": {
+      "get": {
         "summary": "Get scheduled tasks",
         "description": "Get scheduled tasks. Call when an agent needs tasks data.",
         "tags": [
@@ -87891,19 +87492,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -88024,7 +87618,7 @@
       }
     },
     "/tasks/stats/:queue_id": {
-      "post": {
+      "get": {
         "summary": "Get queue statistics",
         "description": "Get queue statistics. Call when an agent needs tasks data.",
         "tags": [
@@ -88132,19 +87726,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -88378,7 +87965,7 @@
       }
     },
     "/tasks/peek-n": {
-      "post": {
+      "get": {
         "summary": "Peek at N tasks",
         "description": "Peek at N tasks. Call when an agent needs tasks data.",
         "tags": [
@@ -88471,19 +88058,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -88604,7 +88184,7 @@
       }
     },
     "/tasks/ttl/:queue_id": {
-      "post": {
+      "get": {
         "summary": "Get queue TTL",
         "description": "Get queue TTL. Call when an agent needs tasks data.",
         "tags": [
@@ -88712,19 +88292,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -88958,7 +88531,7 @@
       }
     },
     "/tasks/batch-delete": {
-      "post": {
+      "delete": {
         "summary": "Delete multiple queues",
         "description": "Delete multiple queues. Call when an agent needs tasks data.",
         "tags": [
@@ -89049,29 +88622,11 @@
               }
             }
           }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
-              }
-            }
-          }
         }
       }
     },
     "/tasks/size/:queue_id": {
-      "post": {
+      "get": {
         "summary": "Get queue size in bytes",
         "description": "Get queue size in bytes. Call when an agent needs tasks data.",
         "tags": [
@@ -89179,19 +88734,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -89312,7 +88860,7 @@
       }
     },
     "/tasks/priority-range": {
-      "post": {
+      "get": {
         "summary": "Get range from priority queue",
         "description": "Get range from priority queue. Call when an agent needs tasks data.",
         "tags": [
@@ -89405,19 +88953,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -89538,7 +89079,7 @@
       }
     },
     "/tasks/priority-count/:queue_id": {
-      "post": {
+      "get": {
         "summary": "Get priority queue count",
         "description": "Get priority queue count. Call when an agent needs tasks data.",
         "tags": [
@@ -89646,19 +89187,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -89892,7 +89426,7 @@
       }
     },
     "/tasks/config/:queue_id": {
-      "post": {
+      "get": {
         "summary": "Get queue configuration",
         "description": "Get queue configuration. Call when an agent needs tasks data.",
         "tags": [
@@ -90000,19 +89534,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -90133,7 +89660,7 @@
       }
     },
     "/tasks/range": {
-      "post": {
+      "get": {
         "summary": "Get range of tasks",
         "description": "Get range of tasks. Call when an agent needs tasks data.",
         "tags": [
@@ -90226,19 +89753,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -91150,7 +90670,7 @@
       }
     },
     "/tasks/failed/:queue_id": {
-      "post": {
+      "get": {
         "summary": "Get failed tasks",
         "description": "Get failed tasks. Call when an agent needs tasks data.",
         "tags": [
@@ -91258,19 +90778,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -91617,7 +91130,7 @@
       }
     },
     "/tasks/by-tag/:queue_id": {
-      "post": {
+      "get": {
         "summary": "Get tasks by tag",
         "description": "Get tasks by tag. Call when an agent needs tasks data.",
         "tags": [
@@ -91725,19 +91238,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -91745,7 +91251,7 @@
       }
     },
     "/tasks/tags/:queue_id": {
-      "post": {
+      "get": {
         "summary": "Get all tags in queue",
         "description": "Get all tags in queue. Call when an agent needs tasks data.",
         "tags": [
@@ -91853,19 +91359,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -92212,7 +91711,7 @@
       }
     },
     "/tasks/by-id/:queue_id": {
-      "post": {
+      "get": {
         "summary": "Get task by ID",
         "description": "Get task by ID. Call when an agent needs tasks data.",
         "tags": [
@@ -92320,19 +91819,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -92679,7 +92171,7 @@
       }
     },
     "/tasks/all-stats": {
-      "post": {
+      "get": {
         "summary": "Get statistics for all queues",
         "description": "Get statistics for all queues. Call when an agent needs tasks data.",
         "tags": [
@@ -92772,19 +92264,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -93018,7 +92503,7 @@
       }
     },
     "/tasks/rate-limit/:queue_id": {
-      "post": {
+      "get": {
         "summary": "Get rate limit",
         "description": "Get rate limit. Call when an agent needs tasks data.",
         "tags": [
@@ -93126,19 +92611,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -93485,7 +92963,7 @@
       }
     },
     "/tasks/completed/:queue_id": {
-      "post": {
+      "get": {
         "summary": "Get completed tasks",
         "description": "Get completed tasks. Call when an agent needs tasks data.",
         "tags": [
@@ -93593,19 +93071,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -93952,7 +93423,7 @@
       }
     },
     "/notify/list/:event": {
-      "post": {
+      "get": {
         "summary": "List all webhooks for an event",
         "description": "List all webhooks for an event. Call when an agent needs notify data.",
         "tags": [
@@ -94060,19 +93531,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -94080,7 +93544,7 @@
       }
     },
     "/notify/unregister": {
-      "post": {
+      "delete": {
         "summary": "Unregister a webhook",
         "description": "Unregister a webhook. Call when an agent needs notify data.",
         "tags": [
@@ -94171,29 +93635,11 @@
               }
             }
           }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
-              }
-            }
-          }
         }
       }
     },
     "/notify/events": {
-      "post": {
+      "get": {
         "summary": "List all events with webhooks",
         "description": "List all events with webhooks. Call when an agent needs notify data.",
         "tags": [
@@ -94286,19 +93732,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -94758,7 +94197,7 @@
       }
     },
     "/notify/count/:event": {
-      "post": {
+      "get": {
         "summary": "Count webhooks for event",
         "description": "Count webhooks for event. Call when an agent needs notify data.",
         "tags": [
@@ -94866,19 +94305,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -94886,7 +94318,7 @@
       }
     },
     "/notify/clear": {
-      "post": {
+      "delete": {
         "summary": "Clear all webhooks for event",
         "description": "Clear all webhooks for event. Call when an agent needs notify data.",
         "tags": [
@@ -94974,24 +94406,6 @@
                     }
                   }
                 }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
               }
             }
           }
@@ -95338,7 +94752,7 @@
       }
     },
     "/notify/paused/:event": {
-      "post": {
+      "get": {
         "summary": "Check if event is paused",
         "description": "Check if event is paused. Call when an agent needs notify data.",
         "tags": [
@@ -95446,19 +94860,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -95692,7 +95099,7 @@
       }
     },
     "/notify/stats/:event": {
-      "post": {
+      "get": {
         "summary": "Get event statistics",
         "description": "Get event statistics. Call when an agent needs notify data.",
         "tags": [
@@ -95800,19 +95207,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -96046,7 +95446,7 @@
       }
     },
     "/notify/async-queue-size": {
-      "post": {
+      "get": {
         "summary": "Get async queue size",
         "description": "Get async queue size. Call when an agent needs notify data.",
         "tags": [
@@ -96139,19 +95539,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -96385,7 +95778,7 @@
       }
     },
     "/notify/webhook/:event/:id": {
-      "post": {
+      "get": {
         "summary": "Get specific webhook",
         "description": "Get specific webhook. Call when an agent needs notify data.",
         "tags": [
@@ -96505,19 +95898,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -96751,7 +96137,7 @@
       }
     },
     "/notify/rate-limit/:event": {
-      "post": {
+      "get": {
         "summary": "Get rate limit",
         "description": "Get rate limit. Call when an agent needs notify data.",
         "tags": [
@@ -96859,19 +96245,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -97331,7 +96710,7 @@
       }
     },
     "/notify/ttl/:event": {
-      "post": {
+      "get": {
         "summary": "Get webhook TTL",
         "description": "Get webhook TTL. Call when an agent needs notify data.",
         "tags": [
@@ -97439,19 +96818,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -97911,7 +97283,7 @@
       }
     },
     "/notify/all-stats": {
-      "post": {
+      "get": {
         "summary": "Get statistics for all events",
         "description": "Get statistics for all events. Call when an agent needs notify data.",
         "tags": [
@@ -98004,19 +97376,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -98250,7 +97615,7 @@
       }
     },
     "/notify/event-metadata/:event": {
-      "post": {
+      "get": {
         "summary": "Get event metadata",
         "description": "Get event metadata. Call when an agent needs notify data.",
         "tags": [
@@ -98358,19 +97723,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -99184,7 +98542,7 @@
       }
     },
     "/notify/event-description/:event": {
-      "post": {
+      "get": {
         "summary": "Get event description",
         "description": "Get event description. Call when an agent needs notify data.",
         "tags": [
@@ -99292,19 +98650,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -107450,7 +106801,7 @@
       }
     },
     "/coordination/lock/status/:id": {
-      "post": {
+      "get": {
         "summary": "Check lock status",
         "description": "Check lock status. Call when an agent needs coordination data.",
         "tags": [
@@ -107558,19 +106909,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -107806,7 +107150,7 @@
       }
     },
     "/coordination/counter/get/:counter_id": {
-      "post": {
+      "get": {
         "summary": "Get counter value",
         "description": "Get counter value. Call when an agent needs coordination data.",
         "tags": [
@@ -107914,19 +107258,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -108276,7 +107613,7 @@
       }
     },
     "/coordination/semaphore/status/:sem_id": {
-      "post": {
+      "get": {
         "summary": "Get semaphore status",
         "description": "Get semaphore status. Call when an agent needs coordination data.",
         "tags": [
@@ -108384,19 +107721,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -108518,7 +107848,7 @@
       }
     },
     "/coordination/election/result/:election_id": {
-      "post": {
+      "get": {
         "summary": "Get election result",
         "description": "Get election result. Call when an agent needs coordination data.",
         "tags": [
@@ -108626,19 +107956,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -109102,7 +108425,7 @@
       }
     },
     "/coordination/lock/list": {
-      "post": {
+      "get": {
         "summary": "List all locks",
         "description": "List all locks. Call when an agent needs coordination data.",
         "tags": [
@@ -109196,19 +108519,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -109672,7 +108988,7 @@
       }
     },
     "/coordination/counter/list": {
-      "post": {
+      "get": {
         "summary": "List all counters",
         "description": "List all counters. Call when an agent needs coordination data.",
         "tags": [
@@ -109766,19 +109082,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -110242,7 +109551,7 @@
       }
     },
     "/coordination/semaphore/config/:sem_id": {
-      "post": {
+      "get": {
         "summary": "Get semaphore config",
         "description": "Get semaphore config. Call when an agent needs coordination data.",
         "tags": [
@@ -110350,19 +109659,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -110484,7 +109786,7 @@
       }
     },
     "/coordination/semaphore/list": {
-      "post": {
+      "get": {
         "summary": "List all semaphores",
         "description": "List all semaphores. Call when an agent needs coordination data.",
         "tags": [
@@ -110578,19 +109880,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -111054,7 +110349,7 @@
       }
     },
     "/coordination/election/candidates/:election_id": {
-      "post": {
+      "get": {
         "summary": "Get all candidates",
         "description": "Get all candidates. Call when an agent needs coordination data.",
         "tags": [
@@ -111162,19 +110457,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -111296,7 +110584,7 @@
       }
     },
     "/coordination/election/list": {
-      "post": {
+      "get": {
         "summary": "List all elections",
         "description": "List all elections. Call when an agent needs coordination data.",
         "tags": [
@@ -111390,19 +110678,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -111752,7 +111033,7 @@
       }
     },
     "/coordination/barrier/status/:barrier_id": {
-      "post": {
+      "get": {
         "summary": "Get barrier status",
         "description": "Get barrier status. Call when an agent needs coordination data.",
         "tags": [
@@ -111860,19 +111141,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -112336,7 +111610,7 @@
       }
     },
     "/coordination/rwlock/status/:resource_id": {
-      "post": {
+      "get": {
         "summary": "Get rwlock status",
         "description": "Get rwlock status. Call when an agent needs coordination data.",
         "tags": [
@@ -112444,19 +111718,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -112692,7 +111959,7 @@
       }
     },
     "/coordination/leader/status": {
-      "post": {
+      "get": {
         "summary": "Get leader status",
         "description": "Get leader status. Call when an agent needs coordination data.",
         "tags": [
@@ -112786,19 +112053,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -113148,7 +112408,7 @@
       }
     },
     "/coordination/quorum/status/:quorum_id": {
-      "post": {
+      "get": {
         "summary": "Get quorum status",
         "description": "Get quorum status. Call when an agent needs coordination data.",
         "tags": [
@@ -113256,19 +112516,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -113618,7 +112871,7 @@
       }
     },
     "/coordination/mutex/status/:mutex_id": {
-      "post": {
+      "get": {
         "summary": "Get mutex status",
         "description": "Get mutex status. Call when an agent needs coordination data.",
         "tags": [
@@ -113726,19 +112979,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -113974,7 +113220,7 @@
       }
     },
     "/coordination/latch/status/:latch_id": {
-      "post": {
+      "get": {
         "summary": "Get latch status",
         "description": "Get latch status. Call when an agent needs coordination data.",
         "tags": [
@@ -114082,19 +113328,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -114216,7 +113455,7 @@
       }
     },
     "/coordination/flag/check/:flag_id": {
-      "post": {
+      "get": {
         "summary": "Check flag",
         "description": "Check flag. Call when an agent needs coordination data.",
         "tags": [
@@ -114324,19 +113563,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -114800,7 +114032,7 @@
       }
     },
     "/coordination/sequence/current/:sequence_id": {
-      "post": {
+      "get": {
         "summary": "Get current sequence value",
         "description": "Get current sequence value. Call when an agent needs coordination data.",
         "tags": [
@@ -114908,19 +114140,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -115156,7 +114381,7 @@
       }
     },
     "/coordination/lease/status/:lease_id": {
-      "post": {
+      "get": {
         "summary": "Get lease status",
         "description": "Get lease status. Call when an agent needs coordination data.",
         "tags": [
@@ -115264,19 +114489,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -115511,7 +114729,7 @@
       }
     },
     "/secrets/retrieve/:key": {
-      "post": {
+      "get": {
         "summary": "Retrieve and decrypt a secret",
         "description": "Retrieve and decrypt a secret. Call when an agent needs secrets data.",
         "tags": [
@@ -115619,19 +114837,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -115639,7 +114850,7 @@
       }
     },
     "/secrets/delete/:key": {
-      "post": {
+      "delete": {
         "summary": "Delete a secret",
         "description": "Delete a secret. Call when an agent needs secrets data.",
         "tags": [
@@ -115745,29 +114956,11 @@
               }
             }
           }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
-              }
-            }
-          }
         }
       }
     },
     "/secrets/exists/:key": {
-      "post": {
+      "get": {
         "summary": "Check if a secret exists",
         "description": "Check if a secret exists. Call when an agent needs secrets data.",
         "tags": [
@@ -115875,19 +115068,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -116121,7 +115307,7 @@
       }
     },
     "/secrets/list": {
-      "post": {
+      "get": {
         "summary": "List all secret keys",
         "description": "List all secret keys. Call when an agent needs secrets data.",
         "tags": [
@@ -116214,19 +115400,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -116234,7 +115413,7 @@
       }
     },
     "/secrets/metadata/:key": {
-      "post": {
+      "get": {
         "summary": "Get secret metadata without decrypting",
         "description": "Get secret metadata without decrypting. Call when an agent needs secrets data.",
         "tags": [
@@ -116342,19 +115521,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -117944,7 +117116,7 @@
       }
     },
     "/secrets/tags/:key": {
-      "post": {
+      "get": {
         "summary": "Get tags for a secret",
         "description": "Get tags for a secret. Call when an agent needs secrets data.",
         "tags": [
@@ -118052,19 +117224,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -118185,7 +117350,7 @@
       }
     },
     "/secrets/by-tag/:tag": {
-      "post": {
+      "get": {
         "summary": "Get secrets by tag",
         "description": "Get secrets by tag. Call when an agent needs secrets data.",
         "tags": [
@@ -118293,19 +117458,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -118426,7 +117584,7 @@
       }
     },
     "/secrets/retrieve-share/:share_token": {
-      "post": {
+      "get": {
         "summary": "Retrieve secret via share token",
         "description": "Retrieve secret via share token. Call when an agent needs secrets data.",
         "tags": [
@@ -118534,19 +117692,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -118780,7 +117931,7 @@
       }
     },
     "/secrets/versions/:key": {
-      "post": {
+      "get": {
         "summary": "List all versions of a secret",
         "description": "List all versions of a secret. Call when an agent needs secrets data.",
         "tags": [
@@ -118888,19 +118039,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -118908,7 +118052,7 @@
       }
     },
     "/secrets/retrieve-version/:key/:version": {
-      "post": {
+      "get": {
         "summary": "Retrieve a specific version",
         "description": "Retrieve a specific version. Call when an agent needs secrets data.",
         "tags": [
@@ -119028,19 +118172,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -119387,7 +118524,7 @@
       }
     },
     "/secrets/audit-log/:key": {
-      "post": {
+      "get": {
         "summary": "Get audit log for a secret",
         "description": "Get audit log for a secret. Call when an agent needs secrets data.",
         "tags": [
@@ -119495,19 +118632,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -119628,7 +118758,7 @@
       }
     },
     "/secrets/policy/:key": {
-      "post": {
+      "get": {
         "summary": "Get access policy for a secret",
         "description": "Get access policy for a secret. Call when an agent needs secrets data.",
         "tags": [
@@ -119736,19 +118866,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -120095,7 +119218,7 @@
       }
     },
     "/secrets/stats": {
-      "post": {
+      "get": {
         "summary": "Get statistics about secrets",
         "description": "Get statistics about secrets. Call when an agent needs secrets data.",
         "tags": [
@@ -120188,19 +119311,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -120434,7 +119550,7 @@
       }
     },
     "/secrets/export": {
-      "post": {
+      "get": {
         "summary": "Export all secrets",
         "description": "Export all secrets (decrypted). Call when an agent needs secrets data.",
         "tags": [
@@ -120527,19 +119643,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }
@@ -120886,7 +119995,7 @@
       }
     },
     "/secrets/is-locked/:key": {
-      "post": {
+      "get": {
         "summary": "Check if a secret is locked",
         "description": "Check if a secret is locked. Call when an agent needs secrets data.",
         "tags": [
@@ -120994,19 +120103,12 @@
           }
         },
         "requestBody": {
-          "required": true,
+          "required": false,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "input": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "input"
-                ]
+                "properties": {}
               }
             }
           }

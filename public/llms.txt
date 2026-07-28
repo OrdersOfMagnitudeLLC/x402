@@ -476,7 +476,7 @@ GET /compute/us/due/diligence-summary — Processes due diligence documents to g
 GET /compute/us/supply/chain-risk-assessment — Assesses supply chain risks to generate risk scores, identify risk factors, evaluate geographic risks, and suggest mitigation strategies using AI. — $0.07
 GET /compute/us/m-and-a/signal-detection — Analyzes regulatory filings to detect M&A signals, estimate probability, identify target companies, and provide rationale using AI. — $0.07
 GET /compute/us/financial/ratio-interpretation — Interprets financial ratios into plain English including context, industry comparison, and trend analysis using AI. — $0.003
-...and 360 more at /x402.json
+...and 202 more at /x402.json
 
 ### Economy
 GET /economy/macro/indicators — Returns global economic indicators from World Bank including GDP, population, development metrics by country. — $0.005
@@ -501,12 +501,11 @@ The population projections contained here are the projected population resulting
 
 Future population trends are influenced by a variety of social, economic and political factors, with significant fluctuation in short-term population growth rates as well as in the underlying social, economic and political influencers. Numerous behavioural assumptions are required to be made for each age cohort and sex. Many of these assumptions will be swamped by the random impacts on the future movements of individuals through births, deaths, and relocation.
 Neither the authors nor the ACT Government give warranty in relation to these projections, and no liability is accepted by the authors or the Government or any other person who assisted in the preparation of the publication, for errors and omissions, loss or damage suffered as a result of any person acting in reliance thereon. — $0.01
-...and 99 more at /x402.json
+...and 2 more at /x402.json
 
 ### Environment
 GET /environment/us/earthquakes — Returns earthquake and seismic data from USGS including magnitude, location, depth, and timing information. — $0.005
 GET /environment/air/quality — Returns air quality measurements from Open-Meteo including PM2.5, PM10, O3, NO2 levels by location. — $0.005
-GET /environment/us/earthquakes/query — SCIENCE/SPACE - USGS Earthquakes — $0.01
 GET /environment/us/earthquakes/query — SCIENCE/SPACE - USGS Earthquakes — $0.01
 GET /environment/us/solar/radiation-observations — This dataset describes observations made of solar radiation by sensors distributed in Ballarat.
 
@@ -517,7 +516,9 @@ The intended use of the information is to inform the public of the historical me
 The dataset is typically updated every 15 minutes.
 
 The City of Ballarat is not an official source of weather information. These observations are provided to the public for informative purposes only. Use other channels for official meteorological observations and forecasts. — $0.01
-...and 90 more at /x402.json
+GET /environment/us/yedv/epss — A map of the Canberra Centenary Trail, a 145 kilometre selfguided loop trail for walkers and touring cyclists. The trail showcases Canberra and takes users on a
+journey between urban and rural environments. — $0.01
+...and 80 more at /x402.json
 
 ### Finance
 GET /finance/crypto/market-cap — Returns global cryptocurrency market metrics including total market cap, volume, and BTC/ETH dominance percentages. — $0.005
@@ -541,15 +542,15 @@ GET /health/us/drug/events — Returns drug adverse event reports from OpenFDA i
 GET /health/us/recalls — Returns FDA food and drug recall information including product details, recall reasons, and classification. — $0.005
 GET /health/us/clinical/abstract-summary — Summarizes clinical trial abstracts to extract key findings, methodology, conclusions, and assess significance using AI. — $0.003
 GET /health/drug/labeljson — HEALTH/GOVERNMENT - OpenFDA Drug — $0.01
-...and 41 more at /x402.json
+...and 40 more at /x402.json
 
 ### Knowledge
 GET /knowledge/us/nutrition/database — Returns nutrition data from USDA FoodData Central including macronutrients, micronutrients, and serving information. — $0.005
 GET /knowledge/us/patent/claim-analysis — Analyzes patent documents to assess patentability, identify prior art flags, evaluate claim strength, and assess infringement risk using AI. — $0.07
 GET /knowledge/open/library/api/books — REFERENCE/KNOWLEDGE - Open Library — $0.01
-GET /knowledge/open/library/api/books — REFERENCE/KNOWLEDGE - Open Library — $0.01
 GET /knowledge/open/library/searchjson — REFERENCE/KNOWLEDGE - Open Library — $0.01
-...and 72 more at /x402.json
+GET /knowledge/hacker/news-algolia/search — REFERENCE/KNOWLEDGE - Hacker News Algolia — $0.01
+...and 38 more at /x402.json
 
 ### Legal
 GET /legal/filings — Returns SEC EDGAR filings including 10-K, 10-Q, 8-K forms with metadata and document access URLs. — $0.005
@@ -578,7 +579,6 @@ GET /reference/breweries/type/:type — Open Brewery DB - Breweries by Type — 
 ### Science
 GET /science/us/company/research-brief — Generates structured company research brief from ticker input including overview, financials, competitive position, and risks using AI. — $0.07
 GET /science/query — SCIENCE/SPACE - arXiv — $0.01
-GET /science/query — SCIENCE/SPACE - arXiv — $0.01
 GET /science/xvid/q4du — Note: Transport Canberra is working with its service provider to restore public transport data reports on the ACT Open Data portal, with preliminary data now appearing as systems are reconnected. As a result, data remains unverified.
 
 This dataset contains Light Rail Patronage for every 15 mins starting from interval (00 to 00) to interval (23 to 23). This includes both MyWay boardings and paper ticket boardings. This dataset can be aggregated to provide daily Light Rail (LR) patronage number that is published at https://www.data.act.gov.au/Transport/Light-Rail-Patronage/x7dn-77he
@@ -589,7 +589,8 @@ GET /science/us/x7dn/77he — Note: Transport Canberra is working with its servi
 This dataset contains information relating to the daily patronage figure (number of boardings) on the Light Rail Network in Canberra. The dataset contains patronage data since light rail operations commenced with the first fiscal week beginning on Monday 22nd of April 2019. This dataset contains boardings calculated using MyWay Card and Paper Tickets.
 
 Note: Due to delays in data processing, final number may take up to three days to accurately report on all passenger boardings — $0.01
-...and 7 more at /x402.json
+GET /science/crossref/journal-0036-8075 — science_research API endpoint — $0.01
+...and 6 more at /x402.json
 
 ### Security
 GET /security/vulnerabilities — Returns CVE vulnerability details from NVD including severity scores, descriptions, and affected products. — $0.005
