@@ -80,8 +80,14 @@ app.use((req, res, next) => {
       body.extensions = body.extensions || {};
       body.extensions.bazaar = {
         info: {
-          title: "OOM Data API",
-          description: "Pay-per-call data endpoint via x402"
+          title: req.route ? req.route.path : req.path,
+          description: "Pay-per-call API endpoint via x402 protocol",
+          input: {
+            type: "http",
+            method: req.method,
+            path: req.route ? req.route.path : req.path,
+            contentType: "application/json"
+          }
         },
         schema: {
           $schema: "https://json-schema.org/draft/2020-12/schema",
