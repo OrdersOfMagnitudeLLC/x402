@@ -516,9 +516,9 @@ The intended use of the information is to inform the public of the historical me
 The dataset is typically updated every 15 minutes.
 
 The City of Ballarat is not an official source of weather information. These observations are provided to the public for informative purposes only. Use other channels for official meteorological observations and forecasts. — $0.01
-GET /environment/us/yedv/epss — A map of the Canberra Centenary Trail, a 145 kilometre selfguided loop trail for walkers and touring cyclists. The trail showcases Canberra and takes users on a
-journey between urban and rural environments. — $0.01
-...and 80 more at /x402.json
+GET /environment/us/w365/dkdh — AUSRIVAS (Australian River Assessment System) is a river condition monitoring program that uses the environmental sensitivity of aquatic macroinvertebrates to assess the condition of waterways. AUSRIVAS predicts the macroinvertebrate fauna expected to occur at a site with specific environmental characteristics, in the absence of environmental stress. The fauna observed (O) at a site can then be compared to fauna expected (E), with the deviation between the two providing an indication of biological condition. A site displaying no biological impairment should have an O/E taxa score close to one. The O/E taxa score will decrease as the macroinvertebrate assemblage and richness are adversely affected.
+ACT Government maintains 13 AUSRIVAS monitoring locations across the ACT. Sampling is undertaken twice per year (spring and autumn). Site details are provided in another dataset. The O/E taxa score (Score) is provided in this dataset, along with the siteID, Site Name, Season in which the survey was undertaken, and the Year in which the survey was undertaken. — $0.01
+...and 79 more at /x402.json
 
 ### Finance
 GET /finance/crypto/market-cap — Returns global cryptocurrency market metrics including total market cap, volume, and BTC/ETH dominance percentages. — $0.005

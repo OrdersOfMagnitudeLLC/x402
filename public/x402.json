@@ -1453,15 +1453,6 @@
       "category": "government"
     },
     {
-      "endpoint": "/environment/us/yedv/epss",
-      "description": "A map of the Canberra Centenary Trail, a 145 kilometre selfguided loop trail for walkers and touring cyclists. The trail showcases Canberra and takes users on a\njourney between urban and rural environments.",
-      "price": "0.01",
-      "asset": "USDC",
-      "network": "base",
-      "method": "GET",
-      "category": "government"
-    },
-    {
       "endpoint": "/knowledge/us/yde5/uddr",
       "description": "This point dataset shows the locations of Playground Structures in the Australian Capital Territory.These assets are either owned or managed by City Services, City and Environment Directorate (CED) and Parks and Conservation Service, City and Environment Directorate (CED). Assets managed and / or owned privately, by other ACT Government Directorates or by the Federal Government may not be included.Attributes include location description, suburb, ownership, maintained by, asset sub type (Balance Element, Balance Log With Rope, Bridge, Chin Up/Turn Over Bars, Climber, Combination Unit (Huge), Combination Unit (Junior), Combination Unit (Large), Combination Unit (Medium), Combination Unit (Small), Cubby House, Digging Pit, Exercise Element, Flying Fox, Fort/Platform, Goals, Maze, Monkey Bars, Musical Instrument, Natural Arch, Natural Balance Log, Natural Base Area, Natural Dry Creek, Natural Grass Mound, Natural Maze, Natural Platform, Natural Play Rock, Natural Posts, Natural Rill Log, Natural Sandstone Log, Natural Stepping Log, Natural Stepping Stone, Natural Storage Area, Natural Totem Poles, Natural Tunnel, Panel (Activity), Play Art Elements, Rocker, Rotating Element, Rubber Mound, Rubber Play Mound, Running Track, Sand Pit, Sand Play Item, Sculpture, Slide, Sound Element, Spinning Rocker, Swing (Whirl-Around), Swing Frame (Double), Swing Frame (Multiple I.e. Gt 4), Swing Frame (Pentagonal), Swing Frame (Quadruple), Swing Frame (Single), Swing Frame (Triple), Track Glide, Trampoline, Water Play Feature, Weave Poles), Material (e.g. Steel, Timber), and Make and Model where available.These assets are captured and maintained in the asset database through the works as executed (WAE) handover process or field audits.For additional information, please see the relevant municipal infrastructure standard (https://www.cityservices.act.gov.au/plan-and-build/standards-codes-and-guidelines/municipal-infrastructure-design-standards-mis).",
       "price": "0.01",
