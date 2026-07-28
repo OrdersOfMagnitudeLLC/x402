@@ -8,3 +8,5 @@ upstream_full_check.js
 upstream_full_results.json
 upstream_health_results.json
 upstream_sample_check.js
+audit_backend.js
+analyze_merge.js

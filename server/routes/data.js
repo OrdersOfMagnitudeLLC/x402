@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const products = require('../../products.json');
+const products = require('../../products-all.json');
 
 // Helper function to filter response fields
 function filterResponse(data, fields) {
