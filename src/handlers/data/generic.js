@@ -6,7 +6,8 @@ module.exports = async function genericHandler(req, res, product) {
     const timeout = setTimeout(() => controller.abort(), 5000);
     const response = await fetch(url, {
       signal: controller.signal,
-      headers: { 'User-Agent': 'OOM-Crawler/1.0 (orders@ofmagnitude.com)' }
+      redirect: 'follow',
+      headers: { 'User-Agent': 'OOM-x402-API/1.0 (https://ofmagnitude.com; orders@ofmagnitude.com)' }
     });
     clearTimeout(timeout);
     const contentType = response.headers.get('content-type') || '';

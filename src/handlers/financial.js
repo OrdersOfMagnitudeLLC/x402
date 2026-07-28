@@ -42,7 +42,12 @@ async function handleFinancialRequest(req, res) {
     
     // Read stub to get source URL
     const stub = readStub(routePath);
-    const sourceUrl = stub.source_url;
+    let sourceUrl = stub.source_url;
+    
+    // Replace DEMO_KEY with actual FRED_API_KEY at runtime
+    if (sourceUrl.includes('DEMO_KEY') && process.env.FRED_API_KEY) {
+      sourceUrl = sourceUrl.replace('DEMO_KEY', process.env.FRED_API_KEY);
+    }
     
     // Anti-IP-block headers
     const headers = {
@@ -57,12 +62,13 @@ async function handleFinancialRequest(req, res) {
     let response;
     let retryCount = 0;
     const maxRetries = 1;
+    let shouldBreak = false;
     
     // Special handling for llama.fi large responses
     const isLlamaFi = sourceUrl.includes('llama.fi/protocols');
     const timeout = isLlamaFi ? 15000 : 8000;
     
-    while (retryCount <= maxRetries) {
+    while (retryCount <= maxRetries && !shouldBreak) {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), timeout);
       
@@ -87,7 +93,44 @@ async function handleFinancialRequest(req, res) {
       }
       
       // If not retrying or success, break
-      break;
+      shouldBreak = true;
+    }
+    
+    // CMC fallback for CoinGecko 403/429 errors
+    if ((response.status === 403 || response.status === 429) && sourceUrl.includes('coingecko.com')) {
+      if (retryCount >= maxRetries) {
+        console.log('CoinGecko failed, trying CMC fallback...');
+        
+        // Map CoinGecko endpoint to CMC equivalent
+        let cmcUrl;
+        if (sourceUrl.includes('/simple/price')) {
+          cmcUrl = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest';
+        } else if (sourceUrl.includes('/global')) {
+          cmcUrl = 'https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest';
+        } else {
+          // No CMC equivalent for this endpoint
+          cmcUrl = null;
+        }
+        
+        if (cmcUrl) {
+          // Add CMC API key
+          const cmcHeaders = { ...headers };
+          cmcHeaders['X-CMC_PRO_API_KEY'] = process.env.CMC_API_KEY;
+          
+          // Try CMC with same timeout
+          const cmcController = new AbortController();
+          const cmcTimeoutId = setTimeout(() => cmcController.abort(), timeout);
+          
+          console.log(`Fetching CMC: ${cmcUrl}`);
+          response = await fetch(cmcUrl, {
+            headers: cmcHeaders,
+            signal: cmcController.signal
+          });
+          
+          clearTimeout(cmcTimeoutId);
+          console.log(`CMC response status: ${response.status}`);
+        }
+      }
     }
     
     // Check if response is OK after retries
