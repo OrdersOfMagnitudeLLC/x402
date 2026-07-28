@@ -13,6 +13,13 @@ const loggingRouter = require('./routes/logging');
 const tasksRouter = require('./routes/tasks');
 const notifyRouter = require('./routes/notify');
 const verifyRouter = require('./routes/verify');
+const leadRouter = require('./routes/lead');
+const scheduleRouter = require('./routes/schedule');
+const contentRouter = require('./routes/content');
+const supportRouter = require('./routes/support');
+const emailRouter = require('./routes/email');
+const nlpRouter = require('./routes/nlp');
+const voiceRouter = require('./routes/voice');
 const coordinationRouter = require('./routes/coordination');
 const secretsRouter = require('./routes/secrets');
 const simulateRouter = require('./routes/simulate');
@@ -164,6 +171,27 @@ app.use('/notify', notifyRouter);
 
 // Mount verify router at /verify
 app.use('/verify', verifyRouter);
+
+// Mount lead router at /lead
+app.use('/lead', leadRouter);
+
+// Mount schedule router at /schedule
+app.use('/schedule', scheduleRouter);
+
+// Mount content router at /content
+app.use('/content', contentRouter);
+
+// Mount support router at /support
+app.use('/support', supportRouter);
+
+// Mount email router at /email
+app.use('/email', emailRouter);
+
+// Mount nlp router at /nlp
+app.use('/nlp', nlpRouter);
+
+// Mount voice router at /voice
+app.use('/voice', voiceRouter);
 
 // Mount coordination router at /coordination
 app.use('/coordination', coordinationRouter);
