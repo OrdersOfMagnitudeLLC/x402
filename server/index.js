@@ -143,7 +143,7 @@ app.use(baseX402Middleware);
 app.use(idempotencyMiddleware);
 
 // Mount data router at /data
-app.use('/data', dataRouter);
+app.use('/', dataRouter);
 
 // Mount ai router at /ai
 app.use('/ai', aiRouter);
