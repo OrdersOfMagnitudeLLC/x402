@@ -7,12 +7,12 @@
     "source": "github",
     "subfolder": "mcp-package"
   },
-  "version": "1.0.5",
+  "version": "1.0.7",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "oom-x402-mcp",
-      "version": "1.0.5",
+      "version": "1.0.7",
       "transport": {
         "type": "stdio"
       }
