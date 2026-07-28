@@ -12,7 +12,13 @@ const productsPath = path.join(__dirname, '../products-all.json');
 const products = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
 
 // Filter out inactive products
-const allProducts = products.filter(p => p.active !== false);
+const allProducts = products.filter(p => {
+  if (p.active === false) {
+    console.log(`Skipping ${p.id || 'unknown'}: active=false`);
+    return false;
+  }
+  return true;
+});
 
 // Helper to extract param names from route path
 function extractParams(routePath) {
@@ -293,12 +299,18 @@ function generateOpenApiJson() {
   for (const product of allProducts) {
     const method = getMethod(product.route_path || "").toLowerCase();
     const path = product.route_path;
-    
+
     // Skip endpoints with null route_path
-    if (!path) continue;
-    
+    if (!path) {
+      console.log(`Skipping ${product.id || 'unknown'}: null route_path`);
+      continue;
+    }
+
     // Skip paths that don't match clean URL pattern
-    if (!/^[a-z0-9\/:_\-\*]+$/i.test(path)) continue;
+    if (!/^[a-z0-9\/:_\-\*]+$/i.test(path)) {
+      console.log(`Skipping ${product.id || 'unknown'}: invalid route_path pattern: ${path}`);
+      continue;
+    }
     
     if (!openapi.paths[path]) {
       openapi.paths[path] = {};

@@ -32,6 +32,7 @@ app.set('trust proxy', 1);
 const PORT = process.env.PORT || 3000;
 
 const redisClient = new Redis(process.env.REDIS_URL);
+redisClient.on('error', (err) => console.error('Redis error:', err.message));
 
 // Middleware
 app.use(express.json());

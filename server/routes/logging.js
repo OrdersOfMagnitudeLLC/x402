@@ -5,6 +5,7 @@ const router = express.Router();
 
 // Redis client (using ioredis to match project dependencies)
 const redisClient = new Redis(process.env.REDIS_URL || 'redis://localhost:6379');
+redisClient.on('error', (err) => console.error('Redis error:', err.message));
 
 // Namespace prefix for logging operations
 const NS_PREFIX = 'log:';

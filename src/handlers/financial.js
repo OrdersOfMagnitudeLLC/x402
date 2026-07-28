@@ -4,6 +4,7 @@ const Redis = require('ioredis');
 
 // Redis client (using ioredis to match project dependencies)
 const redisClient = new Redis(process.env.REDIS_URL || 'redis://localhost:6379');
+redisClient.on('error', (err) => console.error('Redis error:', err.message));
 
 // Determine cache TTL based on URL pattern
 function getCacheTTL(sourceUrl) {

@@ -13,6 +13,7 @@ const DEFAULT_FROM = 'orders@ofmagnitude.com';
 // For now, we'll create a new connection or pass it in
 const Redis = require('ioredis');
 const redisClient = new Redis(process.env.REDIS_URL);
+redisClient.on('error', (err) => console.error('Redis error:', err.message));
 
 // POST /email/send/transactional - Send transactional email via Resend
 router.post('/send/transactional', async (req, res) => {
