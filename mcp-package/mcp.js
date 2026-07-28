@@ -11,6 +11,9 @@ const {
 const fs = require('fs');
 const path = require('path');
 
+// Load version from package.json
+const { version } = require('./package.json');
+
 // Load products-all.json at startup
 const productsPath = path.join(__dirname, 'products-all.json');
 let productsData = [];
@@ -28,7 +31,7 @@ try {
 const server = new Server(
   {
     name: 'x402-endpoint-catalog',
-    version: '1.0.0',
+    version,
   },
   {
     capabilities: {
