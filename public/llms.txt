@@ -479,26 +479,13 @@ GET /economy/us/macro/indicators — Returns US macroeconomic indicators from Fe
 GET /economy/macro/indicators — Returns global economic indicators from World Bank including GDP, population, development metrics by country. — $0.005
 GET /economy/pk/economic/data — Returns Pakistan economic data from Pakistan Bureau of Statistics including GDP, inflation, and key metrics. — $0.005
 GET /economy/africa/macro — Returns African macroeconomic indicators from World Bank filtered for African countries including GDP, population, development metrics. — $0.005
-GET /economy/us/y42x/4jcy — Provides the average number of passenger boardings per trip by service type by month on the Transport Canberra network for 2016-17.
-
-The service types in the current public transport network include:
-
-Rapid services - Public transport corridors for all day, high speed travel across the city along dense corridors. Currently includes the Blue and Red Rapid services.
-
-Frequent Local services – Local services in areas of current or future denser development, including some group centres. This type of service will connect to rapid services at bus stations and town centre nodes for longer trips. Currently includes the Green, Gold and Weston Line routes.
-
-Peak Express services – Direct service from residential or Park and Ride facility to major employment destinations. This type of service is supplementary and does not compete with Rapid services. Currently includes the Xpresso routes.
-
-Coverage services – Local and feeder services in lower density areas away from the 'Frequent Network'. These services are provided for reasons of inclusion rather than patronage.
-
-The 'Frequent Network' comprises of Rapid and Frequent Local services. — $0.01
+GET /economy/us/y42x/4jcy — Returns passenger boardings per trip by service type and month for Transport Canberra network 2016-17. — $0.01
 ...and 118 more at /x402.json
 
 ### Environment
 GET /environment/us/earthquakes — Returns earthquake and seismic data from USGS including magnitude, location, depth, and timing information. — $0.005
 GET /environment/air/quality — Returns air quality measurements from OpenAQ including PM2.5, PM10, O3, NO2 levels by location. — $0.005
 GET /environment/weather/extremes — Returns extreme weather data from NOAA including temperature records, precipitation, and severe weather events. — $0.005
-GET /environment/us/earthquakes/query — SCIENCE/SPACE - USGS Earthquakes — $0.01
 GET /environment/us/earthquakes/query — SCIENCE/SPACE - USGS Earthquakes — $0.01
 ...and 93 more at /x402.json
 
@@ -531,7 +518,6 @@ GET /knowledge/us/patents — Returns patent search results from USPTO including
 GET /knowledge/us/nutrition/database — Returns nutrition data from USDA FoodData Central including macronutrients, micronutrients, and serving information. — $0.005
 GET /knowledge/us/patent/claim-analysis — Analyzes patent documents to assess patentability, identify prior art flags, evaluate claim strength, and assess infringement risk using AI. — $0.07
 GET /knowledge/open/library/api/books — REFERENCE/KNOWLEDGE - Open Library — $0.01
-GET /knowledge/open/library/api/books — REFERENCE/KNOWLEDGE - Open Library — $0.01
 ...and 179 more at /x402.json
 
 ### Legal
@@ -554,33 +540,11 @@ GET /media/us/social/post-sentiment-batch — Batch analyzes social media posts 
 GET /science/literature — Returns scientific literature from arXiv including paper titles, authors, abstracts, and publication metadata. — $0.005
 GET /science/us/company/research-brief — Generates structured company research brief from ticker input including overview, financials, competitive position, and risks using AI. — $0.07
 GET /science/query — SCIENCE/SPACE - arXiv — $0.01
-GET /science/query — SCIENCE/SPACE - arXiv — $0.01
-GET /science/query — SCIENCE/SPACE - arXiv — $0.01
 ...and 4 more at /x402.json
 
 ### Security
 GET /security/vulnerabilities — Returns CVE vulnerability details from NVD including severity scores, descriptions, and affected products. — $0.005
-GET /security/us/yh5m/n9q2 — Nature Conservation Act 2014
-
-This list brings together species listed under the Nature Conservation Act 2014 that receive additional protection in the Australian Capital Territory, including species on the Threatened Native Species List and the Protected Native Species List.
-
-The Threatened Native Species List identifies native plants and animals at risk of extinction or significant decline in the ACT. Species on this list have Special Protection Status, which triggers statutory planning, licensing and compliance requirements, and may require the preparation of Conservation Advice and Action Plans based on scientific assessment and recommendation by the ACT Scientific Committee.
-
-The Protected Native Species List identifies non‑threatened native species that nevertheless require additional protection due to factors such as rarity within the ACT, data deficiency, vulnerability to trade or collection, or risk in other jurisdictions. Species are included in defined categories such as restricted trade, rare, and data deficient, using criteria based solely on scientific matters and developed in consultation with the Scientific Committee.
-
-Ngunnawal species names are included where available, provided in consultation with the Winanggaay Ngunnawal Language Aboriginal Corporation.
-
-Nature Conservation Act 2014: https://www.legislation.act.gov.au/a/2014-59/
-Threatened Antive Species List: https://www.legislation.act.gov.au/ni/2025-299/
-Protected Native Species List: https://www.legislation.act.gov.au/ni/2025-679/
-
-Ngunnawal species names nominated or endorsed by the Winnagaay Ngunnawal Language Aboriginal Corporation.
-© Australian Capital Territory 
-© Winanggaay Ngunnawal Language Aboriginal Corporation — $0.01
-GET /security/utqj/bz6f — This dataset contains a count the number of interstate vehicles transferred to the ACT by month and year. 
-
-Data security
-
-Small counts (less than or equal to 5) of vehicles transferred by state have been omitted. Very few records are affected by this omission. — $0.01
-GET /security/security/stories — Compute Espn Bundesliga Scoreboard — $0.01
+GET /security/us/yh5m/n9q2 — Returns species listed under Nature Conservation Act 2014 with additional protection status in Australian Capital Territory. — $0.01
+GET /security/utqj/bz6f — Returns count of interstate vehicles transferred to ACT by month and year (small counts ≤5 omitted for privacy). — $0.01
+GET /security/security/stories — Returns ESPN Bundesliga scoreboard data. — $0.01
 
