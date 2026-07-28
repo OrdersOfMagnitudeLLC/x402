@@ -26,6 +26,29 @@ function extractParams(routePath) {
   return params;
 }
 
+// Example value mapping for path parameters
+const paramExamples = {
+  key: 'test-key',
+  prefix: 'ns',
+  id: '1',
+  hash: 'abc123',
+  name: 'test',
+  token: 'tok_test',
+  secret: 'sec_test',
+  subject: 'science',
+  olid: 'OL123M',
+  isbn: '1234567890',
+  lccn: '12345678',
+  oclc: '12345678',
+  field: 'title',
+  fields: 'title,author'
+};
+
+// Get example value for a parameter name
+function getParamExample(paramName) {
+  return paramExamples[paramName] || 'example';
+}
+
 // Parameter schema mapping for GET endpoints
 const parameterSchemas = {
   // No input required
@@ -63,6 +86,16 @@ const parameterSchemas = {
   'cat1_022': [{name: 'location', in: 'query', required: true, schema: {type: 'string'}, description: 'Location for weather data'}], // weather-extremes
   'cat1_012': [{name: 'company_name', in: 'query', required: true, schema: {type: 'string'}, description: 'Company name to search'}], // company-registry
   'cat1_014': [{name: 'query', in: 'query', required: true, schema: {type: 'string'}, description: 'Patent search query'}], // patent-search
+  'merged_curated_0394': [{name: 'name', in: 'query', required: true, schema: {type: 'string'}, description: 'Name to analyze'}], // agify
+  'merged_curated_0396': [{name: 'name', in: 'query', required: true, schema: {type: 'string'}, description: 'Name to analyze'}, {name: 'country_id', in: 'query', required: false, schema: {type: 'string'}, description: 'Country ID'}], // agify with country
+  'merged_curated_0398': [{name: 'name', in: 'query', required: true, schema: {type: 'string'}, description: 'Name to analyze'}], // genderize
+  'merged_curated_0400': [{name: 'name', in: 'query', required: true, schema: {type: 'string'}, description: 'Name to analyze'}, {name: 'country_id', in: 'query', required: false, schema: {type: 'string'}, description: 'Country ID'}], // genderize with country
+  'merged_curated_0404': [{name: 'results', in: 'query', required: false, schema: {type: 'string'}, description: 'Number of results'}], // random user generator
+  'merged_curated_0406': [{name: 'gender', in: 'query', required: false, schema: {type: 'string'}, description: 'Gender filter'}], // random user generator
+  'merged_curated_0408': [{name: 'nationality', in: 'query', required: false, schema: {type: 'string'}, description: 'Nationality filter'}], // random user generator
+  'merged_curated_0410': [{name: 'inc', in: 'query', required: false, schema: {type: 'string'}, description: 'Fields to include'}], // random user generator
+  'merged_curated_0492': [{name: 'name', in: 'query', required: true, schema: {type: 'string'}, description: 'Name to analyze'}], // nationalize
+  'merged_curated_0494': [{name: 'name', in: 'query', required: true, schema: {type: 'string'}, description: 'Name to analyze'}, {name: 'country_id', in: 'query', required: false, schema: {type: 'string'}, description: 'Country ID'}], // nationalize with country
 };
 
 // Security mapping for free/identity-gated endpoints
@@ -293,6 +326,15 @@ function generateOpenApiJson() {
       inputProperties[param] = { type: 'string' };
     });
 
+    // Add query parameters to input properties for bazaar schema
+    const queryParams = parameterSchemas[product.id] || [];
+    queryParams.forEach(qp => {
+      inputProperties[qp.name] = {
+        type: qp.schema.type,
+        description: qp.description
+      };
+    });
+
     const outputProperties = {};
     if (product.response_fields && Array.isArray(product.response_fields) && product.response_fields.length > 0) {
       product.response_fields.forEach(field => {
@@ -314,7 +356,20 @@ function generateOpenApiJson() {
         }
       }
     };
-    
+
+    // Build OpenAPI parameters array (query params from parameterSchemas + path params)
+    const openapiParams = [...(parameterSchemas[product.id] || [])];
+    // Add path parameters with examples
+    params.forEach(param => {
+      openapiParams.push({
+        name: param,
+        in: 'path',
+        required: true,
+        schema: { type: 'string' },
+        example: getParamExample(param)
+      });
+    });
+
     const operation = {
       summary: cleanSummary,
       description: description,
@@ -328,7 +383,7 @@ function generateOpenApiJson() {
         },
         protocols: ["x402"]
       },
-      parameters: parameterSchemas[product.id] || [],
+      parameters: openapiParams,
       security: securitySchemas[product.id] !== undefined ? securitySchemas[product.id] : undefined,
       responses: {
         "402": {

@@ -7776,7 +7776,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "currency",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -7887,7 +7897,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "capital",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -7998,7 +8018,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "region",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -8109,7 +8139,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "subregion",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -8220,7 +8260,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "language",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -8331,7 +8381,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "translation",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -8442,7 +8502,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -8553,7 +8623,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -9839,7 +9919,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "indicator",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -11982,7 +12072,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -12200,7 +12300,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -12953,7 +13063,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -13064,7 +13184,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -13175,7 +13305,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -13286,7 +13426,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -13397,7 +13547,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "month",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          },
+          {
+            "name": "day",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -14296,7 +14465,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -15156,7 +15335,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "count",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -16567,7 +16756,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "location",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -30160,7 +30359,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "country",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -30271,7 +30480,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "country",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -31452,7 +31671,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -31563,7 +31792,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "indicator",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          },
+          {
+            "name": "country",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -47599,7 +47847,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "state",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -48137,7 +48395,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "subject",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "science"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -48248,7 +48516,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "olid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "OL123M"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -48359,7 +48637,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "olid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "OL123M"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -48470,7 +48758,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "olid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "OL123M"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -48581,7 +48879,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "olid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "OL123M"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -48692,7 +49000,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "isbn",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1234567890"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -48803,7 +49121,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "isbn",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1234567890"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -48914,7 +49242,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "lccn",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "12345678"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -49025,7 +49363,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "oclc",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "12345678"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -49136,7 +49484,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "olid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "OL123M"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -49247,7 +49605,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "olid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "OL123M"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -49358,7 +49726,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "olid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "OL123M"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -49469,7 +49847,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "olid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "OL123M"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -50005,7 +50393,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -50116,7 +50514,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -50227,7 +50635,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -50445,7 +50863,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "currency",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -50556,7 +50984,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "demonym",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -50667,7 +51105,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "language",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -50778,7 +51226,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "capital",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -50889,7 +51347,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "callingcode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -51000,7 +51468,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "region",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -51111,7 +51589,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "subregion",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -51222,7 +51710,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "translation",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -52617,7 +53115,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -52728,7 +53236,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -52839,7 +53357,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -52950,7 +53478,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "month",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          },
+          {
+            "name": "day",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -53492,7 +54039,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -53603,7 +54160,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -53714,7 +54281,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -53825,7 +54402,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "month",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          },
+          {
+            "name": "day",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -54366,7 +54962,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "city",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -54477,7 +55083,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "state",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -54588,7 +55204,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "country",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -54699,7 +55325,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -54810,7 +55446,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "postal",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -54921,7 +55567,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -55246,7 +55902,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -56855,7 +57521,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "deck_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -56966,7 +57642,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "deck_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -57077,7 +57763,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "deck_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -57188,7 +57884,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "deck_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -57299,7 +58005,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "deck_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          },
+          {
+            "name": "pile_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -57413,7 +58138,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "deck_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          },
+          {
+            "name": "pile_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -57527,7 +58271,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "deck_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          },
+          {
+            "name": "pile_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -57641,7 +58404,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "deck_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          },
+          {
+            "name": "pile_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -57755,7 +58537,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "deck_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          },
+          {
+            "name": "pile_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -57869,7 +58670,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "deck_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          },
+          {
+            "name": "pile_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -57983,7 +58803,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "deck_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          },
+          {
+            "name": "pile_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -58097,7 +58936,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "deck_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -74709,7 +75558,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -74827,7 +75686,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -74945,7 +75814,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -75741,7 +76620,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -76085,7 +76974,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -76316,7 +77215,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "prefix",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ns"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -76434,7 +77343,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -77230,7 +78149,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -77461,7 +78390,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -77579,7 +78518,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -78262,7 +79211,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -78606,7 +79565,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -78837,7 +79806,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -79633,7 +80612,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -79864,7 +80853,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -79982,7 +80981,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -80100,7 +81109,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -80218,7 +81237,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -80336,7 +81365,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -80454,7 +81493,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          },
+          {
+            "name": "index",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -80914,7 +81972,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -81484,7 +82552,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -81715,7 +82793,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -82737,7 +83825,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -83194,7 +84292,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -83651,7 +84759,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -83882,7 +85000,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -84339,7 +85467,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -84457,7 +85595,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -84688,7 +85836,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -84919,7 +86077,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -85489,7 +86657,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "queue_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -86624,7 +87802,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "queue_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -86855,7 +88043,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "queue_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -87425,7 +88623,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "queue_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -87882,7 +89090,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "queue_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -88339,7 +89557,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "queue_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -88683,7 +89911,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "queue_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -89931,7 +91169,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "queue_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -90388,7 +91636,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "queue_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -90506,7 +91764,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "queue_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -90963,7 +92231,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "queue_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -91759,7 +93037,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "queue_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -92216,7 +93504,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "queue_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -92673,7 +93971,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "event",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -93469,7 +94777,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "event",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -94039,7 +95357,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "event",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -94383,7 +95711,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "event",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -95066,7 +96404,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "event",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -95413,7 +96770,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "event",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -95983,7 +97350,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "event",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -96892,7 +98269,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "event",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -97349,7 +98736,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "event",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -97806,7 +99203,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "event",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -106062,7 +107469,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -106408,7 +107825,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "counter_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -106868,7 +108295,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "sem_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -107100,7 +108537,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "election_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -108814,7 +110261,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "sem_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -109616,7 +111073,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "election_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -110304,7 +111771,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "barrier_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -110878,7 +112355,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "resource_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -111680,7 +113167,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "quorum_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -112140,7 +113637,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "mutex_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -112486,7 +113993,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "latch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -112718,7 +114235,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "flag_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -113292,7 +114819,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "sequence_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -113638,7 +115175,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "lease_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -113983,7 +115530,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -114101,7 +115658,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -114219,7 +115786,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -114676,7 +116253,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -116376,7 +117963,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -116607,7 +118204,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "tag",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -116838,7 +118445,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "share_token",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -117182,7 +118799,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -117300,7 +118927,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -117760,7 +119406,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -117991,7 +119647,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -119239,7 +120905,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "test-key"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
