@@ -504,7 +504,12 @@
                           "properties": {
                             "input": {
                               "type": "object",
-                              "properties": {}
+                              "properties": {
+                                "q": {
+                                  "type": "string",
+                                  "description": "Search query for filings"
+                                }
+                              }
                             },
                             "output": {
                               "type": "object",
@@ -636,7 +641,12 @@
                           "properties": {
                             "input": {
                               "type": "object",
-                              "properties": {}
+                              "properties": {
+                                "company_name": {
+                                  "type": "string",
+                                  "description": "Company name to search"
+                                }
+                              }
                             },
                             "output": {
                               "type": "object",
@@ -1729,7 +1739,12 @@
                           "properties": {
                             "input": {
                               "type": "object",
-                              "properties": {}
+                              "properties": {
+                                "food_name": {
+                                  "type": "string",
+                                  "description": "Food name to query"
+                                }
+                              }
                             },
                             "output": {
                               "type": "object",
@@ -1864,7 +1879,12 @@
                           "properties": {
                             "input": {
                               "type": "object",
-                              "properties": {}
+                              "properties": {
+                                "ip": {
+                                  "type": "string",
+                                  "description": "IP address to geolocate"
+                                }
+                              }
                             },
                             "output": {
                               "type": "object",
@@ -2129,7 +2149,12 @@
                           "properties": {
                             "input": {
                               "type": "object",
-                              "properties": {}
+                              "properties": {
+                                "indicator": {
+                                  "type": "string",
+                                  "description": "Economic indicator name"
+                                }
+                              }
                             },
                             "output": {
                               "type": "object",
@@ -13806,7 +13831,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Name to analyze"
+          },
+          {
+            "name": "country_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Country ID"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -13860,7 +13904,16 @@
                           "properties": {
                             "input": {
                               "type": "object",
-                              "properties": {}
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "description": "Name to analyze"
+                                },
+                                "country_id": {
+                                  "type": "string",
+                                  "description": "Country ID"
+                                }
+                              }
                             },
                             "output": {
                               "type": "object",
@@ -13876,17 +13929,6 @@
                     }
                   }
                 }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {}
               }
             }
           }
@@ -13912,7 +13954,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Name to analyze"
+          },
+          {
+            "name": "country_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Country ID"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -13966,7 +14027,16 @@
                           "properties": {
                             "input": {
                               "type": "object",
-                              "properties": {}
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "description": "Name to analyze"
+                                },
+                                "country_id": {
+                                  "type": "string",
+                                  "description": "Country ID"
+                                }
+                              }
                             },
                             "output": {
                               "type": "object",
@@ -13982,17 +14052,6 @@
                     }
                   }
                 }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {}
               }
             }
           }
@@ -14019,7 +14078,17 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "inc",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Fields to include"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -14073,7 +14142,12 @@
                           "properties": {
                             "input": {
                               "type": "object",
-                              "properties": {}
+                              "properties": {
+                                "inc": {
+                                  "type": "string",
+                                  "description": "Fields to include"
+                                }
+                              }
                             },
                             "output": {
                               "type": "object",
@@ -14089,17 +14163,6 @@
                     }
                   }
                 }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {}
               }
             }
           }
@@ -16380,7 +16443,26 @@
             "x402"
           ]
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Name to analyze"
+          },
+          {
+            "name": "country_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Country ID"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -16434,7 +16516,16 @@
                           "properties": {
                             "input": {
                               "type": "object",
-                              "properties": {}
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "description": "Name to analyze"
+                                },
+                                "country_id": {
+                                  "type": "string",
+                                  "description": "Country ID"
+                                }
+                              }
                             },
                             "output": {
                               "type": "object",
@@ -16450,17 +16541,6 @@
                     }
                   }
                 }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {}
               }
             }
           }

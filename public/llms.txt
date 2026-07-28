@@ -673,14 +673,6 @@ GET /support/response/refine — Refine response for tone (Haiku) — $0.01
 GET /support/faq/match — Match ticket to FAQ (Haiku) — $0.01
 ...and 10 more at /x402.json
 
-### unknown
-GET undefined — UTILITY/DEV - Random User Generator — $0.01
-GET undefined — UTILITY/DEV - wttr.in — $0.01
-GET undefined — reference_knowledge API endpoint — $0.01
-GET undefined — reference_knowledge API endpoint — $0.01
-GET undefined — reference_knowledge API endpoint — $0.01
-...and 254 more at /x402.json
-
 ### voice
 GET /voice/tts/synthesize — Synthesize speech from text using ElevenLabs — $0.005
 GET /voice/tts/voices — List available TTS voices — $0.005
