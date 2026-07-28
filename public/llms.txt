@@ -289,6 +289,10 @@ POST /tasks/completed/:queue_id — Get completed tasks — $0.01
 POST /tasks/clear-completed — Clear completed tasks — $0.01
 
 ### KYA: Know Your Agent — Identity + secrets
+POST /verify/mx-validate — Validate MX records for a domain using DNS lookup — $0.005
+POST /verify/phone-country — Detect country from phone number using libphonenumber patterns — $0.005
+POST /verify/domain-reputation — Check domain reputation via WHOIS age and MX presence — $0.005
+POST /verify/disposable-domain — Check if domain is from disposable email provider — $0.005
 POST /verify/email — Validate email format — $0.005
 POST /verify/dns — Get DNS records for a domain (mock implementation) — $0.005
 POST /verify/mx — Get MX records for a domain (mock implementation) — $0.005
@@ -472,38 +476,64 @@ GET /compute/us/due/diligence-summary — Processes due diligence documents to g
 GET /compute/us/supply/chain-risk-assessment — Assesses supply chain risks to generate risk scores, identify risk factors, evaluate geographic risks, and suggest mitigation strategies using AI. — $0.07
 GET /compute/us/m-and-a/signal-detection — Analyzes regulatory filings to detect M&A signals, estimate probability, identify target companies, and provide rationale using AI. — $0.07
 GET /compute/us/financial/ratio-interpretation — Interprets financial ratios into plain English including context, industry comparison, and trend analysis using AI. — $0.003
-...and 382 more at /x402.json
+...and 360 more at /x402.json
 
 ### Economy
-GET /economy/us/macro/indicators — Returns US macroeconomic indicators from Federal Reserve Economic Data including GDP, inflation, unemployment rates. — $0.005
 GET /economy/macro/indicators — Returns global economic indicators from World Bank including GDP, population, development metrics by country. — $0.005
 GET /economy/pk/economic/data — Returns Pakistan economic data from Pakistan Bureau of Statistics including GDP, inflation, and key metrics. — $0.005
 GET /economy/africa/macro — Returns African macroeconomic indicators from World Bank filtered for African countries including GDP, population, development metrics. — $0.005
-GET /economy/us/y42x/4jcy — Returns passenger boardings per trip by service type and month for Transport Canberra network 2016-17. — $0.01
-...and 118 more at /x402.json
+GET /economy/us/y42x/4jcy — Provides the average number of passenger boardings per trip by service type by month on the Transport Canberra network for 2016-17.
+
+The service types in the current public transport network include:
+
+Rapid services - Public transport corridors for all day, high speed travel across the city along dense corridors. Currently includes the Blue and Red Rapid services.
+
+Frequent Local services – Local services in areas of current or future denser development, including some group centres. This type of service will connect to rapid services at bus stations and town centre nodes for longer trips. Currently includes the Green, Gold and Weston Line routes.
+
+Peak Express services – Direct service from residential or Park and Ride facility to major employment destinations. This type of service is supplementary and does not compete with Rapid services. Currently includes the Xpresso routes.
+
+Coverage services – Local and feeder services in lower density areas away from the 'Frequent Network'. These services are provided for reasons of inclusion rather than patronage.
+
+The 'Frequent Network' comprises of Rapid and Frequent Local services. — $0.01
+GET /economy/us/w7dh/fw9m — The projections are based upon actual values obtained in 2015, and estimates obtained for 2016. A full list of all projections, including historical projections, can be found at http://apps.treasury.act.gov.au/demography/projections/act.
+These population projections are not intended to present predictions of the demographic future to any degree of reliability or precision.
+The population projections contained here are the projected population resulting from certain assumptions about future trends in fertility, mortality and migration trends. 
+
+Future population trends are influenced by a variety of social, economic and political factors, with significant fluctuation in short-term population growth rates as well as in the underlying social, economic and political influencers. Numerous behavioural assumptions are required to be made for each age cohort and sex. Many of these assumptions will be swamped by the random impacts on the future movements of individuals through births, deaths, and relocation.
+Neither the authors nor the ACT Government give warranty in relation to these projections, and no liability is accepted by the authors or the Government or any other person who assisted in the preparation of the publication, for errors and omissions, loss or damage suffered as a result of any person acting in reliance thereon. — $0.01
+...and 99 more at /x402.json
 
 ### Environment
 GET /environment/us/earthquakes — Returns earthquake and seismic data from USGS including magnitude, location, depth, and timing information. — $0.005
-GET /environment/air/quality — Returns air quality measurements from OpenAQ including PM2.5, PM10, O3, NO2 levels by location. — $0.005
-GET /environment/weather/extremes — Returns extreme weather data from NOAA including temperature records, precipitation, and severe weather events. — $0.005
+GET /environment/air/quality — Returns air quality measurements from Open-Meteo including PM2.5, PM10, O3, NO2 levels by location. — $0.005
 GET /environment/us/earthquakes/query — SCIENCE/SPACE - USGS Earthquakes — $0.01
-...and 93 more at /x402.json
+GET /environment/us/earthquakes/query — SCIENCE/SPACE - USGS Earthquakes — $0.01
+GET /environment/us/solar/radiation-observations — This dataset describes observations made of solar radiation by sensors distributed in Ballarat.
+
+The information was collected in real time by the sensors.
+
+The intended use of the information is to inform the public of the historical measured observations of solar radiation in Ballarat.
+
+The dataset is typically updated every 15 minutes.
+
+The City of Ballarat is not an official source of weather information. These observations are provided to the public for informative purposes only. Use other channels for official meteorological observations and forecasts. — $0.01
+...and 90 more at /x402.json
 
 ### Finance
-GET /finance/crypto/prices — Returns current cryptocurrency prices including market cap, 24h volume, and price change percentage. — $0.005
 GET /finance/crypto/market-cap — Returns global cryptocurrency market metrics including total market cap, volume, and BTC/ETH dominance percentages. — $0.005
-GET /finance/crypto/funding — Returns perpetual futures funding rates across major exchanges including rate, next funding time, and mark price. — $0.005
 GET /finance/defi/tvl — Returns total value locked (TVL) metrics for DeFi protocols across multiple chains and categories. — $0.005
-GET /finance/us/bond/yields — Returns US Treasury bond yields across maturities including 2y, 5y, 10y, 30y rates for yield curve analysis. — $0.005
-...and 77 more at /x402.json
+GET /finance/us/market/pattern-analysis — Analyzes OHLCV market data to identify market regimes, generate trading signals, and classify pattern types using AI. — $0.07
+GET /finance/us/competitive/intelligence-synthesis — Synthesizes competitive intelligence from multiple sources to identify competitors, market position, strengths, and weaknesses using AI. — $0.07
+GET /finance/us/bushfire/place-last-resort-area — The location and boundaries of the Bushfire Places of Last Resort as defined in the Casey Fire Management Plan, in accordance with the Country Fire Authority Act 1958, the Emergency Management Act 1986 and the documented requirements under Emergency Management Victoria. These are last resort locations that people can use to attempt to escape a bushfire when all other options have failed. — $0.01
+...and 16 more at /x402.json
 
 ### Geospatial
 GET /geo/geolocation — Returns IP geolocation data including country, city, ISP, and geographic coordinates. — $0.005
 GET /geo/us/earnings/call-intelligence — Processes earnings call transcripts to extract sentiment, key topics, financial signals, and forward outlook using AI. — $0.07
 GET /geo/us/job/description-analysis — Analyzes job descriptions to extract required skills, estimate salary range, determine experience level, and classify role type using AI. — $0.003
 GET /geo/us/company/description-standardizer — Standardizes company descriptions into consistent format, identifies industry, estimates size, and extracts focus areas using AI. — $0.003
-GET /geo/world/time-api/ip — GEOGRAPHY - World Time API — $0.01
-...and 24 more at /x402.json
+GET /geo/api/:query — GEOGRAPHY - IP-API — $0.01
+...and 40 more at /x402.json
 
 ### Health
 GET /health/us/trials — Returns clinical trial information from ClinicalTrials.gov including study IDs, status, phase, and conditions. — $0.005
@@ -511,14 +541,15 @@ GET /health/us/drug/events — Returns drug adverse event reports from OpenFDA i
 GET /health/us/recalls — Returns FDA food and drug recall information including product details, recall reasons, and classification. — $0.005
 GET /health/us/clinical/abstract-summary — Summarizes clinical trial abstracts to extract key findings, methodology, conclusions, and assess significance using AI. — $0.003
 GET /health/drug/labeljson — HEALTH/GOVERNMENT - OpenFDA Drug — $0.01
-...and 44 more at /x402.json
+...and 41 more at /x402.json
 
 ### Knowledge
-GET /knowledge/us/patents — Returns patent search results from USPTO including patent numbers, titles, inventors, and filing dates. — $0.005
 GET /knowledge/us/nutrition/database — Returns nutrition data from USDA FoodData Central including macronutrients, micronutrients, and serving information. — $0.005
 GET /knowledge/us/patent/claim-analysis — Analyzes patent documents to assess patentability, identify prior art flags, evaluate claim strength, and assess infringement risk using AI. — $0.07
 GET /knowledge/open/library/api/books — REFERENCE/KNOWLEDGE - Open Library — $0.01
-...and 179 more at /x402.json
+GET /knowledge/open/library/api/books — REFERENCE/KNOWLEDGE - Open Library — $0.01
+GET /knowledge/open/library/searchjson — REFERENCE/KNOWLEDGE - Open Library — $0.01
+...and 72 more at /x402.json
 
 ### Legal
 GET /legal/filings — Returns SEC EDGAR filings including 10-K, 10-Q, 8-K forms with metadata and document access URLs. — $0.005
@@ -534,17 +565,127 @@ GET /media/pk/pakistan/news-aggregation — Returns Pakistani news headlines fro
 GET /media/us/news/synthesis — Synthesizes news headlines into summary, extracts key points, analyzes sentiment, and identifies topics using AI. — $0.003
 GET /media/us/sentiment/analysis — Analyzes text to generate sentiment score, label sentiment, provide reasoning, and indicate confidence level using AI. — $0.003
 GET /media/us/social/post-sentiment-batch — Batch analyzes social media posts to generate individual sentiment scores, overall sentiment, and identify trends using AI. — $0.003
-...and 30 more at /x402.json
+...and 2 more at /x402.json
+
+### Reference
+GET /reference/breweries — Open Brewery DB - Breweries List — $0.005
+GET /reference/breweries/city/:city — Open Brewery DB - Breweries by City — $0.005
+GET /reference/breweries/state/:state — Open Brewery DB - Breweries by State — $0.005
+GET /reference/breweries/country/:country — Open Brewery DB - Breweries by Country — $0.005
+GET /reference/breweries/type/:type — Open Brewery DB - Breweries by Type — $0.005
+...and 15 more at /x402.json
 
 ### Science
-GET /science/literature — Returns scientific literature from arXiv including paper titles, authors, abstracts, and publication metadata. — $0.005
 GET /science/us/company/research-brief — Generates structured company research brief from ticker input including overview, financials, competitive position, and risks using AI. — $0.07
 GET /science/query — SCIENCE/SPACE - arXiv — $0.01
-...and 4 more at /x402.json
+GET /science/query — SCIENCE/SPACE - arXiv — $0.01
+GET /science/xvid/q4du — Note: Transport Canberra is working with its service provider to restore public transport data reports on the ACT Open Data portal, with preliminary data now appearing as systems are reconnected. As a result, data remains unverified.
+
+This dataset contains Light Rail Patronage for every 15 mins starting from interval (00 to 00) to interval (23 to 23). This includes both MyWay boardings and paper ticket boardings. This dataset can be aggregated to provide daily Light Rail (LR) patronage number that is published at https://www.data.act.gov.au/Transport/Light-Rail-Patronage/x7dn-77he
+
+Note: Due to delays in data processing, final number may take up to three days to accurately report on all passenger boardings — $0.01
+GET /science/us/x7dn/77he — Note: Transport Canberra is working with its service provider to restore public transport data reports on the ACT Open Data portal, with preliminary data now appearing as systems are reconnected. As a result, data remains unverified.
+
+This dataset contains information relating to the daily patronage figure (number of boardings) on the Light Rail Network in Canberra. The dataset contains patronage data since light rail operations commenced with the first fiscal week beginning on Monday 22nd of April 2019. This dataset contains boardings calculated using MyWay Card and Paper Tickets.
+
+Note: Due to delays in data processing, final number may take up to three days to accurately report on all passenger boardings — $0.01
+...and 7 more at /x402.json
 
 ### Security
 GET /security/vulnerabilities — Returns CVE vulnerability details from NVD including severity scores, descriptions, and affected products. — $0.005
-GET /security/us/yh5m/n9q2 — Returns species listed under Nature Conservation Act 2014 with additional protection status in Australian Capital Territory. — $0.01
-GET /security/utqj/bz6f — Returns count of interstate vehicles transferred to ACT by month and year (small counts ≤5 omitted for privacy). — $0.01
-GET /security/security/stories — Returns ESPN Bundesliga scoreboard data. — $0.01
+GET /security/us/yh5m/n9q2 — Nature Conservation Act 2014
+
+This list brings together species listed under the Nature Conservation Act 2014 that receive additional protection in the Australian Capital Territory, including species on the Threatened Native Species List and the Protected Native Species List.
+
+The Threatened Native Species List identifies native plants and animals at risk of extinction or significant decline in the ACT. Species on this list have Special Protection Status, which triggers statutory planning, licensing and compliance requirements, and may require the preparation of Conservation Advice and Action Plans based on scientific assessment and recommendation by the ACT Scientific Committee.
+
+The Protected Native Species List identifies non‑threatened native species that nevertheless require additional protection due to factors such as rarity within the ACT, data deficiency, vulnerability to trade or collection, or risk in other jurisdictions. Species are included in defined categories such as restricted trade, rare, and data deficient, using criteria based solely on scientific matters and developed in consultation with the Scientific Committee.
+
+Ngunnawal species names are included where available, provided in consultation with the Winanggaay Ngunnawal Language Aboriginal Corporation.
+
+Nature Conservation Act 2014: https://www.legislation.act.gov.au/a/2014-59/
+Threatened Antive Species List: https://www.legislation.act.gov.au/ni/2025-299/
+Protected Native Species List: https://www.legislation.act.gov.au/ni/2025-679/
+
+Ngunnawal species names nominated or endorsed by the Winnagaay Ngunnawal Language Aboriginal Corporation.
+© Australian Capital Territory 
+© Winanggaay Ngunnawal Language Aboriginal Corporation — $0.01
+GET /security/utqj/bz6f — This dataset contains a count the number of interstate vehicles transferred to the ACT by month and year. 
+
+Data security
+
+Small counts (less than or equal to 5) of vehicles transferred by state have been omitted. Very few records are affected by this omission. — $0.01
+GET /security/security/stories — Compute Espn Bundesliga Scoreboard — $0.01
+
+### content
+GET /content/headline/generate — Generate headline from topic (Haiku) — $0.01
+GET /content/headline/generate-ab — Generate A/B test headline variants (Haiku) — $0.01
+GET /content/headline/optimize-seo — Optimize headline for SEO (Haiku) — $0.01
+GET /content/summarize — Summarize text to key points (Haiku) — $0.01
+GET /content/summarize/bullet — Summarize text to bullet points (Haiku) — $0.01
+...and 20 more at /x402.json
+
+### email
+GET /email/send/transactional — Send transactional email via SendGrid/Mailgun — $0.005
+GET /email/send/bulk — Send bulk email campaign — $0.005
+GET /email/template/render — Render email template with variables — $0.005
+GET /email/template/validate — Validate email template syntax — $0.005
+GET /email/bounce/check — Check if email is on bounce list — $0.005
+...and 26 more at /x402.json
+
+### lead
+GET /lead/email-pattern/first-last — Generate email pattern from first name and last name — $0.005
+GET /lead/email-pattern/first-last-domain — Generate email from first, last, and domain — $0.005
+GET /lead/company/domain — Get company metadata from domain using DNS/WHOIS — $0.005
+GET /lead/company/website — Extract company info from website URL — $0.005
+GET /lead/email/validate/format — Validate email format for bulk list — $0.005
+...and 10 more at /x402.json
+
+### library
+GET /library/search — Open Library API - Open Library Search — $0.005
+GET /library/search/limit — Open Library API - Open Library Search with limit — $0.005
+GET /library/search/authors — Open Library API - Open Library Search Authors — $0.005
+GET /library/api/books — Open Library API - Open Library Books API — $0.005
+GET /library/subjects/:subject — Open Library API - Open Library Subjects — $0.005
+...and 15 more at /x402.json
+
+### nlp
+GET /nlp/text/classify — Classify text into categories (Haiku) — $0.01
+GET /nlp/text/entities — Extract named entities from text (Haiku) — $0.01
+GET /nlp/text/keywords — Extract keywords from text (Haiku) — $0.01
+GET /nlp/text/summarize — Summarize text (Haiku) — $0.01
+GET /nlp/sentiment/analyze — Analyze sentiment of text (Haiku) — $0.01
+...and 26 more at /x402.json
+
+### schedule
+GET /schedule/timezone/convert — Convert timestamp from one timezone to another — $0.005
+GET /schedule/timezone/list — List available timezones by region — $0.005
+GET /schedule/timezone/current — Get current time in a specific timezone — $0.005
+GET /schedule/slot/next — Calculate next available time slot given constraints — $0.005
+GET /schedule/slot/find-multiple — Find multiple available time slots — $0.005
+...and 15 more at /x402.json
+
+### support
+GET /support/ticket/classify — Classify support ticket by category (Haiku) — $0.01
+GET /support/ticket/priority — Score ticket priority level (Haiku) — $0.01
+GET /support/response/draft — Draft suggested response (Haiku) — $0.01
+GET /support/response/refine — Refine response for tone (Haiku) — $0.01
+GET /support/faq/match — Match ticket to FAQ (Haiku) — $0.01
+...and 10 more at /x402.json
+
+### unknown
+GET undefined — UTILITY/DEV - Random User Generator — $0.01
+GET undefined — UTILITY/DEV - wttr.in — $0.01
+GET undefined — reference_knowledge API endpoint — $0.01
+GET undefined — reference_knowledge API endpoint — $0.01
+GET undefined — reference_knowledge API endpoint — $0.01
+...and 254 more at /x402.json
+
+### voice
+GET /voice/tts/synthesize — Synthesize speech from text using ElevenLabs — $0.005
+GET /voice/tts/voices — List available TTS voices — $0.005
+GET /voice/tts/voice-info — Get information about specific voice — $0.005
+GET /voice/tts/stream — Stream TTS audio in real-time — $0.005
+GET /voice/tts/emotion — Synthesize speech with emotion — $0.005
+...and 7 more at /x402.json
 
