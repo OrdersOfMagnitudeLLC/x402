@@ -3389,7 +3389,7 @@
     "active": true,
     "handler": "data/generic",
     "category": "information",
-    "route_path": "/knowledge/agify/"
+    "route_path": "/knowledge/agify"
   },
   {
     "id": "merged_curated_0396",
@@ -3400,7 +3400,7 @@
     "active": true,
     "handler": "data/generic",
     "category": "information",
-    "route_path": "/knowledge/agify/"
+    "route_path": "/knowledge/agify"
   },
   {
     "id": "merged_curated_0398",
@@ -3411,7 +3411,7 @@
     "active": true,
     "handler": "data/generic",
     "category": "information",
-    "route_path": "/knowledge/genderize/"
+    "route_path": "/knowledge/genderize"
   },
   {
     "id": "merged_curated_0400",
@@ -3422,7 +3422,7 @@
     "active": true,
     "handler": "data/generic",
     "category": "information",
-    "route_path": "/knowledge/genderize/"
+    "route_path": "/knowledge/genderize"
   },
   {
     "id": "merged_curated_0402",
@@ -3443,7 +3443,7 @@
     "active": true,
     "handler": "data/generic",
     "category": "information",
-    "route_path": "/compute/us/random/user-generator/"
+    "route_path": "/compute/us/random/user-generator"
   },
   {
     "id": "merged_curated_0406",
@@ -3454,7 +3454,7 @@
     "active": true,
     "handler": "data/generic",
     "category": "information",
-    "route_path": "/compute/us/random/user-generator/"
+    "route_path": "/compute/us/random/user-generator"
   },
   {
     "id": "merged_curated_0408",
@@ -3465,7 +3465,7 @@
     "active": true,
     "handler": "data/generic",
     "category": "information",
-    "route_path": "/compute/us/random/user-generator/"
+    "route_path": "/compute/us/random/user-generator"
   },
   {
     "id": "merged_curated_0410",
@@ -3476,7 +3476,7 @@
     "active": true,
     "handler": "data/generic",
     "category": "information",
-    "route_path": "/compute/us/random/user-generator/"
+    "route_path": "/compute/us/random/user-generator"
   },
   {
     "id": "merged_curated_0412",
@@ -3927,7 +3927,7 @@
     "active": true,
     "handler": "data/generic",
     "category": "information",
-    "route_path": "/compute/nationalize/"
+    "route_path": "/compute/nationalize"
   },
   {
     "id": "merged_curated_0494",
@@ -3938,7 +3938,7 @@
     "active": true,
     "handler": "data/generic",
     "category": "information",
-    "route_path": "/compute/nationalize/"
+    "route_path": "/compute/nationalize"
   },
   {
     "id": "merged_curated_0496",
