@@ -1,11 +1,18 @@
 const express = require('express');
 const dns = require('dns').promises;
+const net = require('net');
 const { Resend } = require('resend');
+const { simpleParser } = require('mailparser');
 
 const router = express.Router();
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const DEFAULT_FROM = 'orders@ofmagnitude.com';
+
+// Redis client (imported from index.js, but we need to access it)
+// For now, we'll create a new connection or pass it in
+const Redis = require('ioredis');
+const redisClient = new Redis(process.env.REDIS_URL);
 
 // POST /email/send/transactional - Send transactional email via Resend
 router.post('/send/transactional', async (req, res) => {
@@ -166,7 +173,7 @@ router.post('/template/validate', async (req, res) => {
   }
 });
 
-// POST /email/bounce/check - Check if email is on bounce list
+// POST /email/bounce/check - Check if email is on bounce list (MX + SMTP probe)
 router.post('/bounce/check', async (req, res) => {
   try {
     const { email } = req.body;
@@ -175,17 +182,72 @@ router.post('/bounce/check', async (req, res) => {
       return res.status(400).json({ error: 'email is required' });
     }
     
-    // In production, check against actual bounce list (Redis, database, or provider API)
-    // For now, return mock response
+    const domain = email.split('@')[1];
+    if (!domain) {
+      return res.json({ email, is_bounced: true, bounce_reason: 'invalid_email_format' });
+    }
+    
+    // Check MX records
+    let mxRecords = [];
+    try {
+      mxRecords = await dns.resolveMx(domain);
+    } catch (e) {
+      return res.json({ email, is_bounced: true, bounce_reason: 'no_mx_records', mx_exists: false });
+    }
+    
+    if (mxRecords.length === 0) {
+      return res.json({ email, is_bounced: true, bounce_reason: 'no_mx_records', mx_exists: false });
+    }
+    
+    // SMTP probe - try to connect to MX server on port 25
+    const smtpProbe = async (mxHost) => {
+      return new Promise((resolve) => {
+        const socket = new net.Socket();
+        let connected = false;
+        
+        socket.setTimeout(5000); // 5 second timeout
+        
+        socket.on('connect', () => {
+          connected = true;
+          socket.destroy();
+          resolve(true);
+        });
+        
+        socket.on('timeout', () => {
+          socket.destroy();
+          resolve(false);
+        });
+        
+        socket.on('error', () => {
+          socket.destroy();
+          resolve(false);
+        });
+        
+        socket.connect(25, mxHost);
+      });
+    };
+    
+    // Try MX servers in priority order
+    let smtpReachable = false;
+    for (const mx of mxRecords.sort((a, b) => a.priority - b.priority)) {
+      if (await smtpProbe(mx.exchange)) {
+        smtpReachable = true;
+        break;
+      }
+    }
+    
     res.json({
       email,
-      is_bounced: false,
-      bounce_reason: null,
-      bounce_date: null
+      domain,
+      is_bounced: !smtpReachable,
+      bounce_reason: smtpReachable ? null : 'smtp_unreachable',
+      mx_exists: true,
+      mx_count: mxRecords.length,
+      smtp_reachable: smtpReachable
     });
   } catch (error) {
     console.error('Email bounce check error:', error);
-    res.status(500).json({ error: 'internal_error' });
+    res.status(500).json({ error: 'internal_error', detail: error.message });
   }
 });
 
@@ -306,7 +368,7 @@ router.post('/deliverability/dns', async (req, res) => {
   }
 });
 
-// POST /email/unsubscribe/add - Add email to unsubscribe list
+// POST /email/unsubscribe/add - Add email to unsubscribe list (Redis)
 router.post('/unsubscribe/add', async (req, res) => {
   try {
     const { email, campaign_id, reason } = req.body;
@@ -315,21 +377,33 @@ router.post('/unsubscribe/add', async (req, res) => {
       return res.status(400).json({ error: 'email is required' });
     }
     
-    // In production, store in Redis/database
+    const domain = email.split('@')[1] || 'unknown';
+    const key = `unsub:${domain}:${email}`;
+    const value = JSON.stringify({
+      email,
+      campaign_id,
+      reason,
+      unsubscribed_at: new Date().toISOString()
+    });
+    
+    await redisClient.set(key, value);
+    await redisClient.expire(key, 86400 * 365); // 1 year expiry
+    
     res.json({
       success: true,
       email,
+      domain,
       campaign_id,
       reason,
       unsubscribed_at: new Date().toISOString()
     });
   } catch (error) {
     console.error('Email unsubscribe add error:', error);
-    res.status(500).json({ error: 'internal_error' });
+    res.status(500).json({ error: 'internal_error', detail: error.message });
   }
 });
 
-// POST /email/unsubscribe/check - Check if email is unsubscribed
+// POST /email/unsubscribe/check - Check if email is unsubscribed (Redis)
 router.post('/unsubscribe/check', async (req, res) => {
   try {
     const { email } = req.body;
@@ -338,19 +412,34 @@ router.post('/unsubscribe/check', async (req, res) => {
       return res.status(400).json({ error: 'email is required' });
     }
     
-    // In production, check Redis/database
-    res.json({
-      email,
-      is_unsubscribed: false,
-      unsubscribed_at: null
-    });
+    const domain = email.split('@')[1] || 'unknown';
+    const key = `unsub:${domain}:${email}`;
+    
+    const value = await redisClient.get(key);
+    
+    if (value) {
+      const data = JSON.parse(value);
+      res.json({
+        email,
+        is_unsubscribed: true,
+        unsubscribed_at: data.unsubscribed_at,
+        campaign_id: data.campaign_id,
+        reason: data.reason
+      });
+    } else {
+      res.json({
+        email,
+        is_unsubscribed: false,
+        unsubscribed_at: null
+      });
+    }
   } catch (error) {
     console.error('Email unsubscribe check error:', error);
-    res.status(500).json({ error: 'internal_error' });
+    res.status(500).json({ error: 'internal_error', detail: error.message });
   }
 });
 
-// POST /email/unsubscribe/remove - Remove email from unsubscribe list
+// POST /email/unsubscribe/remove - Remove email from unsubscribe list (Redis)
 router.post('/unsubscribe/remove', async (req, res) => {
   try {
     const { email } = req.body;
@@ -359,15 +448,20 @@ router.post('/unsubscribe/remove', async (req, res) => {
       return res.status(400).json({ error: 'email is required' });
     }
     
-    // In production, remove from Redis/database
+    const domain = email.split('@')[1] || 'unknown';
+    const key = `unsub:${domain}:${email}`;
+    
+    await redisClient.del(key);
+    
     res.json({
       success: true,
       email,
+      domain,
       removed_at: new Date().toISOString()
     });
   } catch (error) {
     console.error('Email unsubscribe remove error:', error);
-    res.status(500).json({ error: 'internal_error' });
+    res.status(500).json({ error: 'internal_error', detail: error.message });
   }
 });
 
@@ -554,36 +648,38 @@ router.post('/domain/extract', async (req, res) => {
   }
 });
 
-// POST /email/parse - Parse email components
+// POST /email/parse - Parse email components (MIME parser)
 router.post('/parse', async (req, res) => {
   try {
-    const { email } = req.body;
+    const { raw_mime } = req.body;
     
-    if (!email) {
-      return res.status(400).json({ error: 'email is required' });
+    if (!raw_mime) {
+      return res.status(400).json({ error: 'raw_mime is required' });
     }
     
-    const parts = email.split('@');
-    const local = parts[0];
-    const domain = parts[1];
-    
-    if (!domain) {
-      return res.status(400).json({ error: 'invalid_email_format' });
-    }
-    
-    const domainParts = domain.split('.');
-    const tld = domainParts[domainParts.length - 1];
+    // Parse MIME using mailparser
+    const parsed = await simpleParser(raw_mime);
     
     res.json({
-      email,
-      local_part: local,
-      domain,
-      tld,
-      is_free_provider: ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com'].includes(domain.toLowerCase())
+      headers: parsed.headers,
+      subject: parsed.subject,
+      from: parsed.from?.value,
+      to: parsed.to?.value,
+      cc: parsed.cc?.value,
+      bcc: parsed.bcc?.value,
+      text: parsed.text,
+      html: parsed.html,
+      attachments: parsed.attachments.map(att => ({
+        filename: att.filename,
+        contentType: att.contentType,
+        size: att.size
+      })),
+      date: parsed.date,
+      messageId: parsed.messageId
     });
   } catch (error) {
     console.error('Email parse error:', error);
-    res.status(500).json({ error: 'internal_error' });
+    res.status(500).json({ error: 'internal_error', detail: error.message });
   }
 });
 
@@ -642,10 +738,10 @@ router.post('/preview', async (req, res) => {
   }
 });
 
-// POST /email/spam/score - Calculate spam score
+// POST /email/spam/score - Calculate spam score (rule-based)
 router.post('/spam/score', async (req, res) => {
   try {
-    const { subject, body, from_email } = req.body;
+    const { subject, body, from_email, headers } = req.body;
     
     if (!body) {
       return res.status(400).json({ error: 'body is required' });
@@ -653,47 +749,105 @@ router.post('/spam/score', async (req, res) => {
     
     let score = 0;
     const issues = [];
+    const checks = {};
     
-    // Check for spam trigger words
-    const spamWords = ['free', 'winner', 'urgent', 'act now', 'limited time', 'click here', 'buy now'];
+    // Check 1: Spam trigger words
+    const spamWords = ['free', 'winner', 'urgent', 'act now', 'limited time', 'click here', 'buy now', 'congratulations', 'you have won', 'million dollars'];
     const lowerBody = body.toLowerCase();
+    const lowerSubject = (subject || '').toLowerCase();
     
+    let spamWordCount = 0;
     spamWords.forEach(word => {
-      if (lowerBody.includes(word)) {
-        score += 10;
+      if (lowerBody.includes(word) || lowerSubject.includes(word)) {
+        spamWordCount++;
+        score += 8;
         issues.push(`Contains spam word: ${word}`);
       }
     });
+    checks.spam_words = spamWordCount;
     
-    // Check subject length
-    if (subject && subject.length > 50) {
-      score += 5;
-      issues.push('Subject line too long');
+    // Check 2: SPF header
+    if (headers) {
+      const spfHeader = headers['received-spf'] || headers['authentication-results'] || '';
+      const hasSPF = spfHeader.toLowerCase().includes('pass');
+      if (!hasSPF) {
+        score += 15;
+        issues.push('Missing or failed SPF');
+      }
+      checks.spf = hasSPF ? 'pass' : 'missing/fail';
+    } else {
+      checks.spf = 'not_checked';
     }
     
-    // Check for excessive caps
+    // Check 3: DKIM header
+    if (headers) {
+      const dkimHeader = headers['dkim-signature'] || headers['authentication-results'] || '';
+      const hasDKIM = dkimHeader.toLowerCase().includes('pass');
+      if (!hasDKIM) {
+        score += 10;
+        issues.push('Missing or failed DKIM');
+      }
+      checks.dkim = hasDKIM ? 'pass' : 'missing/fail';
+    } else {
+      checks.dkim = 'not_checked';
+    }
+    
+    // Check 4: Link density
+    const urlRegex = /https?:\/\/[^\s<>"]+/g;
+    const links = body.match(urlRegex) || [];
+    const linkCount = links.length;
+    const wordCount = body.split(/\s+/).length;
+    const linkDensity = wordCount > 0 ? linkCount / wordCount : 0;
+    if (linkDensity > 0.1) {
+      score += 20;
+      issues.push('High link density');
+    }
+    checks.link_density = linkDensity.toFixed(3);
+    checks.link_count = linkCount;
+    
+    // Check 5: Caps ratio
     const capsRatio = (body.match(/[A-Z]/g) || []).length / body.length;
     if (capsRatio > 0.3) {
       score += 15;
       issues.push('Excessive capitalization');
     }
+    checks.caps_ratio = capsRatio.toFixed(3);
     
-    // Check for excessive exclamation marks
+    // Check 6: Excessive exclamation marks
     const exclamationCount = (body.match(/!/g) || []).length;
     if (exclamationCount > 3) {
       score += 10;
       issues.push('Excessive exclamation marks');
     }
+    checks.exclamation_count = exclamationCount;
+    
+    // Check 7: Missing unsubscribe link
+    const hasUnsubscribe = body.toLowerCase().includes('unsubscribe') || 
+                        body.toLowerCase().includes('opt-out') ||
+                        (headers && headers['list-unsubscribe']);
+    if (!hasUnsubscribe) {
+      score += 10;
+      issues.push('Missing unsubscribe link');
+    }
+    checks.has_unsubscribe = hasUnsubscribe;
+    
+    // Check 8: Subject length
+    if (subject && subject.length > 50) {
+      score += 5;
+      issues.push('Subject line too long');
+    }
+    checks.subject_length = subject ? subject.length : 0;
     
     res.json({
       score: Math.min(score, 100),
       rating: score < 20 ? 'low' : score < 50 ? 'medium' : 'high',
+      likely_spam: score > 50,
       issues,
-      likely_spam: score > 50
+      checks
     });
   } catch (error) {
     console.error('Email spam score error:', error);
-    res.status(500).json({ error: 'internal_error' });
+    res.status(500).json({ error: 'internal_error', detail: error.message });
   }
 });
 
