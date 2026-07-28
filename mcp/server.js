@@ -1,5 +1,5 @@
 const express = require('express');
-const products = require('../products.json');
+const products = require('../products-all.json');
 
 const router = express.Router();
 
@@ -14,7 +14,7 @@ function getHttpMethod(category) {
   return category <= 3 ? 'GET' : 'POST';
 }
 
-// Generate MCP tool definitions from products.json
+// Generate MCP tool definitions from products-all.json
 function generateTools() {
   return products.map(product => ({
     name: product.id,
