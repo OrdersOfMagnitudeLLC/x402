@@ -3,18 +3,20 @@ module.exports = async function genericHandler(req, res, product) {
   if (!url) return res.status(500).json({ error: 'no_upstream_url' });
   try {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 5000);
+    const timeout = setTimeout(() => controller.abort(), 10000);
     const response = await fetch(url, {
       signal: controller.signal,
       redirect: 'follow',
       headers: { 'User-Agent': 'OOM-x402-API/1.0 (https://ofmagnitude.com; orders@ofmagnitude.com)' }
     });
     clearTimeout(timeout);
-    const contentType = response.headers.get('content-type') || '';
-    if (!contentType.includes('json')) {
+    const text = await response.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (parseErr) {
       return res.status(502).json({ error: 'upstream_non_json' });
     }
-    const data = await response.json();
     res.json(data);
   } catch (err) {
     if (err.name === 'AbortError') {

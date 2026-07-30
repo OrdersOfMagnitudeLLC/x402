@@ -16,7 +16,6 @@ if (!WALLET_ADDRESS || !WALLET_PRIVATE_KEY) {
 
 // Test endpoints
 const ENDPOINTS = [
-  { name: 'Memory', path: '/memory/get/test-key' },
   { name: 'Compute', path: '/compute/holidays/2024/US' },
   { name: 'Knowledge', path: '/knowledge/countries/MY' }
 ];
@@ -49,6 +48,114 @@ function logStep(endpoint, step, data) {
   if (data.status) console.log(`  Status: ${data.status}`);
   if (data.headers) console.log(`  Headers: ${JSON.stringify(data.headers, null, 2).split('\n').map(l => '    ' + l).join('\n')}`);
   if (data.body) console.log(`  Body: ${JSON.stringify(data.body, null, 2).split('\n').map(l => '    ' + l).join('\n')}`);
+}
+
+async function testMemoryEndpoint() {
+  console.log(`\n${colors.cyan}Testing Memory endpoint: set-then-get flow${colors.reset}`);
+  
+  const result = {
+    name: 'Memory',
+    path: '/memory/set-then-get',
+    set_402: false,
+    set_200: false,
+    get_402: false,
+    get_200: false,
+    value_match: false
+  };
+
+  try {
+    const account = privateKeyToAccount(WALLET_PRIVATE_KEY);
+    
+    const fetchWithPayment = wrapFetchWithPaymentFromConfig(fetch, {
+      schemes: [
+        {
+          network: "eip155:8453",
+          client: new ExactEvmScheme(account),
+        },
+      ],
+    });
+
+    // Step 1: POST /memory/set (expect 402 then 200)
+    logStep('Memory', 'POST /memory/set', { url: `${BASE_URL}/memory/set` });
+    
+    const setInitial = await fetch(`${BASE_URL}/memory/set`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ key: 'integration-test-key', value: 'hello-oom' })
+    });
+
+    logStep('Memory', 'POST Initial Response', { status: setInitial.status });
+
+    if (setInitial.status === 402) {
+      result.set_402 = true;
+      console.log(`${colors.green}  ✓ POST 402 received${colors.reset}`);
+    } else {
+      console.log(`${colors.red}  ✗ POST expected 402, got ${setInitial.status}${colors.reset}`);
+      return result;
+    }
+
+    const setPaid = await fetchWithPayment(`${BASE_URL}/memory/set`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ key: 'integration-test-key', value: 'hello-oom' })
+    });
+
+    logStep('Memory', 'POST Paid Response', { status: setPaid.status });
+
+    if (setPaid.status === 200) {
+      result.set_200 = true;
+      console.log(`${colors.green}  ✓ POST 200 received${colors.reset}`);
+    } else {
+      console.log(`${colors.red}  ✗ POST expected 200, got ${setPaid.status}${colors.reset}`);
+      return result;
+    }
+
+    // Step 2: GET /memory/get/integration-test-key (expect 402 then 200)
+    logStep('Memory', 'GET /memory/get/integration-test-key', { url: `${BASE_URL}/memory/get/integration-test-key` });
+
+    const getInitial = await fetch(`${BASE_URL}/memory/get/integration-test-key`, {
+      method: 'GET',
+      headers: { 'Accept': 'application/json' }
+    });
+
+    logStep('Memory', 'GET Initial Response', { status: getInitial.status });
+
+    if (getInitial.status === 402) {
+      result.get_402 = true;
+      console.log(`${colors.green}  ✓ GET 402 received${colors.reset}`);
+    } else {
+      console.log(`${colors.red}  ✗ GET expected 402, got ${getInitial.status}${colors.reset}`);
+      return result;
+    }
+
+    const getPaid = await fetchWithPayment(`${BASE_URL}/memory/get/integration-test-key`, {
+      method: 'GET',
+      headers: { 'Accept': 'application/json' }
+    });
+
+    logStep('Memory', 'GET Paid Response', { status: getPaid.status });
+
+    if (getPaid.status === 200) {
+      result.get_200 = true;
+      const data = await getPaid.json();
+      logStep('Memory', 'GET Response Data', { body: data });
+      
+      if (data.value === 'hello-oom') {
+        result.value_match = true;
+        console.log(`${colors.green}  ✓ Value matches: "hello-oom"${colors.reset}`);
+      } else {
+        console.log(`${colors.red}  ✗ Value mismatch: expected "hello-oom", got ${data.value}${colors.reset}`);
+      }
+    } else {
+      console.log(`${colors.red}  ✗ GET expected 200, got ${getPaid.status}${colors.reset}`);
+    }
+
+  } catch (error) {
+    console.error(`${colors.red}  Error: ${error.message}${colors.reset}`);
+    logStep('Memory', 'Error', { error: error.message, stack: error.stack });
+  }
+
+  return result;
 }
 
 async function testEndpoint(endpoint) {
@@ -154,35 +261,40 @@ function printResults(results) {
   console.log(`${colors.cyan}═══════════════════════════════════════════════════════════════${colors.reset}\n`);
 
   // Print header
-  console.log(`${colors.dim}Endpoint              402-Recv  Pay-Sent  200-Recv  Data${colors.reset}`);
+  console.log(`${colors.dim}Endpoint              402-Recv  200-Recv  Data${colors.reset}`);
   console.log(`${colors.dim}─────────────────────────────────────────────────────────────────${colors.reset}`);
 
   // Print each endpoint's results
   for (const result of results) {
     const namePad = result.name.padEnd(22);
-    const p402 = result.initial_402 ? pass() : fail();
-    const pay = result.payment_sent ? pass() : fail();
-    const p200 = result.final_200 ? pass() : fail();
-    const data = result.data_received ? pass() : fail();
-    
-    console.log(`${namePad}  ${p402}     ${pay}     ${p200}     ${data}`);
+    if (result.name === 'Memory') {
+      const set402 = result.set_402 ? pass() : fail();
+      const set200 = result.set_200 ? pass() : fail();
+      const get402 = result.get_402 ? pass() : fail();
+      const get200 = result.get_200 ? pass() : fail();
+      const match = result.value_match ? pass() : fail();
+      console.log(`${namePad}  ${set402}     ${set200}     ${get402}     ${get200}     ${match}`);
+    } else {
+      const p402 = result.initial_402 ? pass() : fail();
+      const p200 = result.final_200 ? pass() : fail();
+      const data = result.data_received ? pass() : fail();
+      console.log(`${namePad}  ${p402}     ${p200}     ${data}`);
+    }
   }
 
   // Print summary
   console.log(`\n${colors.cyan}─────────────────────────────────────────────────────────────────${colors.reset}`);
   
-  const p402Pass = results.filter(r => r.initial_402).length;
-  const payPass = results.filter(r => r.payment_sent).length;
-  const p200Pass = results.filter(r => r.final_200).length;
-  const dataPass = results.filter(r => r.data_received).length;
-  const totalTests = results.length * 4;
+  const p402Pass = results.filter(r => r.initial_402 || r.set_402 || r.get_402).length;
+  const p200Pass = results.filter(r => r.final_200 || r.set_200 || r.get_200).length;
+  const dataPass = results.filter(r => r.data_received || r.value_match).length;
+  const totalTests = results.reduce((sum, r) => {
+    if (r.name === 'Memory') return sum + 5;
+    return sum + 3;
+  }, 0);
   
   console.log(`${colors.dim}Summary:${colors.reset}`);
-  console.log(`  402 Received:  ${p402Pass}/${results.length} passed`);
-  console.log(`  Payment Sent:  ${payPass}/${results.length} passed`);
-  console.log(`  200 Received:  ${p200Pass}/${results.length} passed`);
-  console.log(`  Data Received:  ${dataPass}/${results.length} passed`);
-  console.log(`  Overall:        ${p402Pass + payPass + p200Pass + dataPass}/${totalTests} passed`);
+  console.log(`  Checks Passed:  ${p402Pass + p200Pass + dataPass}/${totalTests} passed`);
   console.log(`${colors.cyan}═══════════════════════════════════════════════════════════════${colors.reset}\n`);
 }
 
@@ -228,6 +340,11 @@ async function main() {
   console.log(`${colors.dim}Wallet: ${WALLET_ADDRESS}${colors.reset}\n`);
   
   const results = [];
+  
+  // Test Memory endpoint separately (set-then-get flow)
+  const memoryResult = await testMemoryEndpoint();
+  results.push(memoryResult);
+  await new Promise(resolve => setTimeout(resolve, 1000));
   
   for (const endpoint of ENDPOINTS) {
     const result = await testEndpoint(endpoint);
