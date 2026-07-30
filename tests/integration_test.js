@@ -110,6 +110,16 @@ async function testMemoryEndpoint() {
       return result;
     }
 
+    // Create fresh payment client for GET step (no cached state from SET)
+    const fetchWithPaymentGet = wrapFetchWithPaymentFromConfig(fetch, {
+      schemes: [
+        {
+          network: "eip155:8453",
+          client: new ExactEvmScheme(account),
+        },
+      ],
+    });
+
     // Step 2: GET /memory/get/integration-test-key (expect 402 then 200)
     logStep('Memory', 'GET /memory/get/integration-test-key', { url: `${BASE_URL}/memory/get/integration-test-key` });
 
@@ -128,7 +138,7 @@ async function testMemoryEndpoint() {
       return result;
     }
 
-    const getPaid = await fetchWithPayment(`${BASE_URL}/memory/get/integration-test-key`, {
+    const getPaid = await fetchWithPaymentGet(`${BASE_URL}/memory/get/integration-test-key`, {
       method: 'GET',
       headers: { 'Accept': 'application/json' }
     });
