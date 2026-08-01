@@ -58,6 +58,10 @@ app.get('/.well-known/x402.json', (req, res) => {
   res.sendFile(require('path').join(__dirname, '../public/x402.json'));
 });
 
+app.get('/.well-known/x402', (req, res) => {
+  res.sendFile(require('path').join(__dirname, '../public/x402.json'));
+});
+
 // Temporary flush endpoint (protected)
 app.post('/admin/flush-redis', async (req, res) => {
   if (req.headers['x-secret'] !== process.env.MCP_INTERNAL_SECRET)
